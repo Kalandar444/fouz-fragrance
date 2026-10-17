@@ -10,67 +10,52 @@ const HERO_SLIDES = [
   {
     id: 1,
     image: '/banners/banner1.jpg',
-    badge: 'Niche Perfumery • Dubai Gold Souk',
-    headline: 'The Art of Luxury Fragrance',
-    subtitle: 'An extraordinary curation of the world’s most prestigious niche perfumes, crafted with rare essences and timeless mastery.',
-    cta: 'Explore Catalogue',
+    tag: 'Niche Perfumery',
+    headline: 'The Art of Luxury Fragrance',
+    subtitle: 'Extraordinary niche perfumes crafted with rare essences and timeless mastery.',
+    cta: 'Shop Now',
     ctaLink: '/shop',
-    ctaSecondary: 'Exclusive Collection',
-    ctaSecondaryLink: '/exclusive',
     align: 'left',
-    textDark: false,
   },
   {
     id: 2,
     image: '/banners/banner2.jpg',
-    badge: 'Warm Oriental Accords',
-    headline: 'Golden Warmth, Lasting Trails',
-    subtitle: 'Discover our finest oud, amber, and rose compositions — rich, enveloping fragrances inspired by the Arabian heritage.',
-    cta: 'Shop Oriental',
+    tag: 'Oriental Heritage',
+    headline: 'Golden Oud & Warm Amber',
+    subtitle: 'Rich, lasting trails inspired by authentic Arabian craftsmanship.',
+    cta: 'Explore Oud',
     ctaLink: '/shop',
-    ctaSecondary: 'New Arrivals',
-    ctaSecondaryLink: '/new-arrivals',
     align: 'right',
-    textDark: false,
   },
   {
     id: 3,
     image: '/banners/banner3.jpg',
-    badge: 'Minimalist Luxury',
-    headline: 'Refined Elegance in Every Bottle',
-    subtitle: 'Precision-crafted glass flacons housing the world’s finest accords — a collection for the discerning fragrance connoisseur.',
-    cta: 'Browse Collection',
-    ctaLink: '/collections',
-    ctaSecondary: 'View Brands',
-    ctaSecondaryLink: '/brands',
+    tag: 'Exclusive Flacons',
+    headline: 'Refined Elegance in Every Note',
+    subtitle: 'Precision-crafted accords for the discerning fragrance connoisseur.',
+    cta: 'Discover Brands',
+    ctaLink: '/brands',
     align: 'left',
-    textDark: false,
   },
   {
     id: 4,
     image: '/banners/banner4.jpg',
-    badge: 'Champagne & Beige',
-    headline: 'Light, Airy, Effortlessly Chic',
-    subtitle: 'Fresh florals and soft musks from the world’s most prestigious fragrance houses. Worldwide Delivery Available.',
+    tag: 'Floral & Musk',
+    headline: 'Fresh, Airy & Effortlessly Chic',
+    subtitle: 'Prestigious light florals and soft musks with worldwide delivery.',
     cta: 'Shop Floral',
     ctaLink: '/shop',
-    ctaSecondary: 'Best Sellers',
-    ctaSecondaryLink: '/best-sellers',
     align: 'right',
-    textDark: false,
   },
   {
     id: 5,
     image: '/banners/banner5.jpg',
-    badge: 'Dramatic & Bold',
-    headline: 'Powerful Presence, Unforgettable Sillage',
-    subtitle: 'Statement fragrances with extraordinary depth — for those who command attention wherever they go.',
-    cta: 'Discover Exclusives',
+    tag: 'Signature Scent',
+    headline: 'Unforgettable Presence & Sillage',
+    subtitle: 'Statement fragrances with depth that command attention wherever you go.',
+    cta: 'Explore Exclusives',
     ctaLink: '/exclusive',
-    ctaSecondary: 'Contact Us',
-    ctaSecondaryLink: '/contact',
     align: 'left',
-    textDark: false,
   },
 ];
 
@@ -109,33 +94,31 @@ function HeroSlider({ settings }) {
     resetTimer();
   };
 
-  const handlePrev = () => { prev(); resetTimer(); };
-  const handleNext = () => { next(); resetTimer(); };
+  const handlePrev = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    prev();
+    resetTimer();
+  };
+
+  const handleNext = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    next();
+    resetTimer();
+  };
 
   const slide = HERO_SLIDES[current];
   const isLeft = slide.align === 'left';
-  const isDark = !slide.textDark;
 
   const variants = {
-    enter: (dir) => ({ opacity: 0, x: dir > 0 ? 80 : -80, scale: 1.03 }),
-    center: { opacity: 1, x: 0, scale: 1 },
-    exit: (dir) => ({ opacity: 0, x: dir > 0 ? -80 : 80, scale: 0.97 }),
+    enter: (dir) => ({ opacity: 0, scale: 1.02 }),
+    center: { opacity: 1, scale: 1 },
+    exit: (dir) => ({ opacity: 0, scale: 0.99 }),
   };
 
-  const textColor = isDark ? 'text-white' : 'text-charcoal';
-  const subColor = isDark ? 'text-white/80' : 'text-stone-600';
-  const badgeClass = isDark
-    ? 'bg-white/15 border-white/30 text-white backdrop-blur-sm'
-    : 'bg-white border-gold-300 text-gold-800';
-  const btnPrimary = isDark
-    ? 'bg-white text-charcoal hover:bg-gold-400 hover:text-white'
-    : 'bg-charcoal text-white hover:bg-gold-600';
-  const btnSecondary = isDark
-    ? 'bg-transparent border-white/70 text-white hover:bg-white/20'
-    : 'bg-white border-stone-300 hover:border-gold-600 text-charcoal';
-
   return (
-    <section className="relative w-full overflow-hidden" style={{ height: 'min(90vh, 700px)' }}>
+    <section className="relative w-full overflow-hidden bg-stone-950 h-[200px] xs:h-[230px] sm:h-[300px] md:h-[380px] lg:h-[440px] xl:h-[480px]">
       {/* Slides */}
       <AnimatePresence initial={false} custom={direction} mode="sync">
         <motion.div
@@ -145,7 +128,7 @@ function HeroSlider({ settings }) {
           initial="enter"
           animate="center"
           exit="exit"
-          transition={{ duration: 0.75, ease: [0.4, 0, 0.2, 1] }}
+          transition={{ duration: 0.65, ease: [0.4, 0, 0.2, 1] }}
           className="absolute inset-0"
         >
           {/* Background image */}
@@ -155,62 +138,53 @@ function HeroSlider({ settings }) {
             className="w-full h-full object-cover object-center"
             draggable={false}
           />
-          {/* Gradient overlay */}
+          {/* Subtle gradient overlay to keep perfume visuals crisp while text remains readable */}
           <div
-            className="absolute inset-0"
+            className="absolute inset-0 pointer-events-none"
             style={{
               background: isLeft
-                ? 'linear-gradient(to right, rgba(0,0,0,0.68) 0%, rgba(0,0,0,0.30) 55%, transparent 100%)'
-                : 'linear-gradient(to left, rgba(0,0,0,0.68) 0%, rgba(0,0,0,0.30) 55%, transparent 100%)',
+                ? 'linear-gradient(to right, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.35) 52%, rgba(0,0,0,0.05) 100%)'
+                : 'linear-gradient(to left, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.35) 52%, rgba(0,0,0,0.05) 100%)',
             }}
           />
         </motion.div>
       </AnimatePresence>
 
-      {/* Text content */}
+      {/* Clean minimal text overlay */}
       <div className="relative z-10 h-full flex items-center">
-        <div className="max-w-7xl mx-auto w-full px-6 sm:px-10 lg:px-16">
-          <div className={`max-w-xl ${isLeft ? '' : 'ml-auto text-right'}`}>
+        <div className="max-w-7xl mx-auto w-full px-5 sm:px-10 lg:px-16">
+          <div className={`max-w-[260px] xs:max-w-xs sm:max-w-md md:max-w-lg ${isLeft ? '' : 'ml-auto text-right'}`}>
             <AnimatePresence mode="wait">
               <motion.div
                 key={`text-${slide.id}`}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.4 }}
               >
-                {/* Badge */}
-                <span className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border text-[11px] uppercase tracking-widest font-semibold mb-5 ${badgeClass}`}>
-                  <Sparkles className="w-3.5 h-3.5" />
-                  {slide.badge}
+                {/* Subtle Tag */}
+                <span className="inline-block text-[9px] xs:text-[10px] sm:text-xs text-gold-400 tracking-widest uppercase font-semibold mb-1 sm:mb-1.5">
+                  {slide.tag}
                 </span>
 
-                {/* Headline */}
-                <h1 className={`font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light leading-[1.15] tracking-tight mb-5 ${textColor}`}>
-                  {slide.headline.split('\u00a0').map((part, i, arr) =>
-                    i < arr.length - 1 ? <span key={i}>{part}&nbsp;</span> : part
-                  )}
+                {/* Clean, readable headline */}
+                <h1 className="font-serif text-base xs:text-lg sm:text-2xl md:text-3xl lg:text-4xl font-normal text-white leading-tight tracking-tight mb-1 sm:mb-2">
+                  {slide.headline}
                 </h1>
 
-                {/* Subtitle */}
-                <p className={`text-sm sm:text-base leading-relaxed mb-8 font-light max-w-md ${isLeft ? '' : 'ml-auto'} ${subColor}`}>
+                {/* Subtitle - hidden on mobile so screen is never cluttered, crisp on tablet/desktop */}
+                <p className={`hidden sm:block text-xs md:text-sm text-stone-200/90 font-light leading-relaxed mb-3 sm:mb-4 max-w-sm ${isLeft ? '' : 'ml-auto'}`}>
                   {slide.subtitle}
                 </p>
 
-                {/* CTAs */}
-                <div className={`flex flex-col sm:flex-row gap-3 ${isLeft ? '' : 'justify-end'}`}>
+                {/* Single sleek CTA button */}
+                <div className={`flex ${isLeft ? '' : 'justify-end'} pt-1 sm:pt-0`}>
                   <Link
                     to={slide.ctaLink}
-                    className={`px-7 py-3.5 text-xs uppercase tracking-widest font-semibold rounded-sm shadow-lg transition-all duration-300 flex items-center justify-center gap-2 ${btnPrimary}`}
+                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 sm:px-5 sm:py-2 text-[10px] sm:text-xs uppercase tracking-wider font-semibold rounded bg-white text-stone-900 hover:bg-gold-400 hover:text-white transition-all duration-200 shadow"
                   >
-                    {slide.cta}
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
-                  <Link
-                    to={slide.ctaSecondaryLink}
-                    className={`px-7 py-3.5 border text-xs uppercase tracking-widest font-semibold rounded-sm transition-all duration-300 flex items-center justify-center ${btnSecondary}`}
-                  >
-                    {slide.ctaSecondary}
+                    <span>{slide.cta}</span>
+                    <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                   </Link>
                 </div>
               </motion.div>
@@ -219,41 +193,36 @@ function HeroSlider({ settings }) {
         </div>
       </div>
 
-      {/* Arrow navigation */}
+      {/* Arrow navigation - subtle, hidden on mobile */}
       <button
         onClick={handlePrev}
         aria-label="Previous slide"
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/20 hover:bg-white/40 backdrop-blur-sm border border-white/30 text-white flex items-center justify-center transition-all duration-200 hover:scale-110"
+        className="hidden sm:flex absolute left-3 md:left-5 top-1/2 -translate-y-1/2 z-20 w-8 h-8 md:w-10 md:h-10 rounded-full bg-black/35 hover:bg-black/60 text-white items-center justify-center transition-colors backdrop-blur-sm border border-white/20"
       >
-        <ChevronLeft className="w-5 h-5" />
+        <ChevronLeft className="w-4 h-4 md:w-5 md:h-5" />
       </button>
       <button
         onClick={handleNext}
         aria-label="Next slide"
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/20 hover:bg-white/40 backdrop-blur-sm border border-white/30 text-white flex items-center justify-center transition-all duration-200 hover:scale-110"
+        className="hidden sm:flex absolute right-3 md:right-5 top-1/2 -translate-y-1/2 z-20 w-8 h-8 md:w-10 md:h-10 rounded-full bg-black/35 hover:bg-black/60 text-white items-center justify-center transition-colors backdrop-blur-sm border border-white/20"
       >
-        <ChevronRight className="w-5 h-5" />
+        <ChevronRight className="w-4 h-4 md:w-5 md:h-5" />
       </button>
 
-      {/* Dot indicators */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2">
+      {/* Sleek dot indicators */}
+      <div className="absolute bottom-2.5 sm:bottom-3.5 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5">
         {HERO_SLIDES.map((_, i) => (
           <button
             key={i}
             onClick={() => handleDot(i)}
             aria-label={`Go to slide ${i + 1}`}
-            className={`transition-all duration-300 rounded-full ${
+            className={`transition-all duration-200 rounded-full ${
               i === current
-                ? 'w-8 h-2 bg-white shadow-md'
-                : 'w-2 h-2 bg-white/50 hover:bg-white/80'
+                ? 'w-5 sm:w-7 h-1 sm:h-1.5 bg-white shadow'
+                : 'w-1 sm:w-1.5 h-1 sm:h-1.5 bg-white/40 hover:bg-white/70'
             }`}
           />
         ))}
-      </div>
-
-      {/* Slide counter */}
-      <div className="absolute bottom-6 right-6 z-20 text-white/60 text-[11px] uppercase tracking-widest font-medium">
-        {String(current + 1).padStart(2, '0')} / {String(HERO_SLIDES.length).padStart(2, '0')}
       </div>
     </section>
   );
