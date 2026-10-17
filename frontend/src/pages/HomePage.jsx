@@ -292,95 +292,73 @@ export default function HomePage() {
       </section>
 
       {/* Brands Slider */}
-      {brands.length > 0 && (
-        <section className="py-10 md:py-14 border-b border-stone-100 bg-stone-50/50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-6 md:mb-8 gap-4">
-              <div>
-                <span className="text-[11px] uppercase tracking-luxury font-semibold text-gold-700">
-                  Curated Niche Houses
-                </span>
-                <h2 className="font-serif text-xl sm:text-2xl md:text-3xl text-charcoal font-medium mt-1">
-                  Shop By Prestigious Perfume Brands
-                </h2>
+      {/* Brands Grid Section (Exact Image 1 layout) */}
+      {brands.length > 0 && (() => {
+        const preferredSlugs = [
+          'amouage', 'bdk-parfums', 'bvlgari-le-gemme', 'christian-dior', 'essential-parfums',
+          'frederic-malle', 'givenchy-la-collection-particuliere', 'maison-crivelli', 'memo-paris', 'parfums-de-marly'
+        ];
+        const displayBrands = [
+          ...preferredSlugs.map(s => brands.find(b => b.slug === s || (s.startsWith('givenchy') && b.slug.startsWith('givenchy')))).filter(Boolean),
+          ...brands.filter(b => b.logo && !preferredSlugs.includes(b.slug))
+        ].filter((brand, index, self) => self.findIndex(b => b.id === brand.id) === index).slice(0, 10);
+
+        return (
+          <section className="py-14 md:py-20 bg-white border-b border-stone-100">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              {/* 5-Column Grid */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-y-12 sm:gap-y-16 gap-x-6 sm:gap-x-10 items-end">
+                {displayBrands.map((brand) => (
+                  <Link
+                    key={brand.id}
+                    to={`/brands/${brand.slug}`}
+                    className="group flex flex-col items-center justify-between text-center transition-transform duration-300 hover:-translate-y-1"
+                  >
+                    {/* Brand Logo Container */}
+                    <div className="w-full h-24 sm:h-28 flex items-center justify-center p-2 mb-3">
+                      {brand.logo ? (
+                        <img
+                          src={brand.logo}
+                          alt={brand.name}
+                          className="max-h-20 sm:max-h-24 max-w-full object-contain filter group-hover:scale-105 transition-transform duration-300"
+                          onError={(e) => {
+                            e.currentTarget.style.display = 'none';
+                            if (e.currentTarget.nextElementSibling) {
+                              e.currentTarget.nextElementSibling.style.display = 'block';
+                            }
+                          }}
+                        />
+                      ) : null}
+                      <span
+                        style={{ display: brand.logo ? 'none' : 'block' }}
+                        className="font-serif text-sm font-semibold text-charcoal tracking-wider"
+                      >
+                        {brand.name}
+                      </span>
+                    </div>
+
+                    {/* Brand Name with arrow */}
+                    <span className="font-serif text-xs sm:text-sm text-stone-900 group-hover:text-gold-700 transition-colors inline-flex items-center gap-1 font-medium">
+                      <span>{brand.name}</span>
+                      <span className="text-stone-400 group-hover:text-gold-700 group-hover:translate-x-0.5 transition-all">&rarr;</span>
+                    </span>
+                  </Link>
+                ))}
               </div>
 
-              <div className="flex items-center gap-3">
+              {/* View all button */}
+              <div className="mt-12 sm:mt-16 text-center">
                 <Link
                   to="/brands"
-                  className="text-xs uppercase tracking-widest font-semibold text-charcoal hover:text-gold-700 transition-colors inline-flex items-center gap-1.5 mr-2"
+                  className="inline-block px-8 py-3 bg-stone-950 text-white hover:bg-gold-600 text-xs font-semibold uppercase tracking-wider rounded-sm transition-colors shadow-sm"
                 >
-                  <span>View All Brands</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  View all
                 </Link>
-
-                <div className="flex items-center gap-1.5">
-                  <button
-                    onClick={() => {
-                      const el = document.getElementById('brands-slider-track');
-                      if (el) el.scrollBy({ left: -320, behavior: 'smooth' });
-                    }}
-                    aria-label="Previous brands"
-                    className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white border border-stone-200 text-charcoal hover:border-gold-500 hover:text-gold-700 flex items-center justify-center transition-all shadow-2xs hover:shadow"
-                  >
-                    <ChevronLeft className="w-4 h-4" />
-                  </button>
-                  <button
-                    onClick={() => {
-                      const el = document.getElementById('brands-slider-track');
-                      if (el) el.scrollBy({ left: 320, behavior: 'smooth' });
-                    }}
-                    aria-label="Next brands"
-                    className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white border border-stone-200 text-charcoal hover:border-gold-500 hover:text-gold-700 flex items-center justify-center transition-all shadow-2xs hover:shadow"
-                  >
-                    <ChevronRight className="w-4 h-4" />
-                  </button>
-                </div>
               </div>
             </div>
-
-            {/* Horizontal sliding track */}
-            <div
-              id="brands-slider-track"
-              className="flex items-center gap-3.5 sm:gap-5 overflow-x-auto pb-4 pt-1 scroll-smooth"
-              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-            >
-              {brands.map((brand) => (
-                <Link
-                  key={brand.id}
-                  to={`/brands/${brand.slug}`}
-                  className="group flex-shrink-0 w-36 sm:w-44 h-28 sm:h-32 bg-white rounded border border-stone-200/90 hover:border-gold-500 hover:shadow-lg transition-all duration-300 p-3 flex flex-col items-center justify-between"
-                >
-                  <div className="flex-1 w-full flex items-center justify-center p-1 overflow-hidden">
-                    {brand.logo ? (
-                      <img
-                        src={brand.logo}
-                        alt={brand.name}
-                        className="max-h-12 sm:max-h-14 max-w-full object-contain filter group-hover:scale-105 transition-transform duration-300"
-                        onError={(e) => {
-                          e.currentTarget.style.display = 'none';
-                          if (e.currentTarget.nextElementSibling) {
-                            e.currentTarget.nextElementSibling.style.display = 'block';
-                          }
-                        }}
-                      />
-                    ) : null}
-                    <span
-                      style={{ display: brand.logo ? 'none' : 'block' }}
-                      className="font-serif text-xs sm:text-sm font-semibold text-charcoal text-center tracking-wider line-clamp-2"
-                    >
-                      {brand.name}
-                    </span>
-                  </div>
-                  <span className="text-[11px] sm:text-xs text-stone-600 font-serif tracking-wider font-medium text-center line-clamp-1 group-hover:text-gold-700 transition-colors border-t border-stone-100 pt-1.5 w-full">
-                    {brand.name}
-                  </span>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
+          </section>
+        );
+      })()}
 
       {/* Exclusive Collection */}
       {exclusiveProducts.length > 0 && (
