@@ -28,16 +28,18 @@ export default function BestSellersPage() {
       page_size: pageSize,
     })
       .then((res) => {
-        if (res?.data && res.data.results) {
+        if (res?.data && res.data.results && typeof res.data.count === 'number') {
           setProducts(res.data.results);
           setTotalCount(res.data.count || 0);
           setTotalPages(res.data.total_pages || 1);
           setPage(res.data.current_page || targetPage);
         } else if (Array.isArray(res?.data)) {
-          setProducts(res.data);
-          setTotalCount(res.data.length);
-          setTotalPages(Math.ceil(res.data.length / pageSize) || 1);
+          const allProds = res.data;
+          setTotalCount(allProds.length);
+          setTotalPages(Math.ceil(allProds.length / pageSize) || 1);
           setPage(targetPage);
+          const start = (targetPage - 1) * pageSize;
+          setProducts(allProds.slice(start, start + pageSize));
         } else {
           setProducts([]);
           setTotalCount(0);

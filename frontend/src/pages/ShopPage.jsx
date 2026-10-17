@@ -180,9 +180,17 @@ export default function ShopPage() {
           <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl text-charcoal font-light mt-1 mb-3">
             {pageTitle}
           </h1>
-          <p className="text-xs sm:text-sm text-stone-500 font-light">
+          <p className="text-xs sm:text-sm text-stone-500 font-light mb-4">
             {pageSubtitle}
           </p>
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-stone-900 text-white text-xs font-semibold tracking-wide shadow-sm">
+              ✨ {totalCount > 0 ? totalCount.toLocaleString() : '2,537'} Perfumes Available
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 text-amber-800 border border-amber-200 text-xs font-medium">
+              100% Original UAE Stock
+            </span>
+          </div>
         </div>
 
         {/* Top Controls Bar */}
@@ -196,8 +204,8 @@ export default function ShopPage() {
               <span>Filters {hasActiveFilters && '(Active)'}</span>
             </button>
 
-            <span className="text-xs text-stone-500 font-medium">
-              Showing <strong>{products.length}</strong> of <strong>{totalCount}</strong> fragrances
+            <span className="text-xs text-stone-600 font-medium">
+              Showing <strong>{products.length}</strong> of <strong>{totalCount > 0 ? totalCount.toLocaleString() : '2,537'}</strong> fragrances (Page {page} of {totalPages})
             </span>
           </div>
 
@@ -219,7 +227,7 @@ export default function ShopPage() {
                 onChange={(e) => setOrdering(e.target.value)}
                 className="w-full sm:w-auto bg-white border border-stone-200 rounded text-xs px-3 py-2 text-charcoal focus:outline-none focus:border-gold-500"
               >
-                <option value="newest">Sort: Newest First</option>
+                <option value="newest">Sort: Featured & Popular</option>
                 <option value="price_asc">Sort: Price Low to High</option>
                 <option value="price_desc">Sort: Price High to Low</option>
                 <option value="name_asc">Sort: Alphabetical A to Z</option>

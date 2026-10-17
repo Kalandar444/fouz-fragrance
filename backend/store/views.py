@@ -248,11 +248,11 @@ class ProductListView(generics.ListAPIView):
         elif ordering == 'price_desc':
             qs = qs.order_by('-price')
         elif ordering == 'newest':
-            qs = qs.order_by('-created_at')
+            qs = qs.order_by('id')
         elif ordering == 'name_asc':
             qs = qs.order_by('name')
         else:
-            qs = qs.order_by('-created_at')
+            qs = qs.order_by('id')
 
         return qs.distinct()
 
