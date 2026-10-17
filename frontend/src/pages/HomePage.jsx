@@ -9,7 +9,9 @@ import ProductCard from '../components/ProductCard';
 const HERO_SLIDES = [
   {
     id: 1,
-    image: '/banners/banner1.jpg',
+    imageWeb: '/banners/banner1_web.jpg',
+    imageMob: '/banners/banner1_mob.jpg',
+    image: '/banners/banner1_web.jpg',
     tag: 'Niche Perfumery',
     headline: 'The Art of Luxury Fragrance',
     subtitle: 'Extraordinary niche perfumes crafted with rare essences and timeless mastery.',
@@ -19,7 +21,9 @@ const HERO_SLIDES = [
   },
   {
     id: 2,
-    image: '/banners/banner2.jpg',
+    imageWeb: '/banners/banner2_web.jpg',
+    imageMob: '/banners/banner2_mob.jpg',
+    image: '/banners/banner2_web.jpg',
     tag: 'Oriental Heritage',
     headline: 'Golden Oud & Warm Amber',
     subtitle: 'Rich, lasting trails inspired by authentic Arabian craftsmanship.',
@@ -29,7 +33,9 @@ const HERO_SLIDES = [
   },
   {
     id: 3,
-    image: '/banners/banner3.jpg',
+    imageWeb: '/banners/banner3_web.jpg',
+    imageMob: '/banners/banner3_mob.jpg',
+    image: '/banners/banner3_web.jpg',
     tag: 'Exclusive Flacons',
     headline: 'Refined Elegance in Every Note',
     subtitle: 'Precision-crafted accords for the discerning fragrance connoisseur.',
@@ -39,7 +45,9 @@ const HERO_SLIDES = [
   },
   {
     id: 4,
-    image: '/banners/banner4.jpg',
+    imageWeb: '/banners/banner4_web.jpg',
+    imageMob: '/banners/banner4_mob.jpg',
+    image: '/banners/banner4_web.jpg',
     tag: 'Floral & Musk',
     headline: 'Fresh, Airy & Effortlessly Chic',
     subtitle: 'Prestigious light florals and soft musks with worldwide delivery.',
@@ -49,7 +57,9 @@ const HERO_SLIDES = [
   },
   {
     id: 5,
-    image: '/banners/banner5.jpg',
+    imageWeb: '/banners/banner5_web.jpg',
+    imageMob: '/banners/banner5_mob.jpg',
+    image: '/banners/banner5_web.jpg',
     tag: 'Signature Scent',
     headline: 'Unforgettable Presence & Sillage',
     subtitle: 'Statement fragrances with depth that command attention wherever you go.',
@@ -118,113 +128,86 @@ function HeroSlider({ settings }) {
   };
 
   return (
-    <section className="relative w-full overflow-hidden bg-stone-950 h-[150px] xs:h-[180px] sm:h-[240px] md:h-[300px] lg:h-[350px] xl:h-[380px]">
-      {/* Slides */}
-      <AnimatePresence initial={false} custom={direction} mode="sync">
-        <motion.div
-          key={slide.id}
-          custom={direction}
-          variants={variants}
-          initial="enter"
-          animate="center"
-          exit="exit"
-          transition={{ duration: 0.65, ease: [0.4, 0, 0.2, 1] }}
-          className="absolute inset-0"
-        >
-          {/* Background image */}
-          <img
-            src={slide.image}
-            alt="Fouz Fragrance Banner"
-            className="w-full h-full object-cover object-center"
-            draggable={false}
-          />
-          {/* Subtle gradient overlay */}
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              background: isLeft
-                ? 'linear-gradient(to right, rgba(0,0,0,0.70) 0%, rgba(0,0,0,0.30) 55%, rgba(0,0,0,0.05) 100%)'
-                : 'linear-gradient(to left, rgba(0,0,0,0.70) 0%, rgba(0,0,0,0.30) 55%, rgba(0,0,0,0.05) 100%)',
-            }}
-          />
-        </motion.div>
-      </AnimatePresence>
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-5">
+      <section className="relative w-full overflow-hidden rounded-[14px] sm:rounded-[20px] shadow-sm bg-stone-900 aspect-[1125/1050] md:aspect-[2400/544]">
+        {/* Slides */}
+        <AnimatePresence initial={false} custom={direction} mode="sync">
+          <motion.div
+            key={slide.id}
+            custom={direction}
+            variants={variants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{ duration: 0.65, ease: [0.4, 0, 0.2, 1] }}
+            className="absolute inset-0"
+          >
+            {/* Clickable Banner Link */}
+            <Link to={slide.ctaLink} className="block w-full h-full relative" aria-label={slide.headline}>
+              {/* Responsive Picture: Desktop 2400x544 vs Mobile 1125x1050 like vperfumes */}
+              <picture className="w-full h-full block">
+                <source media="(min-width: 768px)" srcSet={slide.imageWeb} />
+                <img
+                  src={slide.imageMob}
+                  alt={slide.headline}
+                  className="w-full h-full object-cover object-center rounded-[14px] sm:rounded-[20px]"
+                  draggable={false}
+                />
+              </picture>
 
-      {/* Clean minimal text overlay */}
-      <div className="relative z-10 h-full flex items-center">
-        <div className="max-w-7xl mx-auto w-full px-4 sm:px-8 lg:px-12">
-          <div className={`max-w-[220px] xs:max-w-xs sm:max-w-md ${isLeft ? '' : 'ml-auto text-right'}`}>
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={`text-${slide.id}`}
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -8 }}
-                transition={{ duration: 0.35 }}
-              >
-                {/* Subtle Tag */}
-                <span className="inline-block text-[8px] xs:text-[9px] sm:text-[10px] md:text-xs text-gold-400 tracking-widest uppercase font-semibold mb-0.5 sm:mb-1">
-                  {slide.tag}
-                </span>
-
-                {/* Clean, readable headline */}
-                <h1 className="font-serif text-xs xs:text-sm sm:text-lg md:text-2xl lg:text-3xl font-normal text-white leading-tight tracking-tight mb-1 sm:mb-2">
-                  {slide.headline}
-                </h1>
-
-                {/* Subtitle - hidden on mobile so screen is never cluttered, crisp on tablet/desktop */}
-                <p className={`hidden md:block text-xs text-stone-200/90 font-light leading-relaxed mb-2.5 max-w-sm ${isLeft ? '' : 'ml-auto'}`}>
-                  {slide.subtitle}
-                </p>
-
-                {/* Single sleek CTA button */}
-                <div className={`flex ${isLeft ? '' : 'justify-end'} pt-0.5 sm:pt-1`}>
-                  <Link
-                    to={slide.ctaLink}
-                    className="inline-flex items-center gap-1 px-3 py-1 sm:px-4 sm:py-1.5 text-[9px] xs:text-[10px] sm:text-xs uppercase tracking-wider font-semibold rounded bg-white text-stone-900 hover:bg-gold-400 hover:text-white transition-all duration-200 shadow-sm"
-                  >
-                    <span>{slide.cta}</span>
-                    <ArrowRight className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
-                  </Link>
+              {/* Minimal text for slides 2-5 without covering perfume visual */}
+              {slide.id !== 1 && (
+                <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-transparent flex items-center p-6 sm:p-10 lg:p-14">
+                  <div className="max-w-xs sm:max-w-sm text-left">
+                    <span className="text-[9px] sm:text-xs text-gold-400 font-semibold uppercase tracking-widest block mb-1">
+                      {slide.tag}
+                    </span>
+                    <h2 className="font-serif text-sm sm:text-2xl lg:text-3xl font-medium text-white leading-tight mb-2 sm:mb-3">
+                      {slide.headline}
+                    </h2>
+                    <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-white text-stone-900 text-[10px] sm:text-xs uppercase tracking-wider font-semibold rounded-sm hover:bg-gold-400 hover:text-white transition-all shadow">
+                      {slide.cta} &rarr;
+                    </span>
+                  </div>
                 </div>
-              </motion.div>
-            </AnimatePresence>
-          </div>
+              )}
+            </Link>
+          </motion.div>
+        </AnimatePresence>
+
+        {/* Arrow navigation - subtle, hidden on mobile */}
+        <button
+          onClick={handlePrev}
+          aria-label="Previous slide"
+          className="hidden sm:flex absolute left-3 md:left-5 top-1/2 -translate-y-1/2 z-20 w-8 h-8 md:w-9 md:h-9 rounded-full bg-black/35 hover:bg-black/60 text-white items-center justify-center transition-colors backdrop-blur-sm border border-white/20"
+        >
+          <ChevronLeft className="w-4 h-4" />
+        </button>
+        <button
+          onClick={handleNext}
+          aria-label="Next slide"
+          className="hidden sm:flex absolute right-3 md:right-5 top-1/2 -translate-y-1/2 z-20 w-8 h-8 md:w-9 md:h-9 rounded-full bg-black/35 hover:bg-black/60 text-white items-center justify-center transition-colors backdrop-blur-sm border border-white/20"
+        >
+          <ChevronRight className="w-4 h-4" />
+        </button>
+
+        {/* Sleek dot indicators */}
+        <div className="absolute bottom-2.5 sm:bottom-3.5 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5">
+          {HERO_SLIDES.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => handleDot(i)}
+              aria-label={`Go to slide ${i + 1}`}
+              className={`transition-all duration-200 rounded-full ${
+                i === current
+                  ? 'w-5 sm:w-7 h-1 sm:h-1.5 bg-white shadow'
+                  : 'w-1 sm:w-1.5 h-1 sm:h-1.5 bg-white/40 hover:bg-white/70'
+              }`}
+            />
+          ))}
         </div>
-      </div>
-
-      {/* Arrow navigation - subtle, hidden on mobile */}
-      <button
-        onClick={handlePrev}
-        aria-label="Previous slide"
-        className="hidden sm:flex absolute left-3 md:left-5 top-1/2 -translate-y-1/2 z-20 w-8 h-8 md:w-10 md:h-10 rounded-full bg-black/35 hover:bg-black/60 text-white items-center justify-center transition-colors backdrop-blur-sm border border-white/20"
-      >
-        <ChevronLeft className="w-4 h-4 md:w-5 md:h-5" />
-      </button>
-      <button
-        onClick={handleNext}
-        aria-label="Next slide"
-        className="hidden sm:flex absolute right-3 md:right-5 top-1/2 -translate-y-1/2 z-20 w-8 h-8 md:w-10 md:h-10 rounded-full bg-black/35 hover:bg-black/60 text-white items-center justify-center transition-colors backdrop-blur-sm border border-white/20"
-      >
-        <ChevronRight className="w-4 h-4 md:w-5 md:h-5" />
-      </button>
-
-      {/* Sleek dot indicators */}
-      <div className="absolute bottom-2.5 sm:bottom-3.5 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5">
-        {HERO_SLIDES.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => handleDot(i)}
-            aria-label={`Go to slide ${i + 1}`}
-            className={`transition-all duration-200 rounded-full ${
-              i === current
-                ? 'w-5 sm:w-7 h-1 sm:h-1.5 bg-white shadow'
-                : 'w-1 sm:w-1.5 h-1 sm:h-1.5 bg-white/40 hover:bg-white/70'
-            }`}
-          />
-        ))}
-      </div>
-    </section>
+      </section>
+    </div>
   );
 }
 
