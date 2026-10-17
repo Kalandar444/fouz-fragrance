@@ -161,113 +161,52 @@ export default function BrandDetailPage() {
         </div>
       </div>
 
-      {/* 2. Hero Section - Brand Logo & Rich Brand Story Content */}
+      {/* 2. Hero Section - Clean Brand Logo & Description Content (Simple & Elegant) */}
       {(() => {
         const brandStory = getBrandContent(brand);
+        const descriptionText = brandStory?.description || brand.description || `Discover the exclusive fragrance collection by ${brand.name}, crafted with rare notes and exceptional longevity. Available across UAE with Cash on Delivery.`;
         return (
-          <div className="bg-gradient-to-b from-stone-50 via-stone-50/80 to-white border-b border-stone-200/80 py-10 md:py-14">
+          <div className="bg-white border-b border-stone-200/80 py-8 sm:py-12">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 sm:gap-8">
                 
-                {/* Left Column: Brand Logo, Title & Key Meta */}
-                <div className="lg:col-span-5 flex flex-col items-center sm:items-start text-center sm:text-left">
-                  <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5 sm:gap-6 mb-4 w-full">
-                    {/* Brand Logo with fallback */}
-                    <div className="w-28 h-28 sm:w-36 sm:h-36 bg-white rounded-lg border border-stone-200/90 p-4 shadow-sm flex items-center justify-center flex-shrink-0 group">
-                      {(brand.logo || brand.image_url) ? (
-                        <img
-                          src={brand.logo || brand.image_url}
-                          alt={`${brand.name} logo`}
-                          className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
-                          onError={(e) => {
-                            e.currentTarget.style.display = 'none';
-                            if (e.currentTarget.nextElementSibling) {
-                              e.currentTarget.nextElementSibling.style.display = 'block';
-                            }
-                          }}
-                        />
-                      ) : null}
-                      <span
-                        style={{ display: (brand.logo || brand.image_url) ? 'none' : 'block' }}
-                        className="font-serif text-sm font-semibold text-charcoal text-center"
-                      >
-                        {brand.name}
-                      </span>
-                    </div>
-
-                    {/* Title & Badges */}
-                    <div className="flex-1">
-                      <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 mb-2">
-                        <span className="px-2.5 py-0.5 bg-gold-50 border border-gold-300 text-gold-800 rounded-full text-[10px] uppercase tracking-wider font-semibold">
-                          Niche Perfume House
-                        </span>
-                        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 bg-stone-100 border border-stone-200 text-stone-600 rounded-full text-[10px] font-medium">
-                          <Sparkles className="w-3 h-3 text-gold-600" />
-                          <span>{totalCount} {totalCount === 1 ? 'Fragrance' : 'Fragrances'}</span>
-                        </span>
-                      </div>
-
-                      <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl text-charcoal font-medium tracking-tight mb-2">
-                        {brand.name}
-                      </h1>
-
-                      {(brandStory?.origin_country || brand.origin_country) && (
-                        <p className="inline-flex items-center gap-1.5 text-xs text-stone-500 font-medium">
-                          <MapPin className="w-3.5 h-3.5 text-gold-600" />
-                          <span>{brandStory?.origin_country || brand.origin_country}</span>
-                          {brandStory?.founded_year && <span>• Est. {brandStory.founded_year}</span>}
-                        </p>
-                      )}
-                    </div>
-                  </div>
-
-                  {brandStory?.tagline && (
-                    <p className="text-xs sm:text-sm text-gold-900 font-medium italic mt-1 mb-4 bg-gold-50/70 border-l-2 border-gold-500 px-3 py-1.5 rounded-r w-full">
-                      "{brandStory.tagline}"
-                    </p>
-                  )}
-
-                  {/* Quick Trust Highlights */}
-                  <div className="grid grid-cols-2 gap-2.5 w-full mt-1">
-                    <div className="p-3 bg-white border border-stone-200/80 rounded text-left shadow-2xs">
-                      <p className="text-[10px] uppercase tracking-wider text-stone-400 font-semibold mb-0.5">Authenticity</p>
-                      <p className="text-xs font-medium text-charcoal">100% Original Flacons</p>
-                    </div>
-                    <div className="p-3 bg-white border border-stone-200/80 rounded text-left shadow-2xs">
-                      <p className="text-[10px] uppercase tracking-wider text-stone-400 font-semibold mb-0.5">Delivery</p>
-                      <p className="text-xs font-medium text-charcoal">UAE Express Cash on Delivery</p>
-                    </div>
-                  </div>
+                {/* Brand Logo with fallback */}
+                <div className="w-28 h-28 sm:w-36 sm:h-36 bg-white rounded-lg border border-stone-200/90 p-4 shadow-sm flex items-center justify-center flex-shrink-0 group">
+                  {(brand.logo || brand.image_url) ? (
+                    <img
+                      src={brand.logo || brand.image_url}
+                      alt={`${brand.name} logo`}
+                      className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
+                      onError={(e) => {
+                        e.currentTarget.style.display = 'none';
+                        if (e.currentTarget.nextElementSibling) {
+                          e.currentTarget.nextElementSibling.style.display = 'block';
+                        }
+                      }}
+                    />
+                  ) : null}
+                  <span
+                    style={{ display: (brand.logo || brand.image_url) ? 'none' : 'block' }}
+                    className="font-serif text-sm font-semibold text-charcoal text-center"
+                  >
+                    {brand.name}
+                  </span>
                 </div>
 
-                {/* Right Column: Rich Brand Story & Olfactory Heritage Content */}
-                <div className="lg:col-span-7 bg-white border border-stone-200/90 rounded-lg p-6 sm:p-8 shadow-xs">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="w-6 h-[2px] bg-gold-500" />
-                    <span className="text-[11px] uppercase tracking-widest font-semibold text-gold-800">
-                      Heritage & Olfactory Artistry
-                    </span>
-                  </div>
+                {/* Right Side: Brand Name & Content Only */}
+                <div className="text-center sm:text-left flex-1">
+                  <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl text-charcoal font-medium tracking-tight mb-2.5">
+                    {brand.name}
+                  </h1>
 
-                  <h2 className="font-serif text-xl sm:text-2xl text-stone-900 mb-3 font-normal">
-                    About {brand.name}
-                  </h2>
-
-                  <p className="text-xs sm:text-sm text-stone-600 leading-relaxed mb-3">
-                    {brandStory?.description || brand.description}
+                  <p className="text-xs sm:text-sm text-stone-600 font-normal leading-relaxed max-w-4xl">
+                    {descriptionText}
                   </p>
 
                   {brandStory?.history && (
-                    <p className="text-xs sm:text-sm text-stone-500 leading-relaxed mb-4 font-light">
+                    <p className="text-xs sm:text-sm text-stone-500 font-light leading-relaxed max-w-4xl mt-2">
                       {brandStory.history}
                     </p>
-                  )}
-
-                  {brandStory?.specialties && (
-                    <div className="pt-3 border-t border-stone-100 flex flex-col sm:flex-row sm:items-start gap-2 text-xs">
-                      <span className="font-semibold text-stone-900 flex-shrink-0">Signature Notes:</span>
-                      <span className="text-stone-600 font-light italic">{brandStory.specialties}</span>
-                    </div>
                   )}
                 </div>
 
