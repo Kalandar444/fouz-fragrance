@@ -150,128 +150,57 @@ export default function BrandDetailPage() {
         </div>
       </div>
 
-      {/* 2. Hero Section with Brand Banner & Logo */}
-      <div className="relative bg-charcoal overflow-hidden text-white">
-        {/* Background Editorial Banner Image */}
-        {brand.banner && (
-          <div className="absolute inset-0 z-0">
-            <img
-              src={brand.banner}
-              alt={brand.name}
-              className="w-full h-full object-cover object-center opacity-25 filter blur-[1px] scale-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/80 to-charcoal/50" />
-          </div>
-        )}
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-          <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12">
+      {/* 2. Hero Section - Clean Brand Logo & Brand Name */}
+      <div className="bg-stone-50/80 border-b border-stone-200/80 py-10 md:py-14">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row items-center sm:items-center gap-6 sm:gap-8">
             
-            {/* Brand Logo Card (Crisp White Badge with Logo) */}
+            {/* Brand Logo */}
             {brand.logo ? (
-              <div className="w-32 h-32 sm:w-40 sm:h-40 bg-white rounded-sm p-4 shadow-2xl border border-stone-100 flex items-center justify-center flex-shrink-0 group">
+              <div className="w-28 h-28 sm:w-36 sm:h-36 bg-white rounded border border-stone-200/90 p-4 shadow-sm flex items-center justify-center flex-shrink-0 group">
                 <img
                   src={brand.logo}
                   alt={`${brand.name} logo`}
                   className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
-                  style={{ imageRendering: 'auto' }}
                   onError={(e) => { e.currentTarget.parentElement.style.display = 'none'; }}
                 />
               </div>
             ) : (
-              <div className="w-32 h-32 sm:w-40 sm:h-40 bg-gold-900/40 border border-gold-500/30 rounded-sm p-4 flex flex-col items-center justify-center text-center flex-shrink-0">
-                <Sparkles className="w-8 h-8 text-gold-400 mb-2" />
-                <span className="font-serif text-lg font-medium text-white">{brand.name}</span>
+              <div className="w-28 h-28 sm:w-36 sm:h-36 bg-white border border-stone-200/90 rounded p-4 flex flex-col items-center justify-center text-center flex-shrink-0 shadow-sm">
+                <Sparkles className="w-8 h-8 text-gold-500 mb-2" />
+                <span className="font-serif text-sm font-medium text-charcoal">{brand.name}</span>
               </div>
             )}
 
-            {/* Brand Title & Key Accreditations */}
-            <div className="flex-1 text-center md:text-left">
-              <div className="flex flex-wrap items-center justify-center md:justify-start gap-2.5 mb-3">
-                <span className="px-3 py-1 bg-gold-500/20 border border-gold-400/40 text-gold-300 rounded-full text-[11px] uppercase tracking-wider font-semibold">
+            {/* Brand Title & Basic Meta */}
+            <div className="text-center sm:text-left flex-1">
+              <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 mb-2">
+                <span className="px-2.5 py-0.5 bg-gold-50 border border-gold-300 text-gold-800 rounded-full text-[10px] uppercase tracking-wider font-semibold">
                   Niche Perfume House
                 </span>
                 {brand.origin_country && (
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-white/10 backdrop-blur-xs border border-white/15 text-stone-200 rounded-full text-[11px] font-light">
-                    <MapPin className="w-3 h-3 text-gold-400" />
+                  <span className="inline-flex items-center gap-1 px-2.5 py-0.5 bg-stone-100 border border-stone-200 text-stone-600 rounded-full text-[10px] font-medium">
+                    <MapPin className="w-3 h-3 text-gold-600" />
                     <span>{brand.origin_country}</span>
                   </span>
                 )}
-                {brand.founded_year && (
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-white/10 backdrop-blur-xs border border-white/15 text-stone-200 rounded-full text-[11px] font-light">
-                    <Calendar className="w-3 h-3 text-gold-400" />
-                    <span>Est. {brand.founded_year}</span>
-                  </span>
-                )}
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-white/10 backdrop-blur-xs border border-white/15 text-gold-300 rounded-full text-[11px] font-light">
-                  <Sparkles className="w-3 h-3" />
+                <span className="inline-flex items-center gap-1 px-2.5 py-0.5 bg-stone-100 border border-stone-200 text-stone-600 rounded-full text-[10px] font-medium">
+                  <Sparkles className="w-3 h-3 text-gold-600" />
                   <span>{totalCount} {totalCount === 1 ? 'Fragrance' : 'Fragrances'}</span>
                 </span>
               </div>
 
-              <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl text-white font-light tracking-wide mb-4">
+              <h1 className="font-serif text-2xl sm:text-4xl md:text-5xl text-charcoal font-medium tracking-tight mb-2">
                 {brand.name}
               </h1>
 
               {brand.fragrance_style && (
-                <p className="text-sm sm:text-base text-gold-300/90 font-light italic mb-4 max-w-3xl">
+                <p className="text-xs sm:text-sm text-stone-500 font-light italic">
                   "{brand.fragrance_style}"
                 </p>
               )}
-
-              {brand.description && (
-                <p className="text-xs sm:text-sm text-stone-300 leading-relaxed font-light max-w-3xl line-clamp-3 md:line-clamp-none">
-                  {brand.description}
-                </p>
-              )}
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* 3. Brand Heritage & Story Cards */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 md:-mt-8 relative z-20">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          
-          {/* Card 1: Overview & Philosophy */}
-          <div className="bg-white p-7 rounded-sm border border-stone-200/90 shadow-md hover:shadow-lg transition-shadow">
-            <div className="flex items-center gap-3 mb-3 text-gold-700">
-              <div className="p-2 bg-stone-50 border border-gold-200 rounded">
-                <BookOpen className="w-4 h-4 text-gold-700" />
-              </div>
-              <h3 className="font-serif text-lg text-charcoal font-medium">House Philosophy</h3>
-            </div>
-            <p className="text-xs text-stone-600 leading-relaxed font-light">
-              {brand.description || `Dedicated to artisanal excellence, ${brand.name} formulates transcendent scents made from pristine raw materials.`}
-            </p>
-          </div>
-
-          {/* Card 2: Heritage & History */}
-          <div className="bg-white p-7 rounded-sm border border-stone-200/90 shadow-md hover:shadow-lg transition-shadow">
-            <div className="flex items-center gap-3 mb-3 text-gold-700">
-              <div className="p-2 bg-stone-50 border border-gold-200 rounded">
-                <Feather className="w-4 h-4 text-gold-700" />
-              </div>
-              <h3 className="font-serif text-lg text-charcoal font-medium">Heritage & Craft</h3>
-            </div>
-            <p className="text-xs text-stone-600 leading-relaxed font-light">
-              {brand.history || `Rooted in celebrated olfactory traditions, ${brand.name} collaborates with world-renowned master perfumers to produce timeless creations.`}
-            </p>
-          </div>
-
-          {/* Card 3: Signature Specialties */}
-          <div className="bg-white p-7 rounded-sm border border-stone-200/90 shadow-md hover:shadow-lg transition-shadow">
-            <div className="flex items-center gap-3 mb-3 text-gold-700">
-              <div className="p-2 bg-stone-50 border border-gold-200 rounded">
-                <Sparkles className="w-4 h-4 text-gold-700" />
-              </div>
-              <h3 className="font-serif text-lg text-charcoal font-medium">Specialties & Notes</h3>
-            </div>
-            <p className="text-xs text-stone-600 leading-relaxed font-light">
-              {brand.specialties || `Distinguished by rare botanical distillations, exquisite flacon artistry, and exceptional staying power.`}
-            </p>
-          </div>
-
         </div>
       </div>
 

@@ -57,9 +57,9 @@ export default function BrandsPage() {
 
         {/* Brands Grid */}
         {loading ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[1, 2, 3, 4, 5, 6].map((i) => (
-              <div key={i} className="h-44 rounded skeleton-shimmer" />
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 sm:gap-5">
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((i) => (
+              <div key={i} className="h-36 rounded skeleton-shimmer" />
             ))}
           </div>
         ) : filteredBrands.length === 0 ? (
@@ -73,49 +73,44 @@ export default function BrandsPage() {
             </button>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 sm:gap-5">
             {filteredBrands.map((brand) => (
               <Link
                 key={brand.id}
                 to={`/brands/${brand.slug}`}
-                className="group relative overflow-hidden p-7 bg-white hover:bg-stone-50/90 border border-stone-200/90 hover:border-gold-500/80 rounded-sm hover:shadow-xl hover:shadow-stone-200/60 transition-all duration-300 flex flex-col justify-between min-h-[230px]"
+                className="group bg-white hover:bg-stone-50/50 border border-stone-200/90 hover:border-gold-500 rounded p-4 flex flex-col items-center justify-between h-36 sm:h-40 transition-all duration-300 hover:shadow-md"
               >
-                {/* Brand Logo — Full Card Background with Original Brand Colors */}
-                {brand.logo && (
-                  <div
-                    aria-hidden="true"
-                    className="absolute inset-0 w-full h-full pointer-events-none select-none flex items-center justify-center p-6 overflow-hidden transition-transform duration-500 ease-out group-hover:scale-105"
-                  >
+                {/* Brand Logo */}
+                <div className="flex-1 w-full flex items-center justify-center p-2 overflow-hidden">
+                  {brand.logo ? (
                     <img
                       src={brand.logo}
-                      alt=""
-                      className="w-full h-full object-contain mix-blend-multiply opacity-90 group-hover:opacity-100 transition-all duration-300"
-                      onError={(e) => { e.currentTarget.parentElement.style.display = 'none'; }}
+                      alt={brand.name}
+                      className="max-h-14 sm:max-h-16 max-w-full object-contain filter group-hover:scale-105 transition-transform duration-300"
+                      onError={(e) => {
+                        e.currentTarget.style.display = 'none';
+                        if (e.currentTarget.nextElementSibling) {
+                          e.currentTarget.nextElementSibling.style.display = 'block';
+                        }
+                      }}
                     />
-                  </div>
-                )}
+                  ) : null}
+                  <span
+                    style={{ display: brand.logo ? 'none' : 'block' }}
+                    className="font-serif text-sm font-semibold text-charcoal text-center tracking-wider line-clamp-2"
+                  >
+                    {brand.name}
+                  </span>
+                </div>
 
-                {/* Foreground Content */}
-                <div className="relative z-10 flex flex-col justify-between h-full">
-                  <div>
-                    <div className="flex items-start justify-between mb-2.5 gap-2">
-                      <h3 className="font-serif text-xl sm:text-2xl text-charcoal group-hover:text-gold-700 transition-colors font-semibold tracking-wide">
-                        {brand.name}
-                      </h3>
-                      <span className="text-[11px] uppercase tracking-wider font-semibold px-2 py-0.5 bg-white/95 border border-stone-200 rounded text-stone-700 flex-shrink-0 shadow-xs">
-                        {brand.products_count} {brand.products_count === 1 ? 'Fragrance' : 'Fragrances'}
-                      </span>
-                    </div>
-
-                    <p className="text-xs text-stone-700 line-clamp-2 leading-relaxed mb-4 font-normal bg-white/90 p-2 rounded backdrop-blur-sm border border-stone-100/70 shadow-xs">
-                      {brand.description || `Exquisite handcrafted niche fragrances from ${brand.name}, crafted with rare notes and exceptional longevity.`}
-                    </p>
-                  </div>
-
-                  <div className="pt-3 border-t border-stone-200/80 bg-white/85 backdrop-blur-sm px-2 py-1.5 rounded flex items-center justify-between text-xs font-semibold uppercase tracking-wider text-charcoal group-hover:text-gold-700 transition-colors">
-                    <span>Explore Fragrances</span>
-                    <ChevronRight className="w-4 h-4 transform group-hover:translate-x-1.5 transition-transform text-gold-600" />
-                  </div>
+                {/* Brand Name & Count */}
+                <div className="w-full text-center border-t border-stone-100 pt-2">
+                  <h3 className="font-serif text-xs sm:text-sm text-charcoal group-hover:text-gold-700 transition-colors font-medium tracking-wide truncate">
+                    {brand.name}
+                  </h3>
+                  <span className="text-[10px] text-stone-400 font-light block">
+                    {brand.products_count} {brand.products_count === 1 ? 'Fragrance' : 'Fragrances'}
+                  </span>
                 </div>
               </Link>
             ))}

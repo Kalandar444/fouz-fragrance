@@ -291,48 +291,92 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Brands Bar */}
+      {/* Brands Slider */}
       {brands.length > 0 && (
-        <section className="py-12 border-b border-stone-100 bg-white">
+        <section className="py-10 md:py-14 border-b border-stone-100 bg-stone-50/50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-8">
-              <span className="text-[11px] uppercase tracking-luxury font-semibold text-gold-700">
-                Curated Niche Houses
-              </span>
-              <h2 className="font-serif text-xl md:text-2xl text-charcoal font-medium mt-1">
-                Shop By Prestigious Perfume Brands
-              </h2>
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-6 md:mb-8 gap-4">
+              <div>
+                <span className="text-[11px] uppercase tracking-luxury font-semibold text-gold-700">
+                  Curated Niche Houses
+                </span>
+                <h2 className="font-serif text-xl sm:text-2xl md:text-3xl text-charcoal font-medium mt-1">
+                  Shop By Prestigious Perfume Brands
+                </h2>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <Link
+                  to="/brands"
+                  className="text-xs uppercase tracking-widest font-semibold text-charcoal hover:text-gold-700 transition-colors inline-flex items-center gap-1.5 mr-2"
+                >
+                  <span>View All Brands</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+
+                <div className="flex items-center gap-1.5">
+                  <button
+                    onClick={() => {
+                      const el = document.getElementById('brands-slider-track');
+                      if (el) el.scrollBy({ left: -320, behavior: 'smooth' });
+                    }}
+                    aria-label="Previous brands"
+                    className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white border border-stone-200 text-charcoal hover:border-gold-500 hover:text-gold-700 flex items-center justify-center transition-all shadow-2xs hover:shadow"
+                  >
+                    <ChevronLeft className="w-4 h-4" />
+                  </button>
+                  <button
+                    onClick={() => {
+                      const el = document.getElementById('brands-slider-track');
+                      if (el) el.scrollBy({ left: 320, behavior: 'smooth' });
+                    }}
+                    aria-label="Next brands"
+                    className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white border border-stone-200 text-charcoal hover:border-gold-500 hover:text-gold-700 flex items-center justify-center transition-all shadow-2xs hover:shadow"
+                  >
+                    <ChevronRight className="w-4 h-4" />
+                  </button>
+                </div>
+              </div>
             </div>
 
-            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 lg:gap-8">
-              {brands.slice(0, 8).map((brand) => (
+            {/* Horizontal sliding track */}
+            <div
+              id="brands-slider-track"
+              className="flex items-center gap-3.5 sm:gap-5 overflow-x-auto pb-4 pt-1 scroll-smooth"
+              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            >
+              {brands.map((brand) => (
                 <Link
                   key={brand.id}
                   to={`/brands/${brand.slug}`}
-                  className="group relative overflow-hidden px-4 py-2.5 rounded border border-stone-200/80 hover:border-gold-400 bg-stone-50/60 hover:bg-white text-stone-800 text-xs uppercase tracking-widest font-semibold transition-all shadow-2xs hover:shadow flex items-center gap-2.5"
+                  className="group flex-shrink-0 w-36 sm:w-44 h-28 sm:h-32 bg-white rounded border border-stone-200/90 hover:border-gold-500 hover:shadow-lg transition-all duration-300 p-3 flex flex-col items-center justify-between"
                 >
-                  {brand.logo && (
-                    <div
-                      aria-hidden="true"
-                      className="absolute right-0 bottom-0 translate-x-2 translate-y-2 w-16 h-16 pointer-events-none select-none opacity-20 group-hover:opacity-40 transition-opacity"
-                    >
+                  <div className="flex-1 w-full flex items-center justify-center p-1 overflow-hidden">
+                    {brand.logo ? (
                       <img
                         src={brand.logo}
-                        alt=""
-                        className="w-full h-full object-contain mix-blend-multiply"
-                        onError={(e) => { e.currentTarget.parentElement.style.display = 'none'; }}
+                        alt={brand.name}
+                        className="max-h-12 sm:max-h-14 max-w-full object-contain filter group-hover:scale-105 transition-transform duration-300"
+                        onError={(e) => {
+                          e.currentTarget.style.display = 'none';
+                          if (e.currentTarget.nextElementSibling) {
+                            e.currentTarget.nextElementSibling.style.display = 'block';
+                          }
+                        }}
                       />
-                    </div>
-                  )}
-                  <span className="relative z-10">{brand.name}</span>
+                    ) : null}
+                    <span
+                      style={{ display: brand.logo ? 'none' : 'block' }}
+                      className="font-serif text-xs sm:text-sm font-semibold text-charcoal text-center tracking-wider line-clamp-2"
+                    >
+                      {brand.name}
+                    </span>
+                  </div>
+                  <span className="text-[11px] sm:text-xs text-stone-600 font-serif tracking-wider font-medium text-center line-clamp-1 group-hover:text-gold-700 transition-colors border-t border-stone-100 pt-1.5 w-full">
+                    {brand.name}
+                  </span>
                 </Link>
               ))}
-              <Link
-                to="/brands"
-                className="px-5 py-2.5 rounded border border-charcoal bg-charcoal text-white hover:bg-gold-600 text-xs uppercase tracking-widest font-semibold transition-colors flex items-center"
-              >
-                View All Brands &rarr;
-              </Link>
             </div>
           </div>
         </section>
