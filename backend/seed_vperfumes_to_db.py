@@ -8,7 +8,9 @@ django.setup()
 
 from store.models import Product, ProductImage, Brand, Category, Collection, CollectionProduct
 
-json_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'frontend', 'src', 'data', 'vperfumesProducts.json')
+json_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'seed_products_2537.json')
+if not os.path.exists(json_path):
+    json_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'frontend', 'src', 'data', 'vperfumesProducts.json')
 
 with open(json_path, 'r', encoding='utf-8') as f:
     products = json.load(f)

@@ -60,16 +60,7 @@ export const getCollections = () => api.get('/collections/');
 export const getCollectionDetail = (slug) => api.get(`/collections/${slug}/`);
 
 export const getProducts = async (params = {}) => {
-  try {
-    const res = await api.get('/products/', { params });
-    if (res?.data && res.data.results && typeof res.data.count === 'number') {
-      return res;
-    }
-    const apiProducts = Array.isArray(res?.data) ? res.data : (Array.isArray(res?.data?.results) ? res.data.results : []);
-    if (apiProducts.length >= 100) {
-      return { data: apiProducts };
-    }
-    // Filter authentic vperfumes catalog (2537 items) based on query params
+  const getFallbackPaginated = () => {
     let filtered = [...VPERFUMES_PRODUCTS];
     if (params.exclusive === 'true') {
       filtered = filtered.filter(p => p.is_exclusive);
@@ -87,19 +78,59 @@ export const getProducts = async (params = {}) => {
       const q = params.search.toLowerCase();
       filtered = filtered.filter(p => p.name.toLowerCase().includes(q) || p.brand?.toLowerCase().includes(q));
     }
-    return { data: filtered.length > 0 ? filtered : VPERFUMES_PRODUCTS };
+    if (params.in_stock === 'true') {
+      filtered = filtered.filter(p => p.in_stock);
+    }
+    if (params.min_price) {
+      filtered = filtered.filter(p => p.price >= Number(params.min_price));
+    }
+    if (params.max_price) {
+      filtered = filtered.filter(p => p.price <= Number(params.max_price));
+    }
+
+    // Ordering
+    if (params.ordering === 'price_asc') {
+      filtered.sort((a, b) => a.price - b.price);
+    } else if (params.ordering === 'price_desc') {
+      filtered.sort((a, b) => b.price - a.price);
+    } else if (params.ordering === 'name_asc') {
+      filtered.sort((a, b) => a.name.localeCompare(b.name));
+    }
+
+    const page = parseInt(params.page) || 1;
+    const pageSize = parseInt(params.page_size) || 24;
+    const totalCount = filtered.length;
+    const totalPages = Math.ceil(totalCount / pageSize) || 1;
+    const start = (page - 1) * pageSize;
+    const paginated = filtered.slice(start, start + pageSize);
+
+    return {
+      data: {
+        count: totalCount,
+        total_pages: totalPages,
+        current_page: page,
+        page_size: pageSize,
+        results: paginated,
+      }
+    };
+  };
+
+  try {
+    const res = await api.get('/products/', { params });
+    // Only accept backend response if it has been updated with the full 2537 catalog (or >= 400 for exclusives)
+    const count = res?.data?.count;
+    if (res?.data && res.data.results && typeof count === 'number') {
+      if (params.exclusive === 'true' && count >= 100) {
+        return res;
+      }
+      if (count >= 2000) {
+        return res;
+      }
+    }
+    return getFallbackPaginated();
   } catch (err) {
     console.warn('API error fetching products, using authentic vperfumes catalogue:', err);
-    let filtered = [...VPERFUMES_PRODUCTS];
-    if (params.exclusive === 'true') filtered = filtered.filter(p => p.is_exclusive);
-    if (params.best_sellers === 'true') filtered = filtered.filter(p => p.is_best_seller);
-    if (params.new_arrivals === 'true') filtered = filtered.filter(p => p.is_new_arrival);
-    if (params.brand) filtered = filtered.filter(p => p.brand?.toLowerCase() === params.brand.toLowerCase());
-    if (params.search) {
-      const q = params.search.toLowerCase();
-      filtered = filtered.filter(p => p.name.toLowerCase().includes(q) || p.brand?.toLowerCase().includes(q));
-    }
-    return { data: filtered.length > 0 ? filtered : VPERFUMES_PRODUCTS };
+    return getFallbackPaginated();
   }
 };
 
