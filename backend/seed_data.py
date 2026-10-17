@@ -28,7 +28,7 @@ else:
 
 # 2. Website Settings
 setting, created = WebsiteSetting.objects.get_or_create(pk=1)
-setting.business_name = "✨ Fouz Fragrance ✨"
+setting.business_name = "Fouz Fragrance"
 setting.tagline = "Premium perfumes | Lasting impressions"
 setting.location = "UAE 🇦🇪"
 setting.phone = "+971 54 4540097"

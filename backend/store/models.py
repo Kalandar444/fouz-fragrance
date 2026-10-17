@@ -8,7 +8,7 @@ class WebsiteSetting(models.Model):
     """
     Singleton model to manage Fouz Fragrance business and storefront configuration.
     """
-    business_name = models.CharField(max_length=200, default="✨ Fouz Fragrance ✨")
+    business_name = models.CharField(max_length=200, default="Fouz Fragrance")
     tagline = models.CharField(max_length=255, default="Premium perfumes | Lasting impressions")
     location = models.CharField(max_length=100, default="UAE 🇦🇪")
     phone = models.CharField(max_length=50, default="+971 54 4540097")

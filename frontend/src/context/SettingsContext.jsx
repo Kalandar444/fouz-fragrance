@@ -36,6 +36,7 @@ export const SettingsProvider = ({ children }) => {
           setSettings((prev) => ({
             ...prev,
             ...res.data,
+            business_name: (res.data.business_name || 'Fouz Fragrance').replace(/✨/g, '').trim(),
             // Fallback logo if none uploaded in admin
             logo_url: res.data.logo_url || '/fouz_logo.jpg',
           }));

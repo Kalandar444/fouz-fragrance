@@ -7,7 +7,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 # Customize Django Admin Header and Title for Fouz Fragrance
-admin.site.site_header = "✨ Fouz Fragrance — Administration ✨"
+admin.site.site_header = "Fouz Fragrance — Administration"
 admin.site.site_title = "Fouz Fragrance Admin"
 admin.site.index_title = "Luxury Store & Operations Management"
 

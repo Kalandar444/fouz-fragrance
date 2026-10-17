@@ -79,7 +79,7 @@ def send_order_notifications(order):
         business_subject = f"🛍️ New Order #{order.order_reference} — {currency} {order.total_amount} | {order.customer_name}"
         
         business_text = f"""============================================================
-✨ FOUZ FRAGRANCE — NEW ORDER NOTIFICATION ✨
+FOUZ FRAGRANCE — NEW ORDER NOTIFICATION
 ============================================================
 
 ORDER DETAILS:
@@ -127,7 +127,7 @@ Phone / WhatsApp: +971 54 4540097
                 
                 <!-- Luxury Gold Header -->
                 <div style="background-color: #111111; color: #ffffff; padding: 28px 24px; text-align: center; border-bottom: 3px solid #c5a880;">
-                    <h1 style="margin: 0; font-size: 22px; letter-spacing: 3px; font-weight: 500; text-transform: uppercase; color: #ffffff;">✨ FOUZ FRAGRANCE ✨</h1>
+                    <h1 style="margin: 0; font-size: 22px; letter-spacing: 3px; font-weight: 500; text-transform: uppercase; color: #ffffff;">FOUZ FRAGRANCE</h1>
                     <p style="margin: 6px 0 0; font-size: 13px; color: #c5a880; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600;">
                         New Customer Order Notification
                     </p>
@@ -314,7 +314,7 @@ Gold Souk, Dubai, UAE
             <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #faf9f6; margin: 0; padding: 24px; color: #222;">
                 <div style="max-width: 600px; margin: 0 auto; background: #ffffff; border: 1px solid #e8e3d9; border-radius: 6px; overflow: hidden;">
                     <div style="background-color: #111111; color: #ffffff; padding: 24px; text-align: center; border-bottom: 3px solid #c5a880;">
-                        <h1 style="margin: 0; font-size: 20px; letter-spacing: 2px; font-weight: 500; text-transform: uppercase;">✨ FOUZ FRAGRANCE ✨</h1>
+                        <h1 style="margin: 0; font-size: 20px; letter-spacing: 2px; font-weight: 500; text-transform: uppercase;">FOUZ FRAGRANCE</h1>
                         <p style="margin: 6px 0 0; font-size: 12px; color: #c5a880; letter-spacing: 1px; text-transform: uppercase;">Order Confirmation</p>
                     </div>
                     <div style="padding: 24px;">
@@ -487,7 +487,7 @@ Your Gmail SMTP configuration is WORKING PERFECTLY!
     <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #faf9f6; margin: 0; padding: 24px; color: #222;">
         <div style="max-width: 650px; margin: 0 auto; background: #ffffff; border: 1px solid #e8e3d9; border-radius: 6px; overflow: hidden; box-shadow: 0 4px 14px rgba(0,0,0,0.04);">
             <div style="background-color: #111111; color: #ffffff; padding: 28px 24px; text-align: center; border-bottom: 3px solid #c5a880;">
-                <h1 style="margin: 0; font-size: 22px; letter-spacing: 3px; font-weight: 500; text-transform: uppercase;">✨ FOUZ FRAGRANCE ✨</h1>
+                <h1 style="margin: 0; font-size: 22px; letter-spacing: 3px; font-weight: 500; text-transform: uppercase;">FOUZ FRAGRANCE</h1>
                 <p style="margin: 6px 0 0; font-size: 13px; color: #c5a880; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600;">
                     🧪 Live Email Configuration Test
                 </p>

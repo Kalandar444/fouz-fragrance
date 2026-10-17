@@ -71,7 +71,7 @@ export default function Footer() {
               />
             </Link>
             <h3 className="font-serif text-base sm:text-lg text-white font-medium tracking-wide">
-              {settings.business_name}
+              {(settings.business_name || 'Fouz Fragrance').replace(/✨/g, '').trim()}
             </h3>
             <p className="text-[10px] sm:text-xs uppercase tracking-widest text-gold-400 font-medium">
               {settings.tagline}
