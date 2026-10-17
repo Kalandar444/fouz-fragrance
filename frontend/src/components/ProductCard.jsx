@@ -23,8 +23,6 @@ export default function ProductCard({ product }) {
       : 0
   );
 
-  const soldCount = product.sold_count || 720;
-  const soldInfo = product.sold_info || `${soldCount} sold in the last 3 months`;
 
   const handleAddToCart = (e) => {
     e.preventDefault();
@@ -91,7 +89,7 @@ export default function ProductCard({ product }) {
           </h3>
 
           {/* Pricing Row: Current Price | Strikethrough Original Price | % Off */}
-          <div className="flex items-center gap-2 mb-2.5 flex-wrap">
+          <div className="flex items-center gap-2 mb-3.5 flex-wrap">
             {/* Current Price */}
             <span className="font-sans text-base sm:text-lg font-bold text-stone-950 flex items-center gap-1">
               <span className="text-sm font-semibold">{currency}</span>
@@ -111,12 +109,6 @@ export default function ProductCard({ product }) {
                 {discountPercent} % Off
               </span>
             )}
-          </div>
-
-          {/* Social Proof Tag: Flame + "720 sold in the last 3 months" - Exact Match */}
-          <div className="w-full mb-3 px-2.5 py-1.5 rounded-lg bg-[#FFF9ED] border border-[#FDE6BA] flex items-center gap-1.5 text-[11px] font-medium text-[#7A4B04]">
-            <span className="text-xs">🔥</span>
-            <span className="truncate">{soldInfo}</span>
           </div>
         </div>
 
