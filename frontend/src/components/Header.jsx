@@ -25,6 +25,7 @@ export default function Header() {
 
   const navLinks = [
     { name: 'Home', path: '/' },
+    { name: 'Shop All', path: '/shop' },
     { name: 'Brands', path: '/brands' },
     { name: 'Best Sellers', path: '/best-sellers' },
     { name: 'New Arrivals', path: '/new-arrivals' },
@@ -33,6 +34,7 @@ export default function Header() {
 
   const mobileNavLinks = [
     { name: 'Home', path: '/' },
+    { name: 'Shop All Perfumes', path: '/shop' },
     { name: 'Brands', path: '/brands' },
     { name: 'Best Sellers', path: '/best-sellers' },
     { name: 'New Arrivals', path: '/new-arrivals' },
