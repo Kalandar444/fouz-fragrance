@@ -118,6 +118,31 @@ function HeroSlider({ settings }) {
     resetTimer();
   };
 
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
+
+  const handleTouchStart = (e) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    if (distance > 40) {
+      next();
+      resetTimer();
+    } else if (distance < -40) {
+      prev();
+      resetTimer();
+    }
+    setTouchStart(0);
+    setTouchEnd(0);
+  };
+
   const slide = HERO_SLIDES[current];
   const isLeft = slide.align === 'left';
 
@@ -128,8 +153,13 @@ function HeroSlider({ settings }) {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-5">
-      <section className="relative w-full overflow-hidden rounded-[14px] sm:rounded-[20px] shadow-sm bg-stone-900 aspect-[1125/1050] md:aspect-[2400/544]">
+    <div className="w-full relative">
+      <section
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+        className="relative w-full overflow-hidden bg-stone-950 aspect-[1125/1050] md:aspect-[2400/544]"
+      >
         {/* Slides */}
         <AnimatePresence initial={false} custom={direction} mode="sync">
           <motion.div
@@ -150,7 +180,7 @@ function HeroSlider({ settings }) {
                 <img
                   src={slide.imageMob}
                   alt={slide.headline}
-                  className="w-full h-full object-cover object-center rounded-[14px] sm:rounded-[20px]"
+                  className="w-full h-full object-cover object-center"
                   draggable={false}
                 />
               </picture>
@@ -175,24 +205,29 @@ function HeroSlider({ settings }) {
           </motion.div>
         </AnimatePresence>
 
-        {/* Arrow navigation - subtle, hidden on mobile */}
+        {/* Sliding Navigation Symbols (Left & Right Arrows) - Visible on Both Mobile & Desktop */}
         <button
           onClick={handlePrev}
           aria-label="Previous slide"
-          className="hidden sm:flex absolute left-3 md:left-5 top-1/2 -translate-y-1/2 z-20 w-8 h-8 md:w-9 md:h-9 rounded-full bg-black/35 hover:bg-black/60 text-white items-center justify-center transition-colors backdrop-blur-sm border border-white/20"
+          className="flex absolute left-2 sm:left-4 md:left-6 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black/45 hover:bg-black/75 active:scale-90 text-white items-center justify-center transition-all backdrop-blur-md border border-white/30 shadow-lg"
         >
-          <ChevronLeft className="w-4 h-4" />
+          <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 stroke-[2.5]" />
         </button>
         <button
           onClick={handleNext}
           aria-label="Next slide"
-          className="hidden sm:flex absolute right-3 md:right-5 top-1/2 -translate-y-1/2 z-20 w-8 h-8 md:w-9 md:h-9 rounded-full bg-black/35 hover:bg-black/60 text-white items-center justify-center transition-colors backdrop-blur-sm border border-white/20"
+          className="flex absolute right-2 sm:right-4 md:right-6 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black/45 hover:bg-black/75 active:scale-90 text-white items-center justify-center transition-all backdrop-blur-md border border-white/30 shadow-lg"
         >
-          <ChevronRight className="w-4 h-4" />
+          <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 stroke-[2.5]" />
         </button>
 
+        {/* Mobile Slide Indicator Badge */}
+        <div className="flex sm:hidden absolute top-3 right-3 z-20 px-2.5 py-1 rounded-full bg-black/50 backdrop-blur-md text-white text-[10px] font-semibold tracking-wider border border-white/20">
+          {current + 1} / {HERO_SLIDES.length}
+        </div>
+
         {/* Sleek dot indicators */}
-        <div className="absolute bottom-2.5 sm:bottom-3.5 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5">
+        <div className="absolute bottom-2.5 sm:bottom-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/35 backdrop-blur-sm border border-white/15">
           {HERO_SLIDES.map((_, i) => (
             <button
               key={i}
