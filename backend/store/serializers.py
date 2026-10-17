@@ -72,10 +72,17 @@ class BrandSerializer(serializers.ModelSerializer):
         ]
 
     def get_logo(self, obj):
-        request = self.context.get('request')
+        # 1. If image_url is an external URL, return directly
+        if obj.image_url and (str(obj.image_url).startswith('http://') or str(obj.image_url).startswith('https://')):
+            return str(obj.image_url)
+        # 2. If logo is an external URL string, return directly
         if obj.logo:
+            logo_str = str(obj.logo)
+            if logo_str.startswith('http://') or logo_str.startswith('https://'):
+                return logo_str
+            request = self.context.get('request')
             return request.build_absolute_uri(obj.logo.url) if request else obj.logo.url
-        return obj.image_url
+        return obj.image_url or None
 
     def get_banner(self, obj):
         request = self.context.get('request')
