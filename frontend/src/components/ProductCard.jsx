@@ -112,17 +112,17 @@ export default function ProductCard({ product }) {
           </div>
         </div>
 
-        {/* Add to Cart Button - Matching Image */}
+        {/* Add to Cart Button */}
         <button
           onClick={handleAddToCart}
-          className={`w-full py-2.5 px-3 rounded-xl border border-stone-950 font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all duration-200 shadow-xs ${
+          className={`w-full py-2 sm:py-2.5 px-2 sm:px-3 rounded-xl border border-stone-950 font-semibold text-[11px] sm:text-xs md:text-sm flex items-center justify-center gap-1.5 sm:gap-2 transition-all duration-200 shadow-xs whitespace-nowrap ${
             added
               ? 'bg-emerald-600 border-emerald-600 text-white'
               : 'bg-white hover:bg-stone-950 hover:text-white text-stone-950'
           }`}
         >
-          <ShoppingCart className="w-4 h-4 stroke-[2]" />
-          <span>{added ? 'Added to Cart!' : 'Add to cart'}</span>
+          <ShoppingCart className="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[2] flex-shrink-0" />
+          <span>{added ? 'Added!' : 'Add to cart'}</span>
         </button>
       </div>
     </motion.div>

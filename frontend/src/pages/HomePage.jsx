@@ -187,7 +187,7 @@ function HeroSlider({ settings }) {
 
               {/* Minimal text for slides 2-5 without covering perfume visual */}
               {slide.id !== 1 && (
-                <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-transparent flex items-center p-6 sm:p-10 lg:p-14">
+                <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/25 to-transparent flex items-center pl-12 pr-6 sm:px-10 lg:px-14">
                   <div className="max-w-xs sm:max-w-sm text-left">
                     <span className="text-[9px] sm:text-xs text-gold-400 font-semibold uppercase tracking-widest block mb-1">
                       {slide.tag}
@@ -286,24 +286,24 @@ export default function HomePage() {
       <HeroSlider settings={settings} />
 
       {/* Stats Bar */}
-      <section className="bg-charcoal py-4">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
-            <div className="py-2">
-              <p className="font-serif text-lg sm:text-xl font-bold text-gold-400">100%</p>
-              <p className="text-[10px] uppercase tracking-wider text-white/60 font-medium">Authentic Guarantees</p>
+      <section className="bg-charcoal py-3 sm:py-4">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4 text-center">
+            <div className="py-1.5 sm:py-2">
+              <p className="font-serif text-base sm:text-xl font-bold text-gold-400">100%</p>
+              <p className="text-[9px] sm:text-[10px] uppercase tracking-wider text-white/60 font-medium">Authentic Guarantees</p>
             </div>
-            <div className="py-2">
-              <p className="font-serif text-lg sm:text-xl font-bold text-gold-400">Worldwide</p>
-              <p className="text-[10px] uppercase tracking-wider text-white/60 font-medium">Delivery Available</p>
+            <div className="py-1.5 sm:py-2">
+              <p className="font-serif text-base sm:text-xl font-bold text-gold-400">Worldwide</p>
+              <p className="text-[9px] sm:text-[10px] uppercase tracking-wider text-white/60 font-medium">Delivery Available</p>
             </div>
-            <div className="py-2">
-              <p className="font-serif text-lg sm:text-xl font-bold text-gold-400">Cash on Delivery</p>
-              <p className="text-[10px] uppercase tracking-wider text-white/60 font-medium">Across the UAE</p>
+            <div className="py-1.5 sm:py-2">
+              <p className="font-serif text-base sm:text-xl font-bold text-gold-400">Cash on Delivery</p>
+              <p className="text-[9px] sm:text-[10px] uppercase tracking-wider text-white/60 font-medium">Across the UAE</p>
             </div>
-            <div className="py-2">
-              <p className="font-serif text-lg sm:text-xl font-bold text-gold-400">Dubai</p>
-              <p className="text-[10px] uppercase tracking-wider text-white/60 font-medium">Gold Souk Boutique</p>
+            <div className="py-1.5 sm:py-2">
+              <p className="font-serif text-base sm:text-xl font-bold text-gold-400">Dubai</p>
+              <p className="text-[9px] sm:text-[10px] uppercase tracking-wider text-white/60 font-medium">Gold Souk Boutique</p>
             </div>
           </div>
         </div>
@@ -323,24 +323,24 @@ export default function HomePage() {
         ].filter((brand, index, self) => self.findIndex(b => b.slug === brand.slug) === index).slice(0, 10);
 
         return (
-          <section className="py-14 md:py-20 bg-white border-b border-stone-100">
+          <section className="py-10 sm:py-14 md:py-20 bg-white border-b border-stone-100">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              {/* Brands: Single Horizontal Scroll Line on Mobile, 5-Column Grid on Desktop */}
-              <div className="flex md:grid overflow-x-auto md:overflow-visible no-scrollbar pb-4 md:pb-0 gap-4 sm:gap-6 md:grid-cols-5 md:gap-y-16 md:gap-x-10 items-end snap-x snap-mandatory">
+              {/* Brands: Single Horizontal Scroll Line on Mobile without scrollbar, 5-Column Grid on Desktop */}
+              <div className="flex md:grid overflow-x-auto md:overflow-visible no-scrollbar pb-2 md:pb-0 gap-3 sm:gap-6 md:grid-cols-5 md:gap-y-16 md:gap-x-10 items-end snap-x snap-mandatory">
                 {displayBrands.map((brand) => (
                   <Link
                     key={brand.id}
                     to={`/brands/${brand.slug}`}
-                    className="group flex-shrink-0 w-28 sm:w-32 md:w-full flex flex-col items-center justify-between text-center transition-transform duration-300 hover:-translate-y-1 snap-start"
+                    className="group flex-shrink-0 w-24 sm:w-32 md:w-full flex flex-col items-center justify-between text-center transition-transform duration-300 hover:-translate-y-1 snap-start"
                   >
                     {/* Brand Logo Container */}
-                    <div className="w-full h-20 sm:h-24 md:h-28 flex items-center justify-center p-2 mb-2 sm:mb-3 bg-stone-50/50 md:bg-transparent rounded-lg">
+                    <div className="w-full h-16 sm:h-24 md:h-28 flex items-center justify-center p-2 mb-1.5 sm:mb-3 bg-stone-50/50 md:bg-transparent rounded-lg">
                       {(brand.logo || brand.image_url) ? (
                         <img
                           src={brand.logo || brand.image_url}
                           alt={brand.name}
                           loading="lazy"
-                          className="max-h-16 sm:max-h-20 md:max-h-24 max-w-full object-contain filter group-hover:scale-105 transition-transform duration-300"
+                          className="max-h-12 sm:max-h-20 md:max-h-24 max-w-full object-contain filter group-hover:scale-105 transition-transform duration-300"
                           onError={(e) => {
                             e.currentTarget.style.display = 'none';
                             if (e.currentTarget.nextElementSibling) {
@@ -367,10 +367,10 @@ export default function HomePage() {
               </div>
 
               {/* View all button */}
-              <div className="mt-12 sm:mt-16 text-center">
+              <div className="mt-8 sm:mt-16 text-center">
                 <Link
                   to="/brands"
-                  className="inline-block px-8 py-3 bg-stone-950 text-white hover:bg-gold-600 text-xs font-semibold uppercase tracking-wider rounded-sm transition-colors shadow-sm"
+                  className="inline-block px-7 sm:px-8 py-2.5 sm:py-3 bg-stone-950 text-white hover:bg-gold-600 text-[11px] sm:text-xs font-semibold uppercase tracking-wider rounded-sm transition-colors shadow-sm"
                 >
                   View all
                 </Link>
@@ -382,29 +382,29 @@ export default function HomePage() {
 
       {/* Exclusive Collection */}
       {exclusiveProducts.length > 0 && (
-        <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
+        <section className="py-10 sm:py-16 md:py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+            <div className="flex flex-col md:flex-row md:items-end justify-between mb-6 sm:mb-10">
               <div>
-                <span className="text-xs uppercase tracking-luxury font-semibold text-gold-600">
+                <span className="text-[10px] sm:text-xs uppercase tracking-luxury font-semibold text-gold-600">
                   Rare & Artisanal Formulations
                 </span>
-                <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-charcoal font-medium mt-1">
+                <h2 className="font-serif text-xl sm:text-3xl md:text-4xl text-charcoal font-medium mt-1">
                   Exclusive Niche Collection
                 </h2>
-                <p className="text-xs sm:text-sm text-stone-500 mt-2 max-w-xl">
+                <p className="text-xs sm:text-sm text-stone-500 mt-1.5 sm:mt-2 max-w-xl">
                   Extraordinary perfumes crafted with scarce ingredients, high-concentration extraits, and distinctive signature trails.
                 </p>
               </div>
               <Link
                 to="/exclusive"
-                className="mt-4 md:mt-0 inline-flex items-center gap-1.5 text-xs uppercase tracking-wider font-semibold text-charcoal hover:text-gold-600 transition-colors"
+                className="mt-3 md:mt-0 inline-flex items-center gap-1.5 text-xs uppercase tracking-wider font-semibold text-charcoal hover:text-gold-600 transition-colors"
               >
                 View Exclusive Collection <ChevronRight className="w-4 h-4" />
               </Link>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5 sm:gap-6 lg:gap-8">
               {exclusiveProducts.map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}
@@ -415,29 +415,29 @@ export default function HomePage() {
 
       {/* Best Sellers */}
       {bestSellers.length > 0 && (
-        <section className="py-20 bg-[#FAF9F7] border-t border-b border-stone-100">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
+        <section className="py-10 sm:py-16 md:py-20 bg-[#FAF9F7] border-t border-b border-stone-100">
+          <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+            <div className="flex flex-col md:flex-row md:items-end justify-between mb-6 sm:mb-10">
               <div>
-                <span className="text-xs uppercase tracking-luxury font-semibold text-gold-600">
+                <span className="text-[10px] sm:text-xs uppercase tracking-luxury font-semibold text-gold-600">
                   Most Beloved in the UAE
                 </span>
-                <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-charcoal font-medium mt-1">
+                <h2 className="font-serif text-xl sm:text-3xl md:text-4xl text-charcoal font-medium mt-1">
                   Iconic Best Sellers
                 </h2>
-                <p className="text-xs sm:text-sm text-stone-500 mt-2 max-w-xl">
+                <p className="text-xs sm:text-sm text-stone-500 mt-1.5 sm:mt-2 max-w-xl">
                   Treasured by fragrance lovers across Dubai, Abu Dhabi, and the Emirates for their sublime projection and staying power.
                 </p>
               </div>
               <Link
                 to="/best-sellers"
-                className="mt-4 md:mt-0 inline-flex items-center gap-1.5 text-xs uppercase tracking-wider font-semibold text-charcoal hover:text-gold-600 transition-colors"
+                className="mt-3 md:mt-0 inline-flex items-center gap-1.5 text-xs uppercase tracking-wider font-semibold text-charcoal hover:text-gold-600 transition-colors"
               >
                 View All Best Sellers <ChevronRight className="w-4 h-4" />
               </Link>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5 sm:gap-6 lg:gap-8">
               {bestSellers.map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}
@@ -448,35 +448,35 @@ export default function HomePage() {
 
       {/* Categories / Fragrance Families Showcase */}
       {categories.length > 0 && (
-        <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-2xl mx-auto mb-14">
-              <span className="text-xs uppercase tracking-luxury font-semibold text-gold-600">
+        <section className="py-10 sm:py-16 md:py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+            <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-12">
+              <span className="text-[10px] sm:text-xs uppercase tracking-luxury font-semibold text-gold-600">
                 Olfactory Families
               </span>
-              <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-charcoal font-medium mt-1">
+              <h2 className="font-serif text-xl sm:text-3xl md:text-4xl text-charcoal font-medium mt-1">
                 Shop By Fragrance Category
               </h2>
-              <p className="text-xs sm:text-sm text-stone-500 mt-2">
+              <p className="text-xs sm:text-sm text-stone-500 mt-1.5 sm:mt-2">
                 Whether you seek profound smoked oud, velvet gourmand florals, or radiant citrus blends, find your true essence.
               </p>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5 sm:gap-4 lg:gap-6">
               {categories.map((cat) => (
                 <Link
                   key={cat.id}
                   to={`/shop?category=${cat.slug}`}
-                  className="group relative bg-[#FAF9F7] rounded overflow-hidden p-6 text-center border border-stone-100 hover:border-gold-300 hover:shadow-md transition-all flex flex-col items-center justify-between min-h-[160px]"
+                  className="group relative bg-[#FAF9F7] rounded overflow-hidden p-3.5 sm:p-6 text-center border border-stone-100 hover:border-gold-300 hover:shadow-md transition-all flex flex-col items-center justify-between min-h-[130px] sm:min-h-[160px]"
                 >
-                  <div className="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-gold-600 group-hover:scale-110 transition-transform mb-3">
-                    <Gem className="w-5 h-5" />
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-gold-600 group-hover:scale-110 transition-transform mb-2 sm:mb-3">
+                    <Gem className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
                   <div>
-                    <h3 className="font-serif text-sm font-semibold text-charcoal group-hover:text-gold-700 transition-colors">
+                    <h3 className="font-serif text-xs sm:text-sm font-semibold text-charcoal group-hover:text-gold-700 transition-colors">
                       {cat.name}
                     </h3>
-                    <p className="text-[11px] text-stone-400 mt-1">
+                    <p className="text-[10px] sm:text-[11px] text-stone-400 mt-0.5 sm:mt-1">
                       {cat.products_count ? `${cat.products_count} Fragrances` : 'Explore'}
                     </p>
                   </div>
@@ -489,27 +489,27 @@ export default function HomePage() {
 
       {/* Promotional Banners */}
       {banners.length > 0 && (
-        <section className="py-12 bg-[#FAF8F5]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <section className="py-8 sm:py-12 bg-[#FAF8F5]">
+          <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8">
               {banners.map((banner) => (
                 <div
                   key={banner.id}
-                  className="relative rounded overflow-hidden min-h-[300px] flex items-end p-8 bg-cover bg-center shadow"
+                  className="relative rounded overflow-hidden min-h-[220px] sm:min-h-[300px] flex items-end p-5 sm:p-8 bg-cover bg-center shadow"
                   style={{
                     backgroundImage: `linear-gradient(to top, rgba(0,0,0,0.75), rgba(0,0,0,0.15)), url(${banner.image || 'https://images.unsplash.com/photo-1615397349754-cfa2066a298e?auto=format&fit=crop&q=80&w=1000'})`,
                   }}
                 >
                   <div className="relative z-10 text-white">
-                    <h3 className="font-serif text-2xl font-light">{banner.title}</h3>
+                    <h3 className="font-serif text-xl sm:text-2xl font-light">{banner.title}</h3>
                     {banner.subtitle && (
-                      <p className="text-xs text-stone-200 mt-1.5 max-w-md font-light leading-relaxed">
+                      <p className="text-[11px] sm:text-xs text-stone-200 mt-1 max-w-md font-light leading-relaxed line-clamp-2 sm:line-clamp-none">
                         {banner.subtitle}
                       </p>
                     )}
                     <Link
                       to={banner.button_link || "/shop"}
-                      className="inline-block mt-4 px-5 py-2.5 bg-white text-charcoal hover:bg-gold-500 hover:text-white text-xs uppercase tracking-widest font-semibold transition-colors rounded-sm"
+                      className="inline-block mt-3 sm:mt-4 px-4 sm:px-5 py-2 sm:py-2.5 bg-white text-charcoal hover:bg-gold-500 hover:text-white text-[11px] sm:text-xs uppercase tracking-widest font-semibold transition-colors rounded-sm"
                     >
                       {banner.button_text || 'Discover'} &rarr;
                     </Link>
@@ -523,29 +523,29 @@ export default function HomePage() {
 
       {/* New Arrivals */}
       {newArrivals.length > 0 && (
-        <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
+        <section className="py-10 sm:py-16 md:py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+            <div className="flex flex-col md:flex-row md:items-end justify-between mb-6 sm:mb-10">
               <div>
-                <span className="text-xs uppercase tracking-luxury font-semibold text-gold-600">
+                <span className="text-[10px] sm:text-xs uppercase tracking-luxury font-semibold text-gold-600">
                   Just In at Gold Souk
                 </span>
-                <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-charcoal font-medium mt-1">
+                <h2 className="font-serif text-xl sm:text-3xl md:text-4xl text-charcoal font-medium mt-1">
                   New Arrivals
                 </h2>
-                <p className="text-xs sm:text-sm text-stone-500 mt-2 max-w-xl">
+                <p className="text-xs sm:text-sm text-stone-500 mt-1.5 sm:mt-2 max-w-xl">
                   The latest olfactory creations freshly added to our boutique catalogue.
                 </p>
               </div>
               <Link
                 to="/new-arrivals"
-                className="mt-4 md:mt-0 inline-flex items-center gap-1.5 text-xs uppercase tracking-wider font-semibold text-charcoal hover:text-gold-600 transition-colors"
+                className="mt-3 md:mt-0 inline-flex items-center gap-1.5 text-xs uppercase tracking-wider font-semibold text-charcoal hover:text-gold-600 transition-colors"
               >
                 View All New Arrivals <ChevronRight className="w-4 h-4" />
               </Link>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5 sm:gap-6 lg:gap-8">
               {newArrivals.map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}
@@ -555,28 +555,28 @@ export default function HomePage() {
       )}
 
       {/* Brand Introduction Section */}
-      <section className="py-24 bg-[#FAF9F7] border-t border-stone-200/60">
+      <section className="py-12 sm:py-20 md:py-24 bg-[#FAF9F7] border-t border-stone-200/60">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full bg-white shadow-sm border border-gold-200">
-            <Award className="w-8 h-8 text-gold-600" />
+          <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-4 sm:mb-6 flex items-center justify-center rounded-full bg-white shadow-sm border border-gold-200">
+            <Award className="w-6 h-6 sm:w-8 sm:h-8 text-gold-600" />
           </div>
 
-          <span className="text-xs uppercase tracking-luxury font-semibold text-gold-700">
+          <span className="text-[10px] sm:text-xs uppercase tracking-luxury font-semibold text-gold-700">
             The Legacy of Fouz Fragrance
           </span>
 
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-charcoal font-light mt-3 mb-6">
+          <h2 className="font-serif text-2xl sm:text-4xl md:text-5xl text-charcoal font-light mt-2 sm:mt-3 mb-4 sm:mb-6">
             Lasting Impressions from Dubai's Gold Souk
           </h2>
 
-          <p className="text-stone-600 text-sm sm:text-base font-light leading-relaxed max-w-3xl mx-auto">
+          <p className="text-stone-600 text-xs sm:text-base font-light leading-relaxed max-w-3xl mx-auto">
             Situated within Dubai's storied Gold Souk, Fouz Fragrance is dedicated to bringing discerning fragrance collectors the finest artistic perfumery from around the globe. Every bottle in our selection is 100% genuine, hand-inspected, and delivered with the utmost care — with Worldwide Delivery Available.
           </p>
 
-          <div className="mt-8 flex items-center justify-center gap-6">
+          <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 w-full max-w-xs sm:max-w-none mx-auto">
             <Link
               to="/contact"
-              className="px-6 py-3 bg-charcoal text-white hover:bg-gold-600 text-xs uppercase tracking-widest font-semibold transition-colors"
+              className="w-full sm:w-auto px-6 py-3 bg-charcoal text-white hover:bg-gold-600 text-xs uppercase tracking-widest font-semibold transition-colors text-center"
             >
               Visit Our Boutique
             </Link>
@@ -584,7 +584,7 @@ export default function HomePage() {
               href={`https://wa.me/${settings.whatsapp}?text=Hello%20Fouz%20Fragrance`}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3 border border-stone-300 hover:border-gold-500 text-charcoal text-xs uppercase tracking-widest font-semibold transition-colors"
+              className="w-full sm:w-auto px-6 py-3 border border-stone-300 hover:border-gold-500 text-charcoal text-xs uppercase tracking-widest font-semibold transition-colors text-center"
             >
               WhatsApp Us
             </a>
