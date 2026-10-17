@@ -24,24 +24,53 @@ col_best_sellers, _ = Collection.objects.get_or_create(slug='best-sellers', defa
 col_new_arrivals, _ = Collection.objects.get_or_create(slug='new-arrivals', defaults={'title': 'New Arrivals'})
 col_exclusive, _ = Collection.objects.get_or_create(slug='exclusive', defaults={'title': 'Exclusive Collection'})
 
+# Brand helper
+def get_or_create_brand(b_name):
+    b_name = (b_name or 'V Perfumes Luxury').strip()
+    b_slug = slugify(b_name) or 'brand'
+    
+    # Try name first
+    b = Brand.objects.filter(name__iexact=b_name).first()
+    if b:
+        return b
+    # Try slug
+    b = Brand.objects.filter(slug=b_slug).first()
+    if b:
+        return b
+    
+    # Create with unique slug and unique name
+    unique_slug = b_slug
+    suffix = 1
+    while Brand.objects.filter(slug=unique_slug).exists():
+        unique_slug = f"{b_slug}-{suffix}"
+        suffix += 1
+        
+    unique_name = b_name
+    suffix = 1
+    while Brand.objects.filter(name__iexact=unique_name).exists():
+        unique_name = f"{b_name} {suffix}"
+        suffix += 1
+        
+    return Brand.objects.create(name=unique_name, slug=unique_slug, is_featured=True)
+
 created = 0
 for idx, p in enumerate(products):
-    b_name = p.get('brand') or 'V Perfumes Luxury'
-    b_obj, _ = Brand.objects.get_or_create(
-        name=b_name,
-        defaults={'slug': slugify(b_name), 'is_featured': True}
-    )
+    b_obj = get_or_create_brand(p.get('brand'))
+
+    prod_slug = p['slug']
+    if Product.objects.filter(slug=prod_slug).exists():
+        prod_slug = f"{prod_slug}-{idx+1}"
 
     prod = Product.objects.create(
         name=p['name'],
-        slug=p['slug'],
+        slug=prod_slug,
         brand=b_obj,
         category=cat_default,
         description=p.get('description', ''),
         price=p['price'],
         compare_at_price=p.get('compare_at_price'),
         main_image_url=p['image'],
-        is_featured=True,
+        is_featured=(idx < 24),
         is_best_seller=p.get('is_best_seller', False),
         is_new_arrival=p.get('is_new_arrival', False),
         is_exclusive=p.get('is_exclusive', False),
@@ -64,7 +93,11 @@ for idx, p in enumerate(products):
         CollectionProduct.objects.get_or_create(collection=col_exclusive, product=prod)
 
     created += 1
+    if created % 500 == 0:
+        print(f"Seeded {created}/{len(products)} products...")
 
 print(f"Successfully seeded {created} authentic vperfumes products into Django Database!")
 first_prod = Product.objects.first()
+total_in_db = Product.objects.count()
+print(f"Total Products in DB: {total_in_db}")
 print(f"First product in DB: {first_prod.name} | AED {first_prod.price} | Image: {first_prod.main_image_url}")

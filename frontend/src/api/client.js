@@ -62,11 +62,14 @@ export const getCollectionDetail = (slug) => api.get(`/collections/${slug}/`);
 export const getProducts = async (params = {}) => {
   try {
     const res = await api.get('/products/', { params });
+    if (res?.data && res.data.results && typeof res.data.count === 'number') {
+      return res;
+    }
     const apiProducts = Array.isArray(res?.data) ? res.data : (Array.isArray(res?.data?.results) ? res.data.results : []);
-    if (apiProducts.length >= 20) {
+    if (apiProducts.length >= 100) {
       return { data: apiProducts };
     }
-    // Filter authentic vperfumes catalog based on query params
+    // Filter authentic vperfumes catalog (2537 items) based on query params
     let filtered = [...VPERFUMES_PRODUCTS];
     if (params.exclusive === 'true') {
       filtered = filtered.filter(p => p.is_exclusive);
@@ -82,7 +85,7 @@ export const getProducts = async (params = {}) => {
     }
     if (params.search) {
       const q = params.search.toLowerCase();
-      filtered = filtered.filter(p => p.name.toLowerCase().includes(q) || p.brand.toLowerCase().includes(q));
+      filtered = filtered.filter(p => p.name.toLowerCase().includes(q) || p.brand?.toLowerCase().includes(q));
     }
     return { data: filtered.length > 0 ? filtered : VPERFUMES_PRODUCTS };
   } catch (err) {
@@ -91,6 +94,11 @@ export const getProducts = async (params = {}) => {
     if (params.exclusive === 'true') filtered = filtered.filter(p => p.is_exclusive);
     if (params.best_sellers === 'true') filtered = filtered.filter(p => p.is_best_seller);
     if (params.new_arrivals === 'true') filtered = filtered.filter(p => p.is_new_arrival);
+    if (params.brand) filtered = filtered.filter(p => p.brand?.toLowerCase() === params.brand.toLowerCase());
+    if (params.search) {
+      const q = params.search.toLowerCase();
+      filtered = filtered.filter(p => p.name.toLowerCase().includes(q) || p.brand?.toLowerCase().includes(q));
+    }
     return { data: filtered.length > 0 ? filtered : VPERFUMES_PRODUCTS };
   }
 };
