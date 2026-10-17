@@ -44,6 +44,12 @@ export default function CheckoutPage() {
           product_id: item.product_id,
           variant_id: item.variant_id,
           quantity: item.quantity,
+          name: item.name,
+          brand: item.brand,
+          variant_title: item.variant_title,
+          price: item.price,
+          image: item.image,
+          slug: item.slug,
         }))
       )
         .then((res) => {
@@ -133,6 +139,12 @@ export default function CheckoutPage() {
           product_id: item.product_id,
           variant_id: item.variant_id,
           quantity: item.quantity,
+          name: item.name,
+          brand: item.brand,
+          variant_title: item.variant_title,
+          price: item.price,
+          image: item.image,
+          slug: item.slug,
         })),
       };
 

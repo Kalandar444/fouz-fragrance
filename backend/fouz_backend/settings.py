@@ -140,12 +140,12 @@ EMAIL_USE_SSL = os.getenv('EMAIL_USE_SSL', 'False').lower() in ('true', '1', 't'
 if EMAIL_USE_SSL:
     EMAIL_USE_TLS = False
 
-EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER', '').strip()
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER', 'fouzfragrance02@gmail.com').strip()
 # Strip spaces so 16-character Google App Passwords formatted as "xxxx xxxx xxxx xxxx" work seamlessly
-EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD', '').replace(' ', '').strip()
-EMAIL_TIMEOUT = int(os.getenv('EMAIL_TIMEOUT', 10))
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD', 'mqybgujrtqbeshty').replace(' ', '').strip()
+EMAIL_TIMEOUT = int(os.getenv('EMAIL_TIMEOUT', 15))
 
-BUSINESS_CONTACT_EMAIL = os.getenv('BUSINESS_CONTACT_EMAIL', 'fouzfragranceae@gmail.com').strip()
+BUSINESS_CONTACT_EMAIL = os.getenv('BUSINESS_CONTACT_EMAIL', 'fouzfragrance02@gmail.com').strip()
 
 # DEFAULT_FROM_EMAIL: Gmail SMTP requires the From address to match the authenticated account
 _custom_from = os.getenv('DEFAULT_FROM_EMAIL', '').strip()

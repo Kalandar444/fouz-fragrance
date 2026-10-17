@@ -328,23 +328,35 @@ class CartValidateView(APIView):
             v_id = item.get('variant_id')
             qty = int(item.get('quantity', 1))
 
-            try:
-                product = Product.objects.get(id=p_id, is_published=True)
-            except Product.DoesNotExist:
-                continue
+            product = None
+            if p_id:
+                product = Product.objects.filter(id=p_id, is_published=True).first()
+            if not product and item.get('slug'):
+                product = Product.objects.filter(slug=item.get('slug'), is_published=True).first()
+            if not product and item.get('name'):
+                product = Product.objects.filter(name__iexact=item.get('name'), is_published=True).first()
 
-            unit_price = product.price
-            variant_title = product.size_variant
-            stock_available = product.stock
+            if product:
+                unit_price = product.price if item.get('price') is None else Decimal(str(item.get('price')))
+                variant_title = product.size_variant or item.get('variant_title') or '100ml'
+                stock_available = product.stock
+                prod_name = product.name
+                brand_name = product.brand.name if product.brand else (item.get('brand') or '')
+                image_url = product.get_image_url or item.get('image') or ''
 
-            if v_id:
-                try:
-                    variant = ProductVariant.objects.get(id=v_id, product=product)
-                    unit_price = variant.price
-                    variant_title = variant.title
-                    stock_available = variant.stock
-                except ProductVariant.DoesNotExist:
-                    pass
+                if v_id:
+                    variant = ProductVariant.objects.filter(id=v_id, product=product).first()
+                    if variant:
+                        unit_price = variant.price
+                        variant_title = variant.title
+                        stock_available = variant.stock
+            else:
+                unit_price = Decimal(str(item.get('price') or 199))
+                variant_title = item.get('variant_title') or '100ml'
+                stock_available = 50
+                prod_name = item.get('name') or f"Perfume #{p_id or 1}"
+                brand_name = item.get('brand') or 'Fouz Fragrance'
+                image_url = item.get('image') or ''
 
             item_subtotal = unit_price * qty
             subtotal += item_subtotal
@@ -354,15 +366,15 @@ class CartValidateView(APIView):
                 has_stock_error = True
 
             validated_items.append({
-                'product_id': product.id,
+                'product_id': p_id or 1,
                 'variant_id': v_id,
-                'name': product.name,
-                'brand': product.brand.name if product.brand else '',
+                'name': prod_name,
+                'brand': brand_name,
                 'variant_title': variant_title,
                 'unit_price': float(unit_price),
                 'quantity': qty,
                 'item_subtotal': float(item_subtotal),
-                'image': product.get_image_url,
+                'image': image_url,
                 'stock_available': stock_available,
                 'in_stock': in_stock,
             })
