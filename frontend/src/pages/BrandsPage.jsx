@@ -84,10 +84,11 @@ export default function BrandsPage() {
               >
                 {/* Brand Logo Container */}
                 <div className="w-full h-24 sm:h-28 flex items-center justify-start sm:justify-center p-2 mb-3">
-                  {brand.logo ? (
+                  {(brand.logo || brand.image_url) ? (
                     <img
-                      src={brand.logo}
+                      src={brand.logo || brand.image_url}
                       alt={brand.name}
+                      loading="lazy"
                       className="max-h-20 sm:max-h-24 max-w-full object-contain filter group-hover:scale-105 transition-transform duration-300"
                       onError={(e) => {
                         e.currentTarget.style.display = 'none';
@@ -98,7 +99,7 @@ export default function BrandsPage() {
                     />
                   ) : null}
                   <span
-                    style={{ display: brand.logo ? 'none' : 'block' }}
+                    style={{ display: (brand.logo || brand.image_url) ? 'none' : 'block' }}
                     className="font-serif text-sm font-semibold text-stone-900 tracking-wider"
                   >
                     {brand.name}

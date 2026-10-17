@@ -66,6 +66,21 @@ for col in all_collections:
                 updated += 1
                 matched = True
                 break
+        
+        # If still not found, create new Brand with logo!
+        if not matched:
+            new_slug = slugify(handle or title)
+            if not Brand.objects.filter(slug=new_slug).exists():
+                new_b = Brand.objects.create(
+                    name=title,
+                    slug=new_slug,
+                    image_url=src,
+                    description=f"Prestigious luxury fragrance house celebrated for its exquisite creations.",
+                    is_featured=True
+                )
+                brand_map[title.lower()] = new_b
+                slug_map[new_slug] = new_b
+                updated += 1
 
 print(f"Total brands updated: {updated}")
 total_brands = Brand.objects.count()

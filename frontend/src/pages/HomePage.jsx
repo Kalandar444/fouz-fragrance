@@ -118,7 +118,7 @@ function HeroSlider({ settings }) {
   };
 
   return (
-    <section className="relative w-full overflow-hidden bg-stone-950 h-[200px] xs:h-[230px] sm:h-[300px] md:h-[380px] lg:h-[440px] xl:h-[480px]">
+    <section className="relative w-full overflow-hidden bg-stone-950 h-[150px] xs:h-[180px] sm:h-[240px] md:h-[300px] lg:h-[350px] xl:h-[380px]">
       {/* Slides */}
       <AnimatePresence initial={false} custom={direction} mode="sync">
         <motion.div
@@ -138,13 +138,13 @@ function HeroSlider({ settings }) {
             className="w-full h-full object-cover object-center"
             draggable={false}
           />
-          {/* Subtle gradient overlay to keep perfume visuals crisp while text remains readable */}
+          {/* Subtle gradient overlay */}
           <div
             className="absolute inset-0 pointer-events-none"
             style={{
               background: isLeft
-                ? 'linear-gradient(to right, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.35) 52%, rgba(0,0,0,0.05) 100%)'
-                : 'linear-gradient(to left, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.35) 52%, rgba(0,0,0,0.05) 100%)',
+                ? 'linear-gradient(to right, rgba(0,0,0,0.70) 0%, rgba(0,0,0,0.30) 55%, rgba(0,0,0,0.05) 100%)'
+                : 'linear-gradient(to left, rgba(0,0,0,0.70) 0%, rgba(0,0,0,0.30) 55%, rgba(0,0,0,0.05) 100%)',
             }}
           />
         </motion.div>
@@ -152,39 +152,39 @@ function HeroSlider({ settings }) {
 
       {/* Clean minimal text overlay */}
       <div className="relative z-10 h-full flex items-center">
-        <div className="max-w-7xl mx-auto w-full px-5 sm:px-10 lg:px-16">
-          <div className={`max-w-[260px] xs:max-w-xs sm:max-w-md md:max-w-lg ${isLeft ? '' : 'ml-auto text-right'}`}>
+        <div className="max-w-7xl mx-auto w-full px-4 sm:px-8 lg:px-12">
+          <div className={`max-w-[220px] xs:max-w-xs sm:max-w-md ${isLeft ? '' : 'ml-auto text-right'}`}>
             <AnimatePresence mode="wait">
               <motion.div
                 key={`text-${slide.id}`}
-                initial={{ opacity: 0, y: 15 }}
+                initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.4 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.35 }}
               >
                 {/* Subtle Tag */}
-                <span className="inline-block text-[9px] xs:text-[10px] sm:text-xs text-gold-400 tracking-widest uppercase font-semibold mb-1 sm:mb-1.5">
+                <span className="inline-block text-[8px] xs:text-[9px] sm:text-[10px] md:text-xs text-gold-400 tracking-widest uppercase font-semibold mb-0.5 sm:mb-1">
                   {slide.tag}
                 </span>
 
                 {/* Clean, readable headline */}
-                <h1 className="font-serif text-base xs:text-lg sm:text-2xl md:text-3xl lg:text-4xl font-normal text-white leading-tight tracking-tight mb-1 sm:mb-2">
+                <h1 className="font-serif text-xs xs:text-sm sm:text-lg md:text-2xl lg:text-3xl font-normal text-white leading-tight tracking-tight mb-1 sm:mb-2">
                   {slide.headline}
                 </h1>
 
                 {/* Subtitle - hidden on mobile so screen is never cluttered, crisp on tablet/desktop */}
-                <p className={`hidden sm:block text-xs md:text-sm text-stone-200/90 font-light leading-relaxed mb-3 sm:mb-4 max-w-sm ${isLeft ? '' : 'ml-auto'}`}>
+                <p className={`hidden md:block text-xs text-stone-200/90 font-light leading-relaxed mb-2.5 max-w-sm ${isLeft ? '' : 'ml-auto'}`}>
                   {slide.subtitle}
                 </p>
 
                 {/* Single sleek CTA button */}
-                <div className={`flex ${isLeft ? '' : 'justify-end'} pt-1 sm:pt-0`}>
+                <div className={`flex ${isLeft ? '' : 'justify-end'} pt-0.5 sm:pt-1`}>
                   <Link
                     to={slide.ctaLink}
-                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 sm:px-5 sm:py-2 text-[10px] sm:text-xs uppercase tracking-wider font-semibold rounded bg-white text-stone-900 hover:bg-gold-400 hover:text-white transition-all duration-200 shadow"
+                    className="inline-flex items-center gap-1 px-3 py-1 sm:px-4 sm:py-1.5 text-[9px] xs:text-[10px] sm:text-xs uppercase tracking-wider font-semibold rounded bg-white text-stone-900 hover:bg-gold-400 hover:text-white transition-all duration-200 shadow-sm"
                   >
                     <span>{slide.cta}</span>
-                    <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                    <ArrowRight className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
                   </Link>
                 </div>
               </motion.div>
@@ -316,10 +316,11 @@ export default function HomePage() {
                   >
                     {/* Brand Logo Container */}
                     <div className="w-full h-24 sm:h-28 flex items-center justify-center p-2 mb-3">
-                      {brand.logo ? (
+                      {(brand.logo || brand.image_url) ? (
                         <img
-                          src={brand.logo}
+                          src={brand.logo || brand.image_url}
                           alt={brand.name}
+                          loading="lazy"
                           className="max-h-20 sm:max-h-24 max-w-full object-contain filter group-hover:scale-105 transition-transform duration-300"
                           onError={(e) => {
                             e.currentTarget.style.display = 'none';
@@ -330,7 +331,7 @@ export default function HomePage() {
                         />
                       ) : null}
                       <span
-                        style={{ display: brand.logo ? 'none' : 'block' }}
+                        style={{ display: (brand.logo || brand.image_url) ? 'none' : 'block' }}
                         className="font-serif text-sm font-semibold text-charcoal tracking-wider"
                       >
                         {brand.name}
