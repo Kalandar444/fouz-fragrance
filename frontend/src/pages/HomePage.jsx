@@ -289,22 +289,22 @@ export default function HomePage() {
         return (
           <section className="py-14 md:py-20 bg-white border-b border-stone-100">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              {/* 5-Column Grid */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-y-12 sm:gap-y-16 gap-x-6 sm:gap-x-10 items-end">
+              {/* Brands: Single Horizontal Scroll Line on Mobile, 5-Column Grid on Desktop */}
+              <div className="flex md:grid overflow-x-auto md:overflow-visible no-scrollbar pb-4 md:pb-0 gap-4 sm:gap-6 md:grid-cols-5 md:gap-y-16 md:gap-x-10 items-end snap-x snap-mandatory">
                 {displayBrands.map((brand) => (
                   <Link
                     key={brand.id}
                     to={`/brands/${brand.slug}`}
-                    className="group flex flex-col items-center justify-between text-center transition-transform duration-300 hover:-translate-y-1"
+                    className="group flex-shrink-0 w-28 sm:w-32 md:w-full flex flex-col items-center justify-between text-center transition-transform duration-300 hover:-translate-y-1 snap-start"
                   >
                     {/* Brand Logo Container */}
-                    <div className="w-full h-24 sm:h-28 flex items-center justify-center p-2 mb-3">
+                    <div className="w-full h-20 sm:h-24 md:h-28 flex items-center justify-center p-2 mb-2 sm:mb-3 bg-stone-50/50 md:bg-transparent rounded-lg">
                       {(brand.logo || brand.image_url) ? (
                         <img
                           src={brand.logo || brand.image_url}
                           alt={brand.name}
                           loading="lazy"
-                          className="max-h-20 sm:max-h-24 max-w-full object-contain filter group-hover:scale-105 transition-transform duration-300"
+                          className="max-h-16 sm:max-h-20 md:max-h-24 max-w-full object-contain filter group-hover:scale-105 transition-transform duration-300"
                           onError={(e) => {
                             e.currentTarget.style.display = 'none';
                             if (e.currentTarget.nextElementSibling) {
@@ -315,16 +315,16 @@ export default function HomePage() {
                       ) : null}
                       <span
                         style={{ display: (brand.logo || brand.image_url) ? 'none' : 'block' }}
-                        className="font-serif text-sm font-semibold text-charcoal tracking-wider"
+                        className="font-serif text-xs sm:text-sm font-semibold text-charcoal tracking-wider"
                       >
                         {brand.name}
                       </span>
                     </div>
 
                     {/* Brand Name with arrow */}
-                    <span className="font-serif text-xs sm:text-sm text-stone-900 group-hover:text-gold-700 transition-colors inline-flex items-center gap-1 font-medium">
-                      <span>{brand.name}</span>
-                      <span className="text-stone-400 group-hover:text-gold-700 group-hover:translate-x-0.5 transition-all">&rarr;</span>
+                    <span className="font-serif text-[11px] sm:text-xs md:text-sm text-stone-900 group-hover:text-gold-700 transition-colors inline-flex items-center gap-1 font-medium truncate max-w-full px-1">
+                      <span className="truncate">{brand.name}</span>
+                      <span className="text-stone-400 group-hover:text-gold-700 group-hover:translate-x-0.5 transition-all flex-shrink-0">&rarr;</span>
                     </span>
                   </Link>
                 ))}
