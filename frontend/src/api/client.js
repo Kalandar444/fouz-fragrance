@@ -33,111 +33,133 @@ export const getBrands = async () => {
 };
 
 export const getBrandDetail = async (slug, params = {}) => {
+  const cleanSlug = (slug || '').toLowerCase().trim().replace(/^\/+|\/+$/g, '');
+
   const getBrandFallback = () => {
-    const slugLower = (slug || '').toLowerCase().trim();
-    // Normalize aliases
-    const slugMap = {
-      'christian-dior': 'dior',
-      'christian': 'dior',
-      'bvlgari-le-gemme': 'bvlgari',
-      'bulgari': 'bvlgari',
-      'dolce-and-gabbana': 'dolce-gabbana',
-      'd-and-g': 'dolce-gabbana',
-      'd-g': 'dolce-gabbana',
-      'dandg': 'dolce-gabbana',
-      'dolce': 'dolce-gabbana',
-      'ysl': 'yves-saint-laurent',
-      'ck': 'calvin-klein',
-      'boss': 'hugo-boss',
-      'jpg': 'jean-paul-gaultier',
-      'ch': 'carolina-herrera',
-      'tomford': 'tom-ford',
-      'haramain': 'al-haramain',
-    };
-    if (slugMap[slugLower]) targetSlug = slugMap[slugLower];
+    try {
+      const slugLower = cleanSlug;
+      // Normalize aliases
+      const slugMap = {
+        'christian-dior': 'dior',
+        'christian': 'dior',
+        'bvlgari-le-gemme': 'bvlgari',
+        'bulgari': 'bvlgari',
+        'dolce-and-gabbana': 'dolce-gabbana',
+        'd-and-g': 'dolce-gabbana',
+        'd-g': 'dolce-gabbana',
+        'dandg': 'dolce-gabbana',
+        'dolce': 'dolce-gabbana',
+        'ysl': 'yves-saint-laurent',
+        'ck': 'calvin-klein',
+        'boss': 'hugo-boss',
+        'jpg': 'jean-paul-gaultier',
+        'ch': 'carolina-herrera',
+        'tomford': 'tom-ford',
+        'haramain': 'al-haramain',
+      };
+      let targetSlug = slugMap[slugLower] || slugLower;
 
-    // Find brand info
-    const brand = VPERFUMES_BRANDS.find(b => b.slug === targetSlug || b.slug.toLowerCase() === targetSlug) ||
-      VPERFUMES_BRANDS.find(b => b.name.toLowerCase() === targetSlug.replace(/-/g, ' ')) || {
-      name: slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
-      slug: slug,
-      logo: '',
-      description: `Explore authentic luxury perfumes by ${slug.replace(/-/g, ' ')}. 100% original UAE stock guaranteed.`,
-    };
+      // Find brand info
+      const brand = VPERFUMES_BRANDS.find(b => b.slug === targetSlug || b.slug.toLowerCase() === targetSlug) ||
+        VPERFUMES_BRANDS.find(b => b.name.toLowerCase() === targetSlug.replace(/-/g, ' ')) || {
+        name: cleanSlug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+        slug: targetSlug,
+        logo: '',
+        image_url: '',
+        description: `Explore authentic luxury perfumes by ${cleanSlug.replace(/-/g, ' ')}. 100% original UAE stock guaranteed.`,
+      };
 
-    const brandNameLower = brand.name.toLowerCase();
+      const brandNameLower = brand.name.toLowerCase();
 
-    // Filter products belonging to this brand
-    let brandProducts = VPERFUMES_PRODUCTS.filter(p => {
-      const pBrandSlug = (p.brand_slug || '').toLowerCase();
-      const pBrandName = (p.brand || '').toLowerCase();
-      return pBrandSlug === targetSlug ||
-             pBrandSlug === slugLower ||
-             pBrandName === brandNameLower ||
-             pBrandName.includes(brandNameLower) ||
-             brandNameLower.includes(pBrandName) ||
-             (p.slug && p.slug.toLowerCase().startsWith(targetSlug));
-    });
+      // Filter products belonging to this brand
+      let brandProducts = VPERFUMES_PRODUCTS.filter(p => {
+        const pBrandSlug = (p.brand_slug || '').toLowerCase();
+        const pBrandName = (p.brand || '').toLowerCase();
+        return pBrandSlug === targetSlug ||
+               pBrandSlug === slugLower ||
+               pBrandName === brandNameLower ||
+               pBrandName.includes(brandNameLower) ||
+               brandNameLower.includes(pBrandName) ||
+               (p.slug && p.slug.toLowerCase().startsWith(targetSlug));
+      });
 
-    // If still 0, try fuzzy word match on product name
-    if (brandProducts.length === 0) {
-      const keyword = targetSlug.split('-')[0];
-      if (keyword && keyword.length > 2) {
-        brandProducts = VPERFUMES_PRODUCTS.filter(p => 
-          p.name.toLowerCase().includes(keyword) || 
-          p.slug.toLowerCase().includes(keyword)
-        );
+      // If still 0, try fuzzy word match on product name
+      if (brandProducts.length === 0) {
+        const keyword = targetSlug.split('-')[0];
+        if (keyword && keyword.length > 2) {
+          brandProducts = VPERFUMES_PRODUCTS.filter(p => 
+            p.name.toLowerCase().includes(keyword) || 
+            p.slug.toLowerCase().includes(keyword)
+          );
+        }
       }
-    }
 
-    // Apply search filter
-    if (params.search) {
-      const q = params.search.toLowerCase();
-      brandProducts = brandProducts.filter(p => p.name.toLowerCase().includes(q));
-    }
-
-    // Apply in_stock filter
-    if (params.in_stock === 'true') {
-      brandProducts = brandProducts.filter(p => p.in_stock);
-    }
-
-    // Apply ordering
-    if (params.ordering === 'price_asc') {
-      brandProducts.sort((a, b) => a.price - b.price);
-    } else if (params.ordering === 'price_desc') {
-      brandProducts.sort((a, b) => b.price - a.price);
-    } else if (params.ordering === 'name_asc') {
-      brandProducts.sort((a, b) => a.name.localeCompare(b.name));
-    }
-
-    // Pagination
-    const page = parseInt(params.page) || 1;
-    const pageSize = parseInt(params.page_size) || 24;
-    const totalCount = brandProducts.length;
-    const totalPages = Math.ceil(totalCount / pageSize) || 1;
-    const start = (page - 1) * pageSize;
-    const paginated = brandProducts.slice(start, start + pageSize);
-
-    return {
-      data: {
-        brand: brand,
-        products: paginated,
-        count: totalCount,
-        total_pages: totalPages,
-        current_page: page,
-        page_size: pageSize,
+      // Apply search filter
+      if (params.search) {
+        const q = params.search.toLowerCase();
+        brandProducts = brandProducts.filter(p => p.name.toLowerCase().includes(q));
       }
-    };
+
+      // Apply in_stock filter
+      if (params.in_stock === 'true') {
+        brandProducts = brandProducts.filter(p => p.in_stock);
+      }
+
+      // Apply ordering
+      if (params.ordering === 'price_asc') {
+        brandProducts.sort((a, b) => a.price - b.price);
+      } else if (params.ordering === 'price_desc') {
+        brandProducts.sort((a, b) => b.price - a.price);
+      } else if (params.ordering === 'name_asc') {
+        brandProducts.sort((a, b) => a.name.localeCompare(b.name));
+      }
+
+      // Pagination
+      const page = parseInt(params.page) || 1;
+      const pageSize = parseInt(params.page_size) || 24;
+      const totalCount = brandProducts.length;
+      const totalPages = Math.ceil(totalCount / pageSize) || 1;
+      const start = (page - 1) * pageSize;
+      const paginated = brandProducts.slice(start, start + pageSize);
+
+      return {
+        data: {
+          brand: brand,
+          products: paginated,
+          count: totalCount,
+          total_pages: totalPages,
+          current_page: page,
+          page_size: pageSize,
+        }
+      };
+    } catch (fallbackErr) {
+      console.error('Brand fallback error:', fallbackErr);
+      const defaultBrand = {
+        name: cleanSlug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+        slug: cleanSlug,
+        description: `Explore authentic perfumes by ${cleanSlug.replace(/-/g, ' ')}.`,
+      };
+      return {
+        data: {
+          brand: defaultBrand,
+          products: VPERFUMES_PRODUCTS.slice(0, 24),
+          count: 24,
+          total_pages: 1,
+          current_page: 1,
+          page_size: 24,
+        }
+      };
+    }
   };
 
   try {
-    const res = await api.get(`/brands/${slug}/`, { params });
+    const res = await api.get(`/brands/${cleanSlug}/`, { params });
     if (res?.data?.brand && Array.isArray(res?.data?.products) && res.data.products.length > 0) {
       return res;
     }
     return getBrandFallback();
   } catch (err) {
-    console.warn(`Error fetching brand ${slug}, using authentic V Perfumes products:`, err);
+    console.warn(`API error fetching brand ${cleanSlug}, using authentic V Perfumes products:`, err);
     return getBrandFallback();
   }
 };

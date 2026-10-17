@@ -46,16 +46,25 @@ export default function BrandDetailPage() {
 
     getBrandDetail(slug, params)
       .then((res) => {
-        if (res?.data?.brand) {
-          setBrand(res.data.brand);
-          setProducts(res.data.products || []);
-          setTotalCount(res.data.count || (res.data.products ? res.data.products.length : 0));
-          setTotalPages(res.data.total_pages || 1);
-          setPage(res.data.current_page || targetPage);
-        }
+        const brandData = res?.data?.brand || {
+          name: (slug || '').replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+          slug: slug,
+          description: `Discover luxury signature fragrances by ${(slug || '').replace(/-/g, ' ')}. 100% original UAE stock.`,
+        };
+        setBrand(brandData);
+        setProducts(res?.data?.products || []);
+        setTotalCount(res?.data?.count || (res?.data?.products ? res.data.products.length : 0));
+        setTotalPages(res?.data?.total_pages || 1);
+        setPage(res?.data?.current_page || targetPage);
       })
       .catch((err) => {
         console.error('Failed to load brand detail:', err);
+        const cleanName = (slug || '').replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+        setBrand({
+          name: cleanName,
+          slug: slug,
+          description: `Discover luxury signature fragrances by ${cleanName}. 100% original UAE stock.`,
+        });
       })
       .finally(() => {
         setLoading(false);
