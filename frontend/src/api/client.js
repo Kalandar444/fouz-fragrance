@@ -1,5 +1,6 @@
 import axios from 'axios';
 import AMBERIYA_BRANDS from '../data/amberiyaBrands.json';
+import VPERFUMES_PRODUCTS from '../data/vperfumesProducts.json';
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || (
   import.meta.env.DEV ? 'http://127.0.0.1:8000/api' : 'https://fouz-fragrance-backend.onrender.com/api'
@@ -18,25 +19,21 @@ export const getSettings = () => api.get('/settings/');
 export const getBanners = () => api.get('/banners/');
 
 export const getBrands = async () => {
-  const amberiyaBySlug = new Map(AMBERIYA_BRANDS.map(b => [b.slug, b]));
   const amberiyaByName = new Map(AMBERIYA_BRANDS.map(b => [b.name.toLowerCase().trim(), b]));
 
   try {
     const res = await api.get('/brands/');
     const apiBrands = Array.isArray(res?.data) ? res.data : (Array.isArray(res?.data?.results) ? res.data.results : []);
 
-    // Merge: start with all 198 authentic Amberiya brands
     const mergedMap = new Map();
     AMBERIYA_BRANDS.forEach(b => mergedMap.set(b.slug, { ...b }));
 
-    // Overlay API brands data (like products_count, custom fields, etc.)
     apiBrands.forEach(b => {
       const existing = mergedMap.get(b.slug) || amberiyaByName.get(b.name?.toLowerCase().trim());
       if (existing) {
         mergedMap.set(existing.slug, {
           ...existing,
           ...b,
-          // Always ensure high-res logo from amberiya if backend logo is empty
           logo: b.logo || existing.logo,
           image_url: b.image_url || existing.image_url || existing.logo,
         });
@@ -50,8 +47,7 @@ export const getBrands = async () => {
       }
     });
 
-    const finalBrands = Array.from(mergedMap.values());
-    return { data: finalBrands };
+    return { data: Array.from(mergedMap.values()) };
   } catch (err) {
     console.warn('API error fetching brands, using authentic Amberiya brand catalogue:', err);
     return { data: AMBERIYA_BRANDS };
@@ -62,8 +58,62 @@ export const getBrandDetail = (slug, params = {}) => api.get(`/brands/${slug}/`,
 export const getCategories = () => api.get('/categories/');
 export const getCollections = () => api.get('/collections/');
 export const getCollectionDetail = (slug) => api.get(`/collections/${slug}/`);
-export const getProducts = (params = {}) => api.get('/products/', { params });
-export const getProductDetail = (slug) => api.get(`/products/${slug}/`);
+
+export const getProducts = async (params = {}) => {
+  try {
+    const res = await api.get('/products/', { params });
+    const apiProducts = Array.isArray(res?.data) ? res.data : (Array.isArray(res?.data?.results) ? res.data.results : []);
+    if (apiProducts.length >= 20) {
+      return { data: apiProducts };
+    }
+    // Filter authentic vperfumes catalog based on query params
+    let filtered = [...VPERFUMES_PRODUCTS];
+    if (params.exclusive === 'true') {
+      filtered = filtered.filter(p => p.is_exclusive);
+    }
+    if (params.best_sellers === 'true') {
+      filtered = filtered.filter(p => p.is_best_seller);
+    }
+    if (params.new_arrivals === 'true') {
+      filtered = filtered.filter(p => p.is_new_arrival);
+    }
+    if (params.brand) {
+      filtered = filtered.filter(p => p.brand?.toLowerCase() === params.brand.toLowerCase());
+    }
+    if (params.search) {
+      const q = params.search.toLowerCase();
+      filtered = filtered.filter(p => p.name.toLowerCase().includes(q) || p.brand.toLowerCase().includes(q));
+    }
+    return { data: filtered.length > 0 ? filtered : VPERFUMES_PRODUCTS };
+  } catch (err) {
+    console.warn('API error fetching products, using authentic vperfumes catalogue:', err);
+    let filtered = [...VPERFUMES_PRODUCTS];
+    if (params.exclusive === 'true') filtered = filtered.filter(p => p.is_exclusive);
+    if (params.best_sellers === 'true') filtered = filtered.filter(p => p.is_best_seller);
+    if (params.new_arrivals === 'true') filtered = filtered.filter(p => p.is_new_arrival);
+    return { data: filtered.length > 0 ? filtered : VPERFUMES_PRODUCTS };
+  }
+};
+
+export const getProductDetail = async (slug) => {
+  try {
+    const res = await api.get(`/products/${slug}/`);
+    if (res?.data) return res;
+  } catch (err) {
+    // Check vperfumes fallback
+    const found = VPERFUMES_PRODUCTS.find(p => p.slug === slug);
+    if (found) {
+      return { data: found };
+    }
+    throw err;
+  }
+  const found = VPERFUMES_PRODUCTS.find(p => p.slug === slug);
+  if (found) {
+    return { data: found };
+  }
+  return { data: null };
+};
+
 export const validateCart = (items) => api.post('/cart/validate/', { items });
 export const createOrder = (orderData) => api.post('/orders/create/', orderData);
 export const getOrderDetail = (reference) => api.get(`/orders/${reference}/`);
