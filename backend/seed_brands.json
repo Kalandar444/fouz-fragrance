@@ -1,0 +1,3898 @@
+[
+  {
+    "name": "Bvlgari",
+    "slug": "bvlgari",
+    "logo": "https://media.vperfumes.com/brands/CANDY-CRUSH-1728143218484.webp",
+    "image_url": "https://media.vperfumes.com/brands/CANDY-CRUSH-1728143218484.webp",
+    "product_count": 139,
+    "is_featured": true
+  },
+  {
+    "name": "Burberry",
+    "slug": "burberry",
+    "logo": "https://media.vperfumes.com/brands/CALVIN-KLEIN-1728141486025.webp",
+    "image_url": "https://media.vperfumes.com/brands/CALVIN-KLEIN-1728141486025.webp",
+    "product_count": 126,
+    "is_featured": true
+  },
+  {
+    "name": "Amouage",
+    "slug": "amouage",
+    "logo": "https://media.vperfumes.com/brands/AMOUAGE-1728141497121.webp",
+    "image_url": "https://media.vperfumes.com/brands/AMOUAGE-1728141497121.webp",
+    "product_count": 88,
+    "is_featured": true
+  },
+  {
+    "name": "Dior",
+    "slug": "dior",
+    "logo": "https://media.vperfumes.com/brands/ELIZABETH-ARDEN-1728141630976.webp",
+    "image_url": "https://media.vperfumes.com/brands/ELIZABETH-ARDEN-1728141630976.webp",
+    "product_count": 77,
+    "is_featured": true
+  },
+  {
+    "name": "Davidoff",
+    "slug": "davidoff",
+    "logo": "https://media.vperfumes.com/brands/DUNHILL-1728141620638.webp",
+    "image_url": "https://media.vperfumes.com/brands/DUNHILL-1728141620638.webp",
+    "product_count": 72,
+    "is_featured": true
+  },
+  {
+    "name": "Azzaro",
+    "slug": "azzaro",
+    "logo": "https://media.vperfumes.com/brands/BALENCIAGA-1728143161868.webp",
+    "image_url": "https://media.vperfumes.com/brands/BALENCIAGA-1728143161868.webp",
+    "product_count": 47,
+    "is_featured": true
+  },
+  {
+    "name": "Boucheron",
+    "slug": "boucheron",
+    "logo": "https://media.vperfumes.com/brands/BVLGARI-1728141484199.webp",
+    "image_url": "https://media.vperfumes.com/brands/BVLGARI-1728141484199.webp",
+    "product_count": 40,
+    "is_featured": true
+  },
+  {
+    "name": "Faiz Niche",
+    "slug": "faiz-niche",
+    "logo": "https://media.vperfumes.com/brands/FORD-MUSTANG-1728143283815.webp",
+    "image_url": "https://media.vperfumes.com/brands/FORD-MUSTANG-1728143283815.webp",
+    "product_count": 36,
+    "is_featured": true
+  },
+  {
+    "name": "Dolce Gabbana",
+    "slug": "dolce-gabbana",
+    "logo": "https://media.vperfumes.com/brands/ERMENEGILDO-ZEGNA-1728143187433.webp",
+    "image_url": "https://media.vperfumes.com/brands/ERMENEGILDO-ZEGNA-1728143187433.webp",
+    "product_count": 35,
+    "is_featured": true
+  },
+  {
+    "name": "Dunhill",
+    "slug": "dunhill",
+    "logo": "https://media.vperfumes.com/brands/ESCADA-1728141635349.webp",
+    "image_url": "https://media.vperfumes.com/brands/ESCADA-1728141635349.webp",
+    "product_count": 35,
+    "is_featured": true
+  },
+  {
+    "name": "Gucci",
+    "slug": "gucci",
+    "logo": "https://media.vperfumes.com/brands/HOLY-OUD-1728141520551.webp",
+    "image_url": "https://media.vperfumes.com/brands/HOLY-OUD-1728141520551.webp",
+    "product_count": 35,
+    "is_featured": true
+  },
+  {
+    "name": "Givenchy",
+    "slug": "givenchy",
+    "logo": "https://media.vperfumes.com/images/hana-cosmetics.webp",
+    "image_url": "https://media.vperfumes.com/images/hana-cosmetics.webp",
+    "product_count": 35,
+    "is_featured": true
+  },
+  {
+    "name": "Guerlain",
+    "slug": "guerlain",
+    "logo": "https://media.vperfumes.com/brands/houbigant-parfum-logo.webp",
+    "image_url": "https://media.vperfumes.com/brands/houbigant-parfum-logo.webp",
+    "product_count": 35,
+    "is_featured": true
+  },
+  {
+    "name": "Guess",
+    "slug": "guess",
+    "logo": "https://media.vperfumes.com/images/house-of-aurae-logo.webp",
+    "image_url": "https://media.vperfumes.com/images/house-of-aurae-logo.webp",
+    "product_count": 35,
+    "is_featured": true
+  },
+  {
+    "name": "Hugo Boss",
+    "slug": "hugo-boss",
+    "logo": "https://media.vperfumes.com/brands/JEAN-LOUIS-SCHERRER-1728141674565.webp",
+    "image_url": "https://media.vperfumes.com/brands/JEAN-LOUIS-SCHERRER-1728141674565.webp",
+    "product_count": 35,
+    "is_featured": true
+  },
+  {
+    "name": "Hermes",
+    "slug": "hermes",
+    "logo": "https://media.vperfumes.com/brands/isabellina-fashion-bijoux.webp",
+    "image_url": "https://media.vperfumes.com/brands/isabellina-fashion-bijoux.webp",
+    "product_count": 35,
+    "is_featured": true
+  },
+  {
+    "name": "Holy Oud",
+    "slug": "holy-oud",
+    "logo": "https://media.vperfumes.com/brands/jaber-and-kindi.webp",
+    "image_url": "https://media.vperfumes.com/brands/jaber-and-kindi.webp",
+    "product_count": 35,
+    "is_featured": true
+  },
+  {
+    "name": "Chanel",
+    "slug": "chanel",
+    "logo": "https://media.vperfumes.com/brands/CLIVE-CHRISTIAN-1728143185915.webp",
+    "image_url": "https://media.vperfumes.com/brands/CLIVE-CHRISTIAN-1728143185915.webp",
+    "product_count": 35,
+    "is_featured": true
+  },
+  {
+    "name": "Creed",
+    "slug": "creed",
+    "logo": "https://media.vperfumes.com/brands/DILKASH-1728143469680.webp",
+    "image_url": "https://media.vperfumes.com/brands/DILKASH-1728143469680.webp",
+    "product_count": 35,
+    "is_featured": true
+  },
+  {
+    "name": "Paco Rabanne",
+    "slug": "paco-rabanne",
+    "logo": "https://media.vperfumes.com/brands/scentologia-logo-en.webp",
+    "image_url": "https://media.vperfumes.com/brands/scentologia-logo-en.webp",
+    "product_count": 35,
+    "is_featured": true
+  },
+  {
+    "name": "Roberto Cavalli",
+    "slug": "roberto-cavalli",
+    "logo": "https://media.vperfumes.com/brands/swiss-arabian.webp",
+    "image_url": "https://media.vperfumes.com/brands/swiss-arabian.webp",
+    "product_count": 35,
+    "is_featured": true
+  },
+  {
+    "name": "Tom Ford",
+    "slug": "tom-ford",
+    "logo": null,
+    "image_url": null,
+    "product_count": 35,
+    "is_featured": true
+  },
+  {
+    "name": "Versace",
+    "slug": "versace",
+    "logo": null,
+    "image_url": null,
+    "product_count": 35,
+    "is_featured": true
+  },
+  {
+    "name": "Yves Saint Laurent",
+    "slug": "yves-saint-laurent",
+    "logo": null,
+    "image_url": null,
+    "product_count": 35,
+    "is_featured": true
+  },
+  {
+    "name": "Byredo",
+    "slug": "byredo",
+    "logo": "https://media.vperfumes.com/brands/CAROLINA-HERRERA-1728141598688.webp",
+    "image_url": "https://media.vperfumes.com/brands/CAROLINA-HERRERA-1728141598688.webp",
+    "product_count": 35,
+    "is_featured": true
+  },
+  {
+    "name": "Lattafa",
+    "slug": "lattafa",
+    "logo": "https://media.vperfumes.com/images/luniche-logo.webp",
+    "image_url": "https://media.vperfumes.com/images/luniche-logo.webp",
+    "product_count": 35,
+    "is_featured": true
+  },
+  {
+    "name": "Rasasi",
+    "slug": "rasasi",
+    "logo": "https://media.vperfumes.com/brands/selena-gomez.webp",
+    "image_url": "https://media.vperfumes.com/brands/selena-gomez.webp",
+    "product_count": 35,
+    "is_featured": true
+  },
+  {
+    "name": "Afnan",
+    "slug": "afnan",
+    "logo": "https://media.vperfumes.com/brands/new-afnan-perfumes-logo.webp",
+    "image_url": "https://media.vperfumes.com/brands/new-afnan-perfumes-logo.webp",
+    "product_count": 35,
+    "is_featured": true
+  },
+  {
+    "name": "Armaf",
+    "slug": "armaf",
+    "logo": "https://media.vperfumes.com/brands/ARMAF-1728143372364.webp",
+    "image_url": "https://media.vperfumes.com/brands/ARMAF-1728143372364.webp",
+    "product_count": 35,
+    "is_featured": true
+  },
+  {
+    "name": "Cartier",
+    "slug": "cartier",
+    "logo": "https://media.vperfumes.com/brands/CHRISBELLA-1728143547070.webp",
+    "image_url": "https://media.vperfumes.com/brands/CHRISBELLA-1728143547070.webp",
+    "product_count": 35,
+    "is_featured": true
+  },
+  {
+    "name": "Chopard",
+    "slug": "chopard",
+    "logo": "https://media.vperfumes.com/brands/COACH-1728141623462.webp",
+    "image_url": "https://media.vperfumes.com/brands/COACH-1728141623462.webp",
+    "product_count": 35,
+    "is_featured": true
+  },
+  {
+    "name": "Coach",
+    "slug": "coach",
+    "logo": "https://media.vperfumes.com/brands/DAVIDOFF-1728141611109.webp",
+    "image_url": "https://media.vperfumes.com/brands/DAVIDOFF-1728141611109.webp",
+    "product_count": 35,
+    "is_featured": true
+  },
+  {
+    "name": "Kenzo",
+    "slug": "kenzo",
+    "logo": "https://media.vperfumes.com/brands/Lattafa-1728143584303.webp",
+    "image_url": "https://media.vperfumes.com/brands/Lattafa-1728143584303.webp",
+    "product_count": 35,
+    "is_featured": true
+  },
+  {
+    "name": "Mancera",
+    "slug": "mancera",
+    "logo": "https://media.vperfumes.com/brands/MICALLEF-1728143287739.webp",
+    "image_url": "https://media.vperfumes.com/brands/MICALLEF-1728143287739.webp",
+    "product_count": 35,
+    "is_featured": true
+  },
+  {
+    "name": "Montale",
+    "slug": "montale",
+    "logo": "https://media.vperfumes.com/brands/oriarome.webp",
+    "image_url": "https://media.vperfumes.com/brands/oriarome.webp",
+    "product_count": 35,
+    "is_featured": true
+  },
+  {
+    "name": "Thierry Mugler",
+    "slug": "thierry-mugler",
+    "logo": "https://media.vperfumes.com/brands/palaces-of-designer-shaik.webp",
+    "image_url": "https://media.vperfumes.com/brands/palaces-of-designer-shaik.webp",
+    "product_count": 35,
+    "is_featured": true
+  },
+  {
+    "name": "Narciso Rodriguez",
+    "slug": "narciso-rodriguez",
+    "logo": "https://media.vperfumes.com/brands/Paris-Hilton-1728143299622.webp",
+    "image_url": "https://media.vperfumes.com/brands/Paris-Hilton-1728143299622.webp",
+    "product_count": 35,
+    "is_featured": true
+  },
+  {
+    "name": "Prada",
+    "slug": "prada",
+    "logo": "https://media.vperfumes.com/images/sabrina-carpenter-fragrance-logo.webp",
+    "image_url": "https://media.vperfumes.com/images/sabrina-carpenter-fragrance-logo.webp",
+    "product_count": 35,
+    "is_featured": true
+  },
+  {
+    "name": "Valentino",
+    "slug": "valentino",
+    "logo": null,
+    "image_url": null,
+    "product_count": 35,
+    "is_featured": true
+  },
+  {
+    "name": "Xerjoff",
+    "slug": "xerjoff",
+    "logo": null,
+    "image_url": null,
+    "product_count": 35,
+    "is_featured": true
+  },
+  {
+    "name": "Carolina Herrera",
+    "slug": "carolina-herrera",
+    "logo": "https://media.vperfumes.com/brands/CHLOE-1728141606446.webp",
+    "image_url": "https://media.vperfumes.com/brands/CHLOE-1728141606446.webp",
+    "product_count": 35,
+    "is_featured": true
+  },
+  {
+    "name": "Jean Paul Gaultier",
+    "slug": "jean-paul-gaultier",
+    "logo": "https://media.vperfumes.com/brands/JOOP-1728141687201.webp",
+    "image_url": "https://media.vperfumes.com/brands/JOOP-1728141687201.webp",
+    "product_count": 35,
+    "is_featured": true
+  },
+  {
+    "name": "Acqua Di Parma",
+    "slug": "acqua-di-parma",
+    "logo": "https://media.vperfumes.com/brands/ACQUA-DI-PARMA-1728141492391.webp",
+    "image_url": "https://media.vperfumes.com/brands/ACQUA-DI-PARMA-1728141492391.webp",
+    "product_count": 30,
+    "is_featured": true
+  },
+  {
+    "name": "Elie Saab",
+    "slug": "elie-saab",
+    "logo": "https://media.vperfumes.com/brands/ex-nihilo.webp",
+    "image_url": "https://media.vperfumes.com/brands/ex-nihilo.webp",
+    "product_count": 30,
+    "is_featured": true
+  },
+  {
+    "name": "Elizabeth Arden",
+    "slug": "elizabeth-arden",
+    "logo": "https://media.vperfumes.com/brands/faconnable.webp",
+    "image_url": "https://media.vperfumes.com/brands/faconnable.webp",
+    "product_count": 26,
+    "is_featured": true
+  },
+  {
+    "name": "Cacharel",
+    "slug": "cacharel",
+    "logo": "https://media.vperfumes.com/brands/CARTIER-1728141603235.webp",
+    "image_url": "https://media.vperfumes.com/brands/CARTIER-1728141603235.webp",
+    "product_count": 26,
+    "is_featured": true
+  },
+  {
+    "name": "Al Haramain",
+    "slug": "al-haramain",
+    "logo": "https://media.vperfumes.com/brands/AL-HARAMAIN-1728143301235.webp",
+    "image_url": "https://media.vperfumes.com/brands/AL-HARAMAIN-1728143301235.webp",
+    "product_count": 26,
+    "is_featured": true
+  },
+  {
+    "name": "Clive Christian",
+    "slug": "clive-christian",
+    "logo": "https://media.vperfumes.com/brands/DAISY-LA-BLANC-1728143231655.webp",
+    "image_url": "https://media.vperfumes.com/brands/DAISY-LA-BLANC-1728143231655.webp",
+    "product_count": 21,
+    "is_featured": true
+  },
+  {
+    "name": "Baldessarini",
+    "slug": "baldessarini",
+    "logo": "https://media.vperfumes.com/brands/benetton-mob.webp",
+    "image_url": "https://media.vperfumes.com/brands/benetton-mob.webp",
+    "product_count": 17,
+    "is_featured": true
+  },
+  {
+    "name": "Bottega Veneta",
+    "slug": "bottega-veneta",
+    "logo": "https://media.vperfumes.com/brands/butterfly-logo-en.webp",
+    "image_url": "https://media.vperfumes.com/brands/butterfly-logo-en.webp",
+    "product_count": 16,
+    "is_featured": true
+  },
+  {
+    "name": "Bentley",
+    "slug": "bentley",
+    "logo": "https://media.vperfumes.com/brands/BOADICEA-1728141585479.webp",
+    "image_url": "https://media.vperfumes.com/brands/BOADICEA-1728141585479.webp",
+    "product_count": 14,
+    "is_featured": true
+  },
+  {
+    "name": "Atkinsons",
+    "slug": "atkinsons",
+    "logo": "https://media.vperfumes.com/brands/azha-perfumes.webp",
+    "image_url": "https://media.vperfumes.com/brands/azha-perfumes.webp",
+    "product_count": 14,
+    "is_featured": true
+  },
+  {
+    "name": "Diesel",
+    "slug": "diesel",
+    "logo": "https://media.vperfumes.com/brands/EO-1728143330622.webp",
+    "image_url": "https://media.vperfumes.com/brands/EO-1728143330622.webp",
+    "product_count": 12,
+    "is_featured": true
+  },
+  {
+    "name": "Aramis",
+    "slug": "aramis",
+    "logo": "https://media.vperfumes.com/brands/ARD-AL-ZAAFARAN-1728143225074.webp",
+    "image_url": "https://media.vperfumes.com/brands/ARD-AL-ZAAFARAN-1728143225074.webp",
+    "product_count": 12,
+    "is_featured": true
+  },
+  {
+    "name": "Dkny",
+    "slug": "dkny",
+    "logo": "https://media.vperfumes.com/brands/DIOR-1728141613990.webp",
+    "image_url": "https://media.vperfumes.com/brands/DIOR-1728141613990.webp",
+    "product_count": 10,
+    "is_featured": true
+  },
+  {
+    "name": "Adidas",
+    "slug": "adidas",
+    "logo": "https://media.vperfumes.com/brands/ADIDAS-1728141595410.webp",
+    "image_url": "https://media.vperfumes.com/brands/ADIDAS-1728141595410.webp",
+    "product_count": 9,
+    "is_featured": true
+  },
+  {
+    "name": "Boadicea",
+    "slug": "boadicea",
+    "logo": "https://media.vperfumes.com/brands/BOTTEGA-VENETA-1728141588431.webp",
+    "image_url": "https://media.vperfumes.com/brands/BOTTEGA-VENETA-1728141588431.webp",
+    "product_count": 8,
+    "is_featured": true
+  },
+  {
+    "name": "Acqua Di Parisis",
+    "slug": "acqua-di-parisis",
+    "logo": "https://media.vperfumes.com/brands/ACQUA-DI-PARISIS-1728143305184.webp",
+    "image_url": "https://media.vperfumes.com/brands/ACQUA-DI-PARISIS-1728143305184.webp",
+    "product_count": 8,
+    "is_featured": true
+  },
+  {
+    "name": "4711",
+    "slug": "4711",
+    "logo": "https://media.vperfumes.com/brands/4711-1728141644469.webp",
+    "image_url": "https://media.vperfumes.com/brands/4711-1728141644469.webp",
+    "product_count": 7,
+    "is_featured": true
+  },
+  {
+    "name": "Diptyque",
+    "slug": "diptyque",
+    "logo": "https://media.vperfumes.com/brands/ELIZABETH-TAYLOR-1728141632509.webp",
+    "image_url": "https://media.vperfumes.com/brands/ELIZABETH-TAYLOR-1728141632509.webp",
+    "product_count": 6,
+    "is_featured": true
+  },
+  {
+    "name": "Disney",
+    "slug": "disney",
+    "logo": "https://media.vperfumes.com/brands/EMANUEL-UNGARO-1728141633937.webp",
+    "image_url": "https://media.vperfumes.com/brands/EMANUEL-UNGARO-1728141633937.webp",
+    "product_count": 5,
+    "is_featured": true
+  },
+  {
+    "name": "Beyonce",
+    "slug": "beyonce",
+    "logo": "https://media.vperfumes.com/brands/bolon.webp",
+    "image_url": "https://media.vperfumes.com/brands/bolon.webp",
+    "product_count": 5,
+    "is_featured": true
+  },
+  {
+    "name": "Amorino",
+    "slug": "amorino",
+    "logo": "https://media.vperfumes.com/brands/AMORINO-1728143211988.webp",
+    "image_url": "https://media.vperfumes.com/brands/AMORINO-1728143211988.webp",
+    "product_count": 3,
+    "is_featured": false
+  },
+  {
+    "name": "Barbie",
+    "slug": "barbie",
+    "logo": "https://media.vperfumes.com/brands/BEYONCE-1728143184475.webp",
+    "image_url": "https://media.vperfumes.com/brands/BEYONCE-1728143184475.webp",
+    "product_count": 3,
+    "is_featured": false
+  },
+  {
+    "name": "Dilkash",
+    "slug": "dilkash",
+    "logo": "https://media.vperfumes.com/images/eight-bob-logo.webp",
+    "image_url": "https://media.vperfumes.com/images/eight-bob-logo.webp",
+    "product_count": 2,
+    "is_featured": false
+  },
+  {
+    "name": "Amouroud",
+    "slug": "amouroud",
+    "logo": "https://media.vperfumes.com/brands/AMOUROUD-1728143159374.webp",
+    "image_url": "https://media.vperfumes.com/brands/AMOUROUD-1728143159374.webp",
+    "product_count": 2,
+    "is_featured": false
+  },
+  {
+    "name": "Balenciaga",
+    "slug": "balenciaga",
+    "logo": "https://media.vperfumes.com/brands/BENTLEY-1728141579495.webp",
+    "image_url": "https://media.vperfumes.com/brands/BENTLEY-1728141579495.webp",
+    "product_count": 2,
+    "is_featured": false
+  },
+  {
+    "name": "Balmain",
+    "slug": "balmain",
+    "logo": "https://media.vperfumes.com/brands/BEVERLY-HILLS-POLO-CLUB-1728143377029.webp",
+    "image_url": "https://media.vperfumes.com/brands/BEVERLY-HILLS-POLO-CLUB-1728143377029.webp",
+    "product_count": 1,
+    "is_featured": false
+  },
+  {
+    "name": "Bebe",
+    "slug": "bebe",
+    "logo": "https://media.vperfumes.com/brands/BILL-BLASS-1728141582608.webp",
+    "image_url": "https://media.vperfumes.com/brands/BILL-BLASS-1728141582608.webp",
+    "product_count": 1,
+    "is_featured": false
+  },
+  {
+    "name": "Brioni",
+    "slug": "brioni",
+    "logo": "https://media.vperfumes.com/brands/BYREDO-1728141594093.webp",
+    "image_url": "https://media.vperfumes.com/brands/BYREDO-1728141594093.webp",
+    "product_count": 1,
+    "is_featured": false
+  },
+  {
+    "name": "Brut",
+    "slug": "brut",
+    "logo": "https://media.vperfumes.com/brands/CR7-1728143529447.webp",
+    "image_url": "https://media.vperfumes.com/brands/CR7-1728143529447.webp",
+    "product_count": 1,
+    "is_featured": false
+  },
+  {
+    "name": "Essenza",
+    "slug": "essenza",
+    "logo": "https://media.vperfumes.com/brands/FEX-COLLECTION-1728143204284.webp",
+    "image_url": "https://media.vperfumes.com/brands/FEX-COLLECTION-1728143204284.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Escada",
+    "slug": "escada",
+    "logo": "https://media.vperfumes.com/brands/FENDI-1728141646023.webp",
+    "image_url": "https://media.vperfumes.com/brands/FENDI-1728141646023.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Estee Lauder",
+    "slug": "estee-lauder",
+    "logo": "https://media.vperfumes.com/brands/fid-fad.webp",
+    "image_url": "https://media.vperfumes.com/brands/fid-fad.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Aigner",
+    "slug": "aigner",
+    "logo": "https://media.vperfumes.com/brands/AIGNER-1728143198010.webp",
+    "image_url": "https://media.vperfumes.com/brands/AIGNER-1728143198010.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Ferrari",
+    "slug": "ferrari",
+    "logo": "https://media.vperfumes.com/brands/francis-kurkdjian.webp",
+    "image_url": "https://media.vperfumes.com/brands/francis-kurkdjian.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Fellah",
+    "slug": "fellah",
+    "logo": "https://media.vperfumes.com/brands/frais-et-frais.webp",
+    "image_url": "https://media.vperfumes.com/brands/frais-et-frais.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Fendi",
+    "slug": "fendi",
+    "logo": "https://media.vperfumes.com/images/francesca-bianchi-logo.webp",
+    "image_url": "https://media.vperfumes.com/images/francesca-bianchi-logo.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Fiori",
+    "slug": "fiori",
+    "logo": "https://media.vperfumes.com/brands/freshlook.webp",
+    "image_url": "https://media.vperfumes.com/brands/freshlook.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Fragmizer",
+    "slug": "fragmizer",
+    "logo": "https://media.vperfumes.com/brands/GIVENCHY-1728141478092.webp",
+    "image_url": "https://media.vperfumes.com/brands/GIVENCHY-1728141478092.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Dynastys",
+    "slug": "dynastys",
+    "logo": "https://media.vperfumes.com/brands/essential-parfums.webp",
+    "image_url": "https://media.vperfumes.com/brands/essential-parfums.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Faconnable",
+    "slug": "faconnable",
+    "logo": "https://media.vperfumes.com/brands/flavia.webp",
+    "image_url": "https://media.vperfumes.com/brands/flavia.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Flamenco",
+    "slug": "flamenco",
+    "logo": "https://media.vperfumes.com/brands/GENNY-1728143240202.webp",
+    "image_url": "https://media.vperfumes.com/brands/GENNY-1728143240202.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Kinski",
+    "slug": "kinski",
+    "logo": "https://media.vperfumes.com/brands/lamco-perfuems.webp",
+    "image_url": "https://media.vperfumes.com/brands/lamco-perfuems.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Marvel",
+    "slug": "marvel",
+    "logo": "https://media.vperfumes.com/brands/MOSCHINO-1728141721790.webp",
+    "image_url": "https://media.vperfumes.com/brands/MOSCHINO-1728141721790.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Issey Miyake",
+    "slug": "issey-miyake",
+    "logo": "https://media.vperfumes.com/brands/JIL-SANDER-1728141680704.webp",
+    "image_url": "https://media.vperfumes.com/brands/JIL-SANDER-1728141680704.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Arabi",
+    "slug": "arabi",
+    "logo": "https://media.vperfumes.com/brands/ARABIAN-EAGLE-1728141500200.webp",
+    "image_url": "https://media.vperfumes.com/brands/ARABIAN-EAGLE-1728141500200.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Alexandre J",
+    "slug": "alexandre-j",
+    "logo": "https://media.vperfumes.com/brands/ALEXANDRE.webp",
+    "image_url": "https://media.vperfumes.com/brands/ALEXANDRE.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Antonio Banderas",
+    "slug": "antonio-banderas",
+    "logo": "https://media.vperfumes.com/brands/ANTONIO-BANDERAS-1728141568383.webp",
+    "image_url": "https://media.vperfumes.com/brands/ANTONIO-BANDERAS-1728141568383.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Penhaligons",
+    "slug": "penhaligons",
+    "logo": "https://media.vperfumes.com/brands/robertino.webp",
+    "image_url": "https://media.vperfumes.com/brands/robertino.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Bond No9 Nyc",
+    "slug": "bond-no9-nyc",
+    "logo": "https://media.vperfumes.com/brands/BRITNEY-SPEARS-1728141591140.webp",
+    "image_url": "https://media.vperfumes.com/brands/BRITNEY-SPEARS-1728141591140.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Britney Spears",
+    "slug": "britney-spears",
+    "logo": "https://media.vperfumes.com/brands/COMME-DES-GARCONS-1728141625030.webp",
+    "image_url": "https://media.vperfumes.com/brands/COMME-DES-GARCONS-1728141625030.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Iris De Perla",
+    "slug": "iris-de-perla",
+    "logo": "https://media.vperfumes.com/brands/JESSICA-SIMPSON-1728141679198.webp",
+    "image_url": "https://media.vperfumes.com/brands/JESSICA-SIMPSON-1728141679198.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Dsquared",
+    "slug": "dsquared",
+    "logo": "https://media.vperfumes.com/brands/DIPTYQUE-1728143234187.webp",
+    "image_url": "https://media.vperfumes.com/brands/DIPTYQUE-1728143234187.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Hs Sergio",
+    "slug": "hs-sergio",
+    "logo": "https://media.vperfumes.com/brands/jaguar-1728141672966.webp",
+    "image_url": "https://media.vperfumes.com/brands/jaguar-1728141672966.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "David Beckham",
+    "slug": "david-beckham",
+    "logo": "https://media.vperfumes.com/brands/DOLCE-%26-GABBANA-1728141617051.webp",
+    "image_url": "https://media.vperfumes.com/brands/DOLCE-%26-GABBANA-1728141617051.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Abercrombie And Fitch",
+    "slug": "abercrombie-and-fitch",
+    "logo": "https://media.vperfumes.com/brands/ABERCROMBIE-%26-FITCH-1728141489134.webp",
+    "image_url": "https://media.vperfumes.com/brands/ABERCROMBIE-%26-FITCH-1728141489134.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Beverly Hills Polo Club",
+    "slug": "beverly-hills-polo-club",
+    "logo": "https://media.vperfumes.com/brands/bohoboco-logo-en.webp",
+    "image_url": "https://media.vperfumes.com/brands/bohoboco-logo-en.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Paris Hilton",
+    "slug": "paris-hilton",
+    "logo": "https://media.vperfumes.com/brands/RIBLOR-1728143579402.webp",
+    "image_url": "https://media.vperfumes.com/brands/RIBLOR-1728143579402.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Perry Ellis",
+    "slug": "perry-ellis",
+    "logo": "https://media.vperfumes.com/brands/roger-gallet.webp",
+    "image_url": "https://media.vperfumes.com/brands/roger-gallet.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Public Affair",
+    "slug": "public-affair",
+    "logo": "https://media.vperfumes.com/brands/sahari.webp",
+    "image_url": "https://media.vperfumes.com/brands/sahari.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Frederic Malle",
+    "slug": "frederic-malle",
+    "logo": "https://media.vperfumes.com/brands/GRES-1728141655231.webp",
+    "image_url": "https://media.vperfumes.com/brands/GRES-1728141655231.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Angel Schlesser",
+    "slug": "angel-schlesser",
+    "logo": "https://media.vperfumes.com/brands/ANGEL-SCHLESSER-1728141566945.webp",
+    "image_url": "https://media.vperfumes.com/brands/ANGEL-SCHLESSER-1728141566945.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Emanuel Ungaro",
+    "slug": "emanuel-ungaro",
+    "logo": "https://media.vperfumes.com/brands/fcuk.webp",
+    "image_url": "https://media.vperfumes.com/brands/fcuk.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Gres",
+    "slug": "gres",
+    "logo": "https://media.vperfumes.com/brands/hollister.webp",
+    "image_url": "https://media.vperfumes.com/brands/hollister.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Guy Laroche",
+    "slug": "guy-laroche",
+    "logo": "https://media.vperfumes.com/brands/HS-SERGIO-1728143262538.webp",
+    "image_url": "https://media.vperfumes.com/brands/HS-SERGIO-1728143262538.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Atelier Cologne",
+    "slug": "atelier-cologne",
+    "logo": "https://media.vperfumes.com/images/authenteque-logo_page-0001.webp",
+    "image_url": "https://media.vperfumes.com/images/authenteque-logo_page-0001.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Initio",
+    "slug": "initio",
+    "logo": "https://media.vperfumes.com/brands/JESSICA-MCCLINTOCK-1728143213545.webp",
+    "image_url": "https://media.vperfumes.com/brands/JESSICA-MCCLINTOCK-1728143213545.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Frag Niche",
+    "slug": "frag-niche",
+    "logo": "https://media.vperfumes.com/brands/giovanni-bacci.webp",
+    "image_url": "https://media.vperfumes.com/brands/giovanni-bacci.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Franck Olivier",
+    "slug": "franck-olivier",
+    "logo": "https://media.vperfumes.com/brands/gravity.webp",
+    "image_url": "https://media.vperfumes.com/brands/gravity.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Giorgio Beverly Hills",
+    "slug": "giorgio-beverly-hills",
+    "logo": "https://media.vperfumes.com/brands/halston.webp",
+    "image_url": "https://media.vperfumes.com/brands/halston.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "24 The Fragrance",
+    "slug": "24-the-fragrance",
+    "logo": "https://media.vperfumes.com/brands/24-THE-FRAGRANCE-1728141487588.webp",
+    "image_url": "https://media.vperfumes.com/brands/24-THE-FRAGRANCE-1728141487588.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Air Val",
+    "slug": "air-val",
+    "logo": "https://media.vperfumes.com/brands/AIR-VAL-1728143410055.webp",
+    "image_url": "https://media.vperfumes.com/brands/AIR-VAL-1728143410055.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Ard Al Shuyukh",
+    "slug": "ard-al-shuyukh",
+    "logo": "https://media.vperfumes.com/images/argos-logo.webp",
+    "image_url": "https://media.vperfumes.com/images/argos-logo.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Geoffrey Beene",
+    "slug": "geoffrey-beene",
+    "logo": "https://media.vperfumes.com/brands/HASK-1728143401076.webp",
+    "image_url": "https://media.vperfumes.com/brands/HASK-1728143401076.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Heart Of Grasse",
+    "slug": "heart-of-grasse",
+    "logo": "https://media.vperfumes.com/brands/initio-side-effect.webp",
+    "image_url": "https://media.vperfumes.com/brands/initio-side-effect.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Agent Provocateur",
+    "slug": "agent-provocateur",
+    "logo": "https://media.vperfumes.com/brands/AGENT-PROVOCATEUR-1728143157927.webp",
+    "image_url": "https://media.vperfumes.com/brands/AGENT-PROVOCATEUR-1728143157927.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Annick Goutal",
+    "slug": "annick-goutal",
+    "logo": "https://media.vperfumes.com/brands/ANNICK-GOUTAL-1728143224329.webp",
+    "image_url": "https://media.vperfumes.com/brands/ANNICK-GOUTAL-1728143224329.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Armand Basi",
+    "slug": "armand-basi",
+    "logo": "https://media.vperfumes.com/brands/AROMA-DU-MONDE-1728143226701.webp",
+    "image_url": "https://media.vperfumes.com/brands/AROMA-DU-MONDE-1728143226701.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Fex Collection",
+    "slug": "fex-collection",
+    "logo": "https://media.vperfumes.com/brands/FRANCK-OLIVIER-1728141650763.webp",
+    "image_url": "https://media.vperfumes.com/brands/FRANCK-OLIVIER-1728141650763.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Iceberg",
+    "slug": "iceberg",
+    "logo": "https://media.vperfumes.com/brands/jenny-glow.webp",
+    "image_url": "https://media.vperfumes.com/brands/jenny-glow.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Alyssa Ashley",
+    "slug": "alyssa-ashley",
+    "logo": "https://media.vperfumes.com/brands/alyssa-ashley.webp",
+    "image_url": "https://media.vperfumes.com/brands/alyssa-ashley.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Blend Oud",
+    "slug": "blend-oud",
+    "logo": "https://media.vperfumes.com/brands/BOTTEGA-LE-ESSENZA-1728141505823.webp",
+    "image_url": "https://media.vperfumes.com/brands/BOTTEGA-LE-ESSENZA-1728141505823.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Ermenegildo Zegna",
+    "slug": "ermenegildo-zegna",
+    "logo": "https://media.vperfumes.com/brands/FELLAH-1728141515377.webp",
+    "image_url": "https://media.vperfumes.com/brands/FELLAH-1728141515377.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Parfumania",
+    "slug": "parfumania",
+    "logo": "https://media.vperfumes.com/brands/revuele-en.webp",
+    "image_url": "https://media.vperfumes.com/brands/revuele-en.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Pepe Jeans",
+    "slug": "pepe-jeans",
+    "logo": "https://media.vperfumes.com/brands/ROBERTO-CAVALLI-1728141482676.webp",
+    "image_url": "https://media.vperfumes.com/brands/ROBERTO-CAVALLI-1728141482676.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Alexander Mcqueen",
+    "slug": "alexander-mcqueen",
+    "logo": "https://media.vperfumes.com/brands/ALEXANDER-MCQUEEN-1728141493832.webp",
+    "image_url": "https://media.vperfumes.com/brands/ALEXANDER-MCQUEEN-1728141493832.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Bdk Parfums",
+    "slug": "bdk-parfums",
+    "logo": "https://media.vperfumes.com/brands/bal-main.webp",
+    "image_url": "https://media.vperfumes.com/brands/bal-main.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Bill Blass",
+    "slug": "bill-blass",
+    "logo": "https://media.vperfumes.com/brands/BOND-NO.webp",
+    "image_url": "https://media.vperfumes.com/brands/BOND-NO.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Genny",
+    "slug": "genny",
+    "logo": "https://media.vperfumes.com/brands/GUY-LAROCHE-1728141661662.webp",
+    "image_url": "https://media.vperfumes.com/brands/GUY-LAROCHE-1728141661662.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Hello Kitty",
+    "slug": "hello-kitty",
+    "logo": "https://media.vperfumes.com/brands/IRIS-DE-PERLA-1728141522521.webp",
+    "image_url": "https://media.vperfumes.com/brands/IRIS-DE-PERLA-1728141522521.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Lip Smacker",
+    "slug": "lip-smacker",
+    "logo": "https://media.vperfumes.com/brands/MARC-REPUBLIC-1728143270107.webp",
+    "image_url": "https://media.vperfumes.com/brands/MARC-REPUBLIC-1728143270107.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Paloma Picasso",
+    "slug": "paloma-picasso",
+    "logo": "https://media.vperfumes.com/brands/remy-marquis-en.webp",
+    "image_url": "https://media.vperfumes.com/brands/remy-marquis-en.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Paul Smith",
+    "slug": "paul-smith",
+    "logo": "https://media.vperfumes.com/brands/ROBERT-PIGUET-1728143175449.webp",
+    "image_url": "https://media.vperfumes.com/brands/ROBERT-PIGUET-1728143175449.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Porsche Design",
+    "slug": "porsche-design",
+    "logo": "https://media.vperfumes.com/brands/seiko.webp",
+    "image_url": "https://media.vperfumes.com/brands/seiko.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Adam Levine",
+    "slug": "adam-levine",
+    "logo": "https://media.vperfumes.com/brands/adam-levine.webp",
+    "image_url": "https://media.vperfumes.com/brands/adam-levine.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Fcuk",
+    "slug": "fcuk",
+    "logo": "https://media.vperfumes.com/brands/FRAG-NICHE-1728143464918.webp",
+    "image_url": "https://media.vperfumes.com/brands/FRAG-NICHE-1728143464918.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Ford Mustang",
+    "slug": "ford-mustang",
+    "logo": "https://media.vperfumes.com/brands/giardini-di-toscana.webp",
+    "image_url": "https://media.vperfumes.com/brands/giardini-di-toscana.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Halston",
+    "slug": "halston",
+    "logo": "https://media.vperfumes.com/brands/ice-watch.webp",
+    "image_url": "https://media.vperfumes.com/brands/ice-watch.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Histoires",
+    "slug": "histoires",
+    "logo": "https://media.vperfumes.com/brands/ISSEY-MIYAKE-1728141667949.webp",
+    "image_url": "https://media.vperfumes.com/brands/ISSEY-MIYAKE-1728141667949.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Hollister",
+    "slug": "hollister",
+    "logo": "https://media.vperfumes.com/brands/j-georgeo.webp",
+    "image_url": "https://media.vperfumes.com/brands/j-georgeo.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Hummer",
+    "slug": "hummer",
+    "logo": "https://media.vperfumes.com/brands/JEAN-PAUL-GAULTIER-1728141676027.webp",
+    "image_url": "https://media.vperfumes.com/brands/JEAN-PAUL-GAULTIER-1728141676027.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Lady Gaga",
+    "slug": "lady-gaga",
+    "logo": "https://media.vperfumes.com/brands/lord-of-history.webp",
+    "image_url": "https://media.vperfumes.com/brands/lord-of-history.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Perfrag",
+    "slug": "perfrag",
+    "logo": "https://media.vperfumes.com/brands/ROCHAS-1728143119961.webp",
+    "image_url": "https://media.vperfumes.com/brands/ROCHAS-1728143119961.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Philipp Plein",
+    "slug": "philipp-plein",
+    "logo": "https://media.vperfumes.com/brands/ROGER-MULLER-1728141549333.webp",
+    "image_url": "https://media.vperfumes.com/brands/ROGER-MULLER-1728141549333.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Playboy",
+    "slug": "playboy",
+    "logo": "https://media.vperfumes.com/brands/rosendo-mateu.webp",
+    "image_url": "https://media.vperfumes.com/brands/rosendo-mateu.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Acqua De Monaco",
+    "slug": "acqua-de-monaco",
+    "logo": "https://media.vperfumes.com/brands/ACQUA-DE-MONACO-1728141490978.webp",
+    "image_url": "https://media.vperfumes.com/brands/ACQUA-DE-MONACO-1728141490978.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Acqua Dell Elba",
+    "slug": "acqua-dell-elba",
+    "logo": "https://media.vperfumes.com/brands/acqua-dell-elba-icon.webp",
+    "image_url": "https://media.vperfumes.com/brands/acqua-dell-elba-icon.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Ahmed Al Maghribi",
+    "slug": "ahmed-al-maghribi",
+    "logo": "https://media.vperfumes.com/brands/ahmed-al-maghribi-logo.webp",
+    "image_url": "https://media.vperfumes.com/brands/ahmed-al-maghribi-logo.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Ajmal Perfumes",
+    "slug": "ajmal-perfumes",
+    "logo": "https://media.vperfumes.com/brands/AJMAL-PERFUMES-1728143207585.webp",
+    "image_url": "https://media.vperfumes.com/brands/AJMAL-PERFUMES-1728143207585.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Al Absar",
+    "slug": "al-absar",
+    "logo": "https://media.vperfumes.com/images/al-absar.webp",
+    "image_url": "https://media.vperfumes.com/images/al-absar.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Al Hunaidi",
+    "slug": "al-hunaidi",
+    "logo": "https://media.vperfumes.com/brands/al-hunaidi.webp",
+    "image_url": "https://media.vperfumes.com/brands/al-hunaidi.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Al Seer And Safeer Perfumery",
+    "slug": "al-seer-and-safeer-perfumery",
+    "logo": "https://media.vperfumes.com/brands/al-seer-and-safeer-perfumery.webp",
+    "image_url": "https://media.vperfumes.com/brands/al-seer-and-safeer-perfumery.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Alezz Oud",
+    "slug": "alezz-oud",
+    "logo": "https://media.vperfumes.com/brands/alezz-oud-logo-en.webp",
+    "image_url": "https://media.vperfumes.com/brands/alezz-oud-logo-en.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Amara",
+    "slug": "amara",
+    "logo": "https://media.vperfumes.com/brands/amara.webp",
+    "image_url": "https://media.vperfumes.com/brands/amara.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Amirage",
+    "slug": "amirage",
+    "logo": "https://media.vperfumes.com/brands/amirage.webp",
+    "image_url": "https://media.vperfumes.com/brands/amirage.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Antonio Puig",
+    "slug": "antonio-puig",
+    "logo": "https://media.vperfumes.com/brands/ANTONIO-PUIG-1728141642939.webp",
+    "image_url": "https://media.vperfumes.com/brands/ANTONIO-PUIG-1728141642939.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Arabian Eagle",
+    "slug": "arabian-eagle",
+    "logo": "https://media.vperfumes.com/brands/arabiyat.webp",
+    "image_url": "https://media.vperfumes.com/brands/arabiyat.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Arabiyat",
+    "slug": "arabiyat",
+    "logo": "https://media.vperfumes.com/brands/ARAMIS-1728141570495.webp",
+    "image_url": "https://media.vperfumes.com/brands/ARAMIS-1728141570495.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Ard Al Zaafaran",
+    "slug": "ard-al-zaafaran",
+    "logo": "https://media.vperfumes.com/brands/ariana-grande.webp",
+    "image_url": "https://media.vperfumes.com/brands/ariana-grande.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Argos",
+    "slug": "argos",
+    "logo": "https://media.vperfumes.com/brands/ARMAND-BASI-1728141571891.webp",
+    "image_url": "https://media.vperfumes.com/brands/ARMAND-BASI-1728141571891.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Ariana Grande",
+    "slug": "ariana-grande",
+    "logo": "https://media.vperfumes.com/brands/ARMANI-1728141573601.webp",
+    "image_url": "https://media.vperfumes.com/brands/ARMANI-1728141573601.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Armani",
+    "slug": "armani",
+    "logo": "https://media.vperfumes.com/images/aromatix-french-avenue-logos.webp",
+    "image_url": "https://media.vperfumes.com/images/aromatix-french-avenue-logos.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Aroma Alteeb",
+    "slug": "aroma-alteeb",
+    "logo": "https://media.vperfumes.com/brands/ASPEN-1728141575161.webp",
+    "image_url": "https://media.vperfumes.com/brands/ASPEN-1728141575161.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Aroma Du Monde",
+    "slug": "aroma-du-monde",
+    "logo": "https://media.vperfumes.com/brands/ATELIER-COLOGNE-1728141576589.webp",
+    "image_url": "https://media.vperfumes.com/brands/ATELIER-COLOGNE-1728141576589.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Aromatix French Avenue",
+    "slug": "aromatix-french-avenue",
+    "logo": "https://media.vperfumes.com/brands/atelier-des-ors.webp",
+    "image_url": "https://media.vperfumes.com/brands/atelier-des-ors.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Aspen",
+    "slug": "aspen",
+    "logo": "https://media.vperfumes.com/brands/ATKINSONS-1728143211283.webp",
+    "image_url": "https://media.vperfumes.com/brands/ATKINSONS-1728143211283.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Astro",
+    "slug": "astro",
+    "logo": "https://media.vperfumes.com/images/atralia-logo.webp",
+    "image_url": "https://media.vperfumes.com/images/atralia-logo.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Atelier Des Ors",
+    "slug": "atelier-des-ors",
+    "logo": "https://media.vperfumes.com/images/avana.webp",
+    "image_url": "https://media.vperfumes.com/images/avana.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Atralia",
+    "slug": "atralia",
+    "logo": "https://media.vperfumes.com/brands/AZZARO-1728141565524.webp",
+    "image_url": "https://media.vperfumes.com/brands/AZZARO-1728141565524.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Authenteque",
+    "slug": "authenteque",
+    "logo": "https://media.vperfumes.com/brands/bdk-parfums.webp",
+    "image_url": "https://media.vperfumes.com/brands/bdk-parfums.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Avana Parfums",
+    "slug": "avana-parfums",
+    "logo": "https://media.vperfumes.com/images/bmw-logo.webp",
+    "image_url": "https://media.vperfumes.com/images/bmw-logo.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Azha Perfumes",
+    "slug": "azha-perfumes",
+    "logo": "https://media.vperfumes.com/brands/BALDESSARINI-1728141578117.webp",
+    "image_url": "https://media.vperfumes.com/brands/BALDESSARINI-1728141578117.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Bmw",
+    "slug": "bmw",
+    "logo": "https://media.vperfumes.com/brands/BARBIE-1728143182721.webp",
+    "image_url": "https://media.vperfumes.com/brands/BARBIE-1728143182721.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Bella",
+    "slug": "bella",
+    "logo": "https://media.vperfumes.com/brands/biomio.webp",
+    "image_url": "https://media.vperfumes.com/brands/biomio.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Benetton",
+    "slug": "benetton",
+    "logo": "https://media.vperfumes.com/brands/BLEND-OUD-1728143499806.webp",
+    "image_url": "https://media.vperfumes.com/brands/BLEND-OUD-1728143499806.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Billie Eilish",
+    "slug": "billie-eilish",
+    "logo": "https://media.vperfumes.com/brands/bornostandout-logo.webp",
+    "image_url": "https://media.vperfumes.com/brands/bornostandout-logo.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Biomio",
+    "slug": "biomio",
+    "logo": "https://media.vperfumes.com/brands/borsalino-logo-en.webp",
+    "image_url": "https://media.vperfumes.com/brands/borsalino-logo-en.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Bohoboco",
+    "slug": "bohoboco",
+    "logo": "https://media.vperfumes.com/brands/BOUCHERON-1728141589756.webp",
+    "image_url": "https://media.vperfumes.com/brands/BOUCHERON-1728141589756.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Bolon",
+    "slug": "bolon",
+    "logo": "https://media.vperfumes.com/brands/brioni.webp",
+    "image_url": "https://media.vperfumes.com/brands/brioni.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Borntostandout",
+    "slug": "borntostandout",
+    "logo": "https://media.vperfumes.com/brands/BRUT-1728143502916.webp",
+    "image_url": "https://media.vperfumes.com/brands/BRUT-1728143502916.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Borsalino",
+    "slug": "borsalino",
+    "logo": "https://media.vperfumes.com/brands/bulgarian-rose-mob.webp",
+    "image_url": "https://media.vperfumes.com/brands/bulgarian-rose-mob.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Bottega Le Essenza",
+    "slug": "bottega-le-essenza",
+    "logo": "https://media.vperfumes.com/brands/BURBERRY-1728141592561.webp",
+    "image_url": "https://media.vperfumes.com/brands/BURBERRY-1728141592561.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Bulgarian Rose",
+    "slug": "bulgarian-rose",
+    "logo": "https://media.vperfumes.com/brands/CACHAREL-1728141596939.webp",
+    "image_url": "https://media.vperfumes.com/brands/CACHAREL-1728141596939.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Butterfly",
+    "slug": "butterfly",
+    "logo": "https://media.vperfumes.com/brands/camara.webp",
+    "image_url": "https://media.vperfumes.com/brands/camara.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Comme Des Garcons",
+    "slug": "comme-des-garcons",
+    "logo": "https://media.vperfumes.com/brands/CARON-1728141600342.webp",
+    "image_url": "https://media.vperfumes.com/brands/CARON-1728141600342.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Cr7",
+    "slug": "cr7",
+    "logo": "https://media.vperfumes.com/brands/CARRERA-1728141601858.webp",
+    "image_url": "https://media.vperfumes.com/brands/CARRERA-1728141601858.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Calvin Klein",
+    "slug": "calvin-klein",
+    "logo": "https://media.vperfumes.com/brands/CASIO-1728143515003.webp",
+    "image_url": "https://media.vperfumes.com/brands/CASIO-1728143515003.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Camara",
+    "slug": "camara",
+    "logo": "https://media.vperfumes.com/brands/CERRUTI-1728141604756.webp",
+    "image_url": "https://media.vperfumes.com/brands/CERRUTI-1728141604756.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Candy Crush",
+    "slug": "candy-crush",
+    "logo": "https://media.vperfumes.com/brands/CHANEL-1728141470537.webp",
+    "image_url": "https://media.vperfumes.com/brands/CHANEL-1728141470537.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Caron",
+    "slug": "caron",
+    "logo": "https://media.vperfumes.com/brands/CHOPARD-1728141607933.webp",
+    "image_url": "https://media.vperfumes.com/brands/CHOPARD-1728141607933.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Carrera",
+    "slug": "carrera",
+    "logo": "https://media.vperfumes.com/brands/chris-adams.webp",
+    "image_url": "https://media.vperfumes.com/brands/chris-adams.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Carven",
+    "slug": "carven",
+    "logo": "https://media.vperfumes.com/brands/CHRISTIAN-LOUBOUTIN-1728143219584.webp",
+    "image_url": "https://media.vperfumes.com/brands/CHRISTIAN-LOUBOUTIN-1728143219584.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Casio",
+    "slug": "casio",
+    "logo": "https://media.vperfumes.com/brands/CLEO-PARIS-1728143229415.webp",
+    "image_url": "https://media.vperfumes.com/brands/CLEO-PARIS-1728143229415.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Cerruti",
+    "slug": "cerruti",
+    "logo": "https://media.vperfumes.com/brands/CLINIQUE-1728141622167.webp",
+    "image_url": "https://media.vperfumes.com/brands/CLINIQUE-1728141622167.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Chloe",
+    "slug": "chloe",
+    "logo": "https://media.vperfumes.com/brands/CLOUDY-PARIS-1728143163367.webp",
+    "image_url": "https://media.vperfumes.com/brands/CLOUDY-PARIS-1728143163367.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Chris Adams",
+    "slug": "chris-adams",
+    "logo": "https://media.vperfumes.com/brands/cosmo.webp",
+    "image_url": "https://media.vperfumes.com/brands/cosmo.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Chrisbella",
+    "slug": "chrisbella",
+    "logo": "https://media.vperfumes.com/brands/COSTUME-NATIONAL-1728141626489.webp",
+    "image_url": "https://media.vperfumes.com/brands/COSTUME-NATIONAL-1728141626489.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Christian Louboutin",
+    "slug": "christian-louboutin",
+    "logo": "https://media.vperfumes.com/brands/CREED-1728141609692.webp",
+    "image_url": "https://media.vperfumes.com/brands/CREED-1728141609692.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Citizen",
+    "slug": "citizen",
+    "logo": "https://media.vperfumes.com/brands/CUPID-1728143230222.webp",
+    "image_url": "https://media.vperfumes.com/brands/CUPID-1728143230222.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Cleo Paris",
+    "slug": "cleo-paris",
+    "logo": "https://media.vperfumes.com/brands/DKNY-1728141615527.webp",
+    "image_url": "https://media.vperfumes.com/brands/DKNY-1728141615527.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Clinique",
+    "slug": "clinique",
+    "logo": "https://media.vperfumes.com/brands/DSQUARED2-1728141619112.webp",
+    "image_url": "https://media.vperfumes.com/brands/DSQUARED2-1728141619112.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Cloudy Paris",
+    "slug": "cloudy-paris",
+    "logo": "https://media.vperfumes.com/brands/DAVID-BECKHAM-1728141628066.webp",
+    "image_url": "https://media.vperfumes.com/brands/DAVID-BECKHAM-1728141628066.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Cornells",
+    "slug": "cornells",
+    "logo": "https://media.vperfumes.com/brands/DE-LILLIS-1728141502867.webp",
+    "image_url": "https://media.vperfumes.com/brands/DE-LILLIS-1728141502867.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Cosmo",
+    "slug": "cosmo",
+    "logo": "https://media.vperfumes.com/brands/DIESEL-1728141612593.webp",
+    "image_url": "https://media.vperfumes.com/brands/DIESEL-1728141612593.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Costume National",
+    "slug": "costume-national",
+    "logo": "https://media.vperfumes.com/brands/dignite-logo.webp",
+    "image_url": "https://media.vperfumes.com/brands/dignite-logo.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Cupid",
+    "slug": "cupid",
+    "logo": "https://media.vperfumes.com/brands/DION-SMITH-1728143233459.webp",
+    "image_url": "https://media.vperfumes.com/brands/DION-SMITH-1728143233459.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Daisy La Blanc",
+    "slug": "daisy-la-blanc",
+    "logo": "https://media.vperfumes.com/brands/DISNEY-1728143282974.webp",
+    "image_url": "https://media.vperfumes.com/brands/DISNEY-1728143282974.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "De Lillis",
+    "slug": "de-lillis",
+    "logo": "https://media.vperfumes.com/brands/DYNASTY%27S-1728143220626.webp",
+    "image_url": "https://media.vperfumes.com/brands/DYNASTY%27S-1728143220626.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Dignite",
+    "slug": "dignite",
+    "logo": "https://media.vperfumes.com/brands/ecstacy.webp",
+    "image_url": "https://media.vperfumes.com/brands/ecstacy.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Dion Smith",
+    "slug": "dion-smith",
+    "logo": "https://media.vperfumes.com/brands/ELIE-SAAB-1728141629439.webp",
+    "image_url": "https://media.vperfumes.com/brands/ELIE-SAAB-1728141629439.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "E Power",
+    "slug": "e-power",
+    "logo": "https://media.vperfumes.com/brands/essenza.webp",
+    "image_url": "https://media.vperfumes.com/brands/essenza.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Eo",
+    "slug": "eo",
+    "logo": "https://media.vperfumes.com/brands/ESTEE-LAUDER-1728141638705.webp",
+    "image_url": "https://media.vperfumes.com/brands/ESTEE-LAUDER-1728141638705.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Ecstacy",
+    "slug": "ecstacy",
+    "logo": "https://media.vperfumes.com/brands/estiara-passion.webp",
+    "image_url": "https://media.vperfumes.com/brands/estiara-passion.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Eight Bob",
+    "slug": "eight-bob",
+    "logo": "https://media.vperfumes.com/brands/etat-libre-d-orange.webp",
+    "image_url": "https://media.vperfumes.com/brands/etat-libre-d-orange.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Elizabeth Taylor",
+    "slug": "elizabeth-taylor",
+    "logo": "https://media.vperfumes.com/brands/FAIZ-NICHE-1728141513371.webp",
+    "image_url": "https://media.vperfumes.com/brands/FAIZ-NICHE-1728141513371.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Elysee",
+    "slug": "elysee",
+    "logo": "https://media.vperfumes.com/brands/faridah-logo.webp",
+    "image_url": "https://media.vperfumes.com/brands/faridah-logo.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Essential Parfums",
+    "slug": "essential-parfums",
+    "logo": "https://media.vperfumes.com/brands/FERRARI-1728141647770.webp",
+    "image_url": "https://media.vperfumes.com/brands/FERRARI-1728141647770.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Estiara Passion",
+    "slug": "estiara-passion",
+    "logo": "https://media.vperfumes.com/images/fierro-logo.webp",
+    "image_url": "https://media.vperfumes.com/images/fierro-logo.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Etat Libre D Orange",
+    "slug": "etat-libre-d-orange",
+    "logo": "https://media.vperfumes.com/brands/FIORI-1728141517405.webp",
+    "image_url": "https://media.vperfumes.com/brands/FIORI-1728141517405.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Ex Nihilo",
+    "slug": "ex-nihilo",
+    "logo": "https://media.vperfumes.com/brands/flamenco.webp",
+    "image_url": "https://media.vperfumes.com/brands/flamenco.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Faridah",
+    "slug": "faridah",
+    "logo": "https://media.vperfumes.com/brands/FOSSIL-1728143237470.webp",
+    "image_url": "https://media.vperfumes.com/brands/FOSSIL-1728143237470.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Fid Fad",
+    "slug": "fid-fad",
+    "logo": "https://media.vperfumes.com/brands/FREDERIC-MALLE-1728143239537.webp",
+    "image_url": "https://media.vperfumes.com/brands/FREDERIC-MALLE-1728143239537.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Fierro",
+    "slug": "fierro",
+    "logo": "https://media.vperfumes.com/brands/french-avenue.webp",
+    "image_url": "https://media.vperfumes.com/brands/french-avenue.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Flavia",
+    "slug": "flavia",
+    "logo": "https://media.vperfumes.com/brands/GEOFFREY-BEENE-1728141652162.webp",
+    "image_url": "https://media.vperfumes.com/brands/GEOFFREY-BEENE-1728141652162.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Fossil",
+    "slug": "fossil",
+    "logo": "https://media.vperfumes.com/brands/giorgio-beverly-hills.webp",
+    "image_url": "https://media.vperfumes.com/brands/giorgio-beverly-hills.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Frais Et Frais",
+    "slug": "frais-et-frais",
+    "logo": "https://media.vperfumes.com/brands/GODREJ-1728143581347.webp",
+    "image_url": "https://media.vperfumes.com/brands/GODREJ-1728143581347.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Francesca Bianchi",
+    "slug": "francesca-bianchi",
+    "logo": "https://media.vperfumes.com/brands/GOLDEN-ROSE-1728143368616.webp",
+    "image_url": "https://media.vperfumes.com/brands/GOLDEN-ROSE-1728143368616.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Maison Francis Kurkdjian",
+    "slug": "maison-francis-kurkdjian",
+    "logo": "https://media.vperfumes.com/brands/goldfield-banks.webp",
+    "image_url": "https://media.vperfumes.com/brands/goldfield-banks.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "French Avenue",
+    "slug": "french-avenue",
+    "logo": "https://media.vperfumes.com/brands/GUCCI-1728141656788.webp",
+    "image_url": "https://media.vperfumes.com/brands/GUCCI-1728141656788.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Freshlook",
+    "slug": "freshlook",
+    "logo": "https://media.vperfumes.com/brands/guerlain-paris.webp",
+    "image_url": "https://media.vperfumes.com/brands/guerlain-paris.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Galore",
+    "slug": "galore",
+    "logo": "https://media.vperfumes.com/brands/GUESS-1728141659947.webp",
+    "image_url": "https://media.vperfumes.com/brands/GUESS-1728141659947.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Giardini Di Toscana",
+    "slug": "giardini-di-toscana",
+    "logo": "https://media.vperfumes.com/brands/halloween.webp",
+    "image_url": "https://media.vperfumes.com/brands/halloween.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Giovanni Bacci",
+    "slug": "giovanni-bacci",
+    "logo": "https://media.vperfumes.com/images/hamidi.webp",
+    "image_url": "https://media.vperfumes.com/images/hamidi.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Godrej",
+    "slug": "godrej",
+    "logo": "https://media.vperfumes.com/brands/HEART-OF-GRASSE-1728143536546.webp",
+    "image_url": "https://media.vperfumes.com/brands/HEART-OF-GRASSE-1728143536546.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Golden Rose",
+    "slug": "golden-rose",
+    "logo": "https://media.vperfumes.com/brands/HELLO-KITTY-1728143281019.webp",
+    "image_url": "https://media.vperfumes.com/brands/HELLO-KITTY-1728143281019.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Goldfield Banks",
+    "slug": "goldfield-banks",
+    "logo": "https://media.vperfumes.com/brands/HERMES-1728141663012.webp",
+    "image_url": "https://media.vperfumes.com/brands/HERMES-1728141663012.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Gravity",
+    "slug": "gravity",
+    "logo": "https://media.vperfumes.com/brands/histoires.webp",
+    "image_url": "https://media.vperfumes.com/brands/histoires.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Hask",
+    "slug": "hask",
+    "logo": "https://media.vperfumes.com/brands/HUGO-BOSS-1728141480932.webp",
+    "image_url": "https://media.vperfumes.com/brands/HUGO-BOSS-1728141480932.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Halloween",
+    "slug": "halloween",
+    "logo": "https://media.vperfumes.com/brands/HUMMER-1728143189538.webp",
+    "image_url": "https://media.vperfumes.com/brands/HUMMER-1728143189538.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Hamidi",
+    "slug": "hamidi",
+    "logo": "https://media.vperfumes.com/brands/ICEBERG-1728141666297.webp",
+    "image_url": "https://media.vperfumes.com/brands/ICEBERG-1728141666297.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Hana Cosmetics",
+    "slug": "hana-cosmetics",
+    "logo": "https://media.vperfumes.com/brands/INECTO-1728143442310.webp",
+    "image_url": "https://media.vperfumes.com/brands/INECTO-1728143442310.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Houbigant Parfum",
+    "slug": "houbigant-parfum",
+    "logo": "https://media.vperfumes.com/brands/JACOMO-1728141669556.webp",
+    "image_url": "https://media.vperfumes.com/brands/JACOMO-1728141669556.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "House Of Aurae",
+    "slug": "house-of-aurae",
+    "logo": "https://media.vperfumes.com/brands/JACQUES-BOGART-1728141671412.webp",
+    "image_url": "https://media.vperfumes.com/brands/JACQUES-BOGART-1728141671412.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Ice Watchs",
+    "slug": "ice-watchs",
+    "logo": "https://media.vperfumes.com/brands/JENNIFER-LOPEZ-1728141677625.webp",
+    "image_url": "https://media.vperfumes.com/brands/JENNIFER-LOPEZ-1728141677625.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Inecto",
+    "slug": "inecto",
+    "logo": "https://media.vperfumes.com/images/bornostandout-logo.webp",
+    "image_url": "https://media.vperfumes.com/images/bornostandout-logo.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Isabellina",
+    "slug": "isabellina",
+    "logo": "https://media.vperfumes.com/brands/jesus-del-pozo.webp",
+    "image_url": "https://media.vperfumes.com/brands/jesus-del-pozo.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "J Georgeo",
+    "slug": "j-georgeo",
+    "logo": "https://media.vperfumes.com/brands/JIMMY-CHOO-1728141682440.webp",
+    "image_url": "https://media.vperfumes.com/brands/JIMMY-CHOO-1728141682440.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Jaber And Kindi",
+    "slug": "jaber-and-kindi",
+    "logo": "https://media.vperfumes.com/brands/JO-MALONE-1728141684033.webp",
+    "image_url": "https://media.vperfumes.com/brands/JO-MALONE-1728141684033.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Jacomo",
+    "slug": "jacomo",
+    "logo": "https://media.vperfumes.com/brands/JOHN-LOEWE-1728143265669.webp",
+    "image_url": "https://media.vperfumes.com/brands/JOHN-LOEWE-1728143265669.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Jacques Bogart",
+    "slug": "jacques-bogart",
+    "logo": "https://media.vperfumes.com/brands/JOHN-REGIS-1728143166542.webp",
+    "image_url": "https://media.vperfumes.com/brands/JOHN-REGIS-1728143166542.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Jaguar",
+    "slug": "jaguar",
+    "logo": "https://media.vperfumes.com/brands/JOHN-RICHMOND-1728143168259.webp",
+    "image_url": "https://media.vperfumes.com/brands/JOHN-RICHMOND-1728143168259.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Jean Louis Scherrer",
+    "slug": "jean-louis-scherrer",
+    "logo": "https://media.vperfumes.com/brands/JOHN-VARVATOS-1728141685339.webp",
+    "image_url": "https://media.vperfumes.com/brands/JOHN-VARVATOS-1728141685339.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Jennifer Lopez",
+    "slug": "jennifer-lopez",
+    "logo": "https://media.vperfumes.com/brands/JOVAN-1728141688823.webp",
+    "image_url": "https://media.vperfumes.com/brands/JOVAN-1728141688823.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Jenny Glow",
+    "slug": "jenny-glow",
+    "logo": "https://media.vperfumes.com/brands/JUICY-COUTURE-1728141690467.webp",
+    "image_url": "https://media.vperfumes.com/brands/JUICY-COUTURE-1728141690467.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Jeroboam",
+    "slug": "jeroboam",
+    "logo": "https://media.vperfumes.com/brands/JULIETTE-HAS-A-GUN-1728141692103.webp",
+    "image_url": "https://media.vperfumes.com/brands/JULIETTE-HAS-A-GUN-1728141692103.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Jessica Mcclintock",
+    "slug": "jessica-mcclintock",
+    "logo": "https://media.vperfumes.com/brands/JUSTIN-BIEBER-1728143214364.webp",
+    "image_url": "https://media.vperfumes.com/brands/JUSTIN-BIEBER-1728143214364.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Jessica Simpson",
+    "slug": "jessica-simpson",
+    "logo": "https://media.vperfumes.com/brands/KARL-LAGERFELD-1728143316683.webp",
+    "image_url": "https://media.vperfumes.com/brands/KARL-LAGERFELD-1728143316683.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Jesus Del Pozo",
+    "slug": "jesus-del-pozo",
+    "logo": "https://media.vperfumes.com/brands/kate-spade.webp",
+    "image_url": "https://media.vperfumes.com/brands/kate-spade.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Jil Sander",
+    "slug": "jil-sander",
+    "logo": "https://media.vperfumes.com/brands/KATY-PERRY-1728143241586.webp",
+    "image_url": "https://media.vperfumes.com/brands/KATY-PERRY-1728143241586.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Jimmy Choo",
+    "slug": "jimmy-choo",
+    "logo": "https://media.vperfumes.com/brands/KENNETH-COLE-1728141693430.webp",
+    "image_url": "https://media.vperfumes.com/brands/KENNETH-COLE-1728141693430.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Jo Malone",
+    "slug": "jo-malone",
+    "logo": "https://media.vperfumes.com/brands/KENZO-1728141695183.webp",
+    "image_url": "https://media.vperfumes.com/brands/KENZO-1728141695183.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "John Loewe",
+    "slug": "john-loewe",
+    "logo": "https://media.vperfumes.com/brands/KHADLAJ-1728143202371.webp",
+    "image_url": "https://media.vperfumes.com/brands/KHADLAJ-1728143202371.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "John Regis",
+    "slug": "john-regis",
+    "logo": "https://media.vperfumes.com/brands/KILIAN-1728141696620.webp",
+    "image_url": "https://media.vperfumes.com/brands/KILIAN-1728141696620.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "John Richmond",
+    "slug": "john-richmond",
+    "logo": "https://media.vperfumes.com/brands/KIM-KARDASHIAN-1728143279275.webp",
+    "image_url": "https://media.vperfumes.com/brands/KIM-KARDASHIAN-1728143279275.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "John Varvatos",
+    "slug": "john-varvatos",
+    "logo": "https://media.vperfumes.com/brands/kinski.webp",
+    "image_url": "https://media.vperfumes.com/brands/kinski.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Joop",
+    "slug": "joop",
+    "logo": "https://media.vperfumes.com/brands/kiswah-logo.webp",
+    "image_url": "https://media.vperfumes.com/brands/kiswah-logo.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Jovan",
+    "slug": "jovan",
+    "logo": "https://media.vperfumes.com/brands/KORLOFF-1728143192647.webp",
+    "image_url": "https://media.vperfumes.com/brands/KORLOFF-1728143192647.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Juicy Couture",
+    "slug": "juicy-couture",
+    "logo": "https://media.vperfumes.com/brands/kylie-minogue.webp",
+    "image_url": "https://media.vperfumes.com/brands/kylie-minogue.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Juliette Has A Gun",
+    "slug": "juliette-has-a-gun",
+    "logo": "https://media.vperfumes.com/brands/la-manufacture.webp",
+    "image_url": "https://media.vperfumes.com/brands/la-manufacture.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Justin Bieber",
+    "slug": "justin-bieber",
+    "logo": "https://media.vperfumes.com/images/lacoste-logo.webp",
+    "image_url": "https://media.vperfumes.com/images/lacoste-logo.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Karl Lagerfeld",
+    "slug": "karl-lagerfeld",
+    "logo": "https://media.vperfumes.com/brands/lady-gaga.webp",
+    "image_url": "https://media.vperfumes.com/brands/lady-gaga.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Kate Spade",
+    "slug": "kate-spade",
+    "logo": "https://media.vperfumes.com/brands/LALIQUE-1728141699574.webp",
+    "image_url": "https://media.vperfumes.com/brands/LALIQUE-1728141699574.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Katy Perry",
+    "slug": "katy-perry",
+    "logo": "https://media.vperfumes.com/brands/LANCOME-1728141701220.webp",
+    "image_url": "https://media.vperfumes.com/brands/LANCOME-1728141701220.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Kenneth Cole",
+    "slug": "kenneth-cole",
+    "logo": "https://media.vperfumes.com/brands/LANVIN-1728141702865.webp",
+    "image_url": "https://media.vperfumes.com/brands/LANVIN-1728141702865.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Kenneth Scott",
+    "slug": "kenneth-scott",
+    "logo": "https://media.vperfumes.com/brands/lapidus.webp",
+    "image_url": "https://media.vperfumes.com/brands/lapidus.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Khadlaj",
+    "slug": "khadlaj",
+    "logo": "https://media.vperfumes.com/brands/LAURA-BIAGIOTTI-1728141704487.webp",
+    "image_url": "https://media.vperfumes.com/brands/LAURA-BIAGIOTTI-1728141704487.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Kilian",
+    "slug": "kilian",
+    "logo": "https://media.vperfumes.com/brands/LE-FALCONE-1728141524916.webp",
+    "image_url": "https://media.vperfumes.com/brands/LE-FALCONE-1728141524916.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Kim Kardashian",
+    "slug": "kim-kardashian",
+    "logo": "https://media.vperfumes.com/brands/le-lebo.webp",
+    "image_url": "https://media.vperfumes.com/brands/le-lebo.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Kiswah Perfumes",
+    "slug": "kiswah-perfumes",
+    "logo": "https://media.vperfumes.com/brands/lee-cooper.webp",
+    "image_url": "https://media.vperfumes.com/brands/lee-cooper.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Korloff",
+    "slug": "korloff",
+    "logo": "https://media.vperfumes.com/brands/lengling-munich-logo-en.webp",
+    "image_url": "https://media.vperfumes.com/brands/lengling-munich-logo-en.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Kylie Minogue",
+    "slug": "kylie-minogue",
+    "logo": "https://media.vperfumes.com/brands/LEON-HECTOR-1728141526706.webp",
+    "image_url": "https://media.vperfumes.com/brands/LEON-HECTOR-1728141526706.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Lambere Fragrances",
+    "slug": "lambere-fragrances",
+    "logo": "https://media.vperfumes.com/brands/LIP-SMACKER-1728143413595.webp",
+    "image_url": "https://media.vperfumes.com/brands/LIP-SMACKER-1728143413595.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "La Manufacture",
+    "slug": "la-manufacture",
+    "logo": "https://media.vperfumes.com/brands/LOEWE-1728141706233.webp",
+    "image_url": "https://media.vperfumes.com/brands/LOEWE-1728141706233.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "La Monarch",
+    "slug": "la-monarch",
+    "logo": "https://media.vperfumes.com/brands/LOLITA-LEMPICKA-1728141707991.webp",
+    "image_url": "https://media.vperfumes.com/brands/LOLITA-LEMPICKA-1728141707991.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Lacoste",
+    "slug": "lacoste",
+    "logo": "https://media.vperfumes.com/brands/lomani.webp",
+    "image_url": "https://media.vperfumes.com/brands/lomani.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Lalique",
+    "slug": "lalique",
+    "logo": "https://media.vperfumes.com/banners/lorenzo-pazzaglia-cover-mob-ar.webp",
+    "image_url": "https://media.vperfumes.com/banners/lorenzo-pazzaglia-cover-mob-ar.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Lancetti",
+    "slug": "lancetti",
+    "logo": "https://media.vperfumes.com/brands/LORENZO-VILLORESI-1728143243078.webp",
+    "image_url": "https://media.vperfumes.com/brands/LORENZO-VILLORESI-1728143243078.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Lancome",
+    "slug": "lancome",
+    "logo": "https://media.vperfumes.com/brands/LOUIS-BRETON-1728141528408.webp",
+    "image_url": "https://media.vperfumes.com/brands/LOUIS-BRETON-1728141528408.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Lanvin",
+    "slug": "lanvin",
+    "logo": "https://media.vperfumes.com/brands/louis-varel.webp",
+    "image_url": "https://media.vperfumes.com/brands/louis-varel.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Lapidus",
+    "slug": "lapidus",
+    "logo": "https://media.vperfumes.com/brands/LOUIS-VUITTON-1728141709501.webp",
+    "image_url": "https://media.vperfumes.com/brands/LOUIS-VUITTON-1728141709501.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Laura Biagiotti",
+    "slug": "laura-biagiotti",
+    "logo": "https://media.vperfumes.com/brands/maison-crivelli.webp",
+    "image_url": "https://media.vperfumes.com/brands/maison-crivelli.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Le Falcone Perfume",
+    "slug": "le-falcone-perfume",
+    "logo": "https://media.vperfumes.com/brands/maison-martin-margiela.webp",
+    "image_url": "https://media.vperfumes.com/brands/maison-martin-margiela.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Le Gazelle",
+    "slug": "le-gazelle",
+    "logo": "https://media.vperfumes.com/brands/maison-oud.webp",
+    "image_url": "https://media.vperfumes.com/brands/maison-oud.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Le Labo",
+    "slug": "le-labo",
+    "logo": "https://media.vperfumes.com/images/ma-logo-1.webp",
+    "image_url": "https://media.vperfumes.com/images/ma-logo-1.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Leboosh",
+    "slug": "leboosh",
+    "logo": "https://media.vperfumes.com/brands/MANCERA-1728141710956.webp",
+    "image_url": "https://media.vperfumes.com/brands/MANCERA-1728141710956.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Lecmo",
+    "slug": "lecmo",
+    "logo": "https://media.vperfumes.com/brands/MANGO-1728143554310.webp",
+    "image_url": "https://media.vperfumes.com/brands/MANGO-1728143554310.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Lee Cooper",
+    "slug": "lee-cooper",
+    "logo": "https://media.vperfumes.com/brands/MANZANA-1728141529776.webp",
+    "image_url": "https://media.vperfumes.com/brands/MANZANA-1728141529776.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Lengling Munich",
+    "slug": "lengling-munich",
+    "logo": "https://media.vperfumes.com/brands/marc-antoine-barrois.webp",
+    "image_url": "https://media.vperfumes.com/brands/marc-antoine-barrois.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Leon Hector",
+    "slug": "leon-hector",
+    "logo": "https://media.vperfumes.com/brands/MARC-JACOBS-1728141712483.webp",
+    "image_url": "https://media.vperfumes.com/brands/MARC-JACOBS-1728141712483.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Loewe",
+    "slug": "loewe",
+    "logo": "https://media.vperfumes.com/brands/MARCO-LEON-1728143317538.webp",
+    "image_url": "https://media.vperfumes.com/brands/MARCO-LEON-1728143317538.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Lolita Lempicka",
+    "slug": "lolita-lempicka",
+    "logo": "https://media.vperfumes.com/brands/mariah-carey.webp",
+    "image_url": "https://media.vperfumes.com/brands/mariah-carey.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Lomani",
+    "slug": "lomani",
+    "logo": "https://media.vperfumes.com/brands/MARINE-JACOLIN-1728143497085.webp",
+    "image_url": "https://media.vperfumes.com/brands/MARINE-JACOLIN-1728143497085.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Lord Of History",
+    "slug": "lord-of-history",
+    "logo": "https://media.vperfumes.com/brands/MARK-ALFRED-1728141531421.webp",
+    "image_url": "https://media.vperfumes.com/brands/MARK-ALFRED-1728141531421.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Lorenzo Pazzaglia",
+    "slug": "lorenzo-pazzaglia",
+    "logo": "https://media.vperfumes.com/brands/MARK-DES-VINCE-1728141532845.webp",
+    "image_url": "https://media.vperfumes.com/brands/MARK-DES-VINCE-1728141532845.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Lorenzo Villoresi",
+    "slug": "lorenzo-villoresi",
+    "logo": "https://media.vperfumes.com/brands/MARKS-BLAND-1728141534459.webp",
+    "image_url": "https://media.vperfumes.com/brands/MARKS-BLAND-1728141534459.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Louis Breton",
+    "slug": "louis-breton",
+    "logo": "https://media.vperfumes.com/brands/maryaj.webp",
+    "image_url": "https://media.vperfumes.com/brands/maryaj.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Louis Varel",
+    "slug": "louis-varel",
+    "logo": "https://media.vperfumes.com/brands/matiere-premiere.webp",
+    "image_url": "https://media.vperfumes.com/brands/matiere-premiere.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Louis Vuitton",
+    "slug": "louis-vuitton",
+    "logo": "https://media.vperfumes.com/brands/mauboussin.webp",
+    "image_url": "https://media.vperfumes.com/brands/mauboussin.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Luniche",
+    "slug": "luniche",
+    "logo": "https://media.vperfumes.com/brands/MAUI-JIM-1728143556400.webp",
+    "image_url": "https://media.vperfumes.com/brands/MAUI-JIM-1728143556400.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Maison Crivelli",
+    "slug": "maison-crivelli",
+    "logo": "https://media.vperfumes.com/brands/MC-JOHN-1728141536333.webp",
+    "image_url": "https://media.vperfumes.com/brands/MC-JOHN-1728141536333.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Maison Martin Margiela",
+    "slug": "maison-martin-margiela",
+    "logo": "https://media.vperfumes.com/brands/MEMO-1728141713910.webp",
+    "image_url": "https://media.vperfumes.com/brands/MEMO-1728141713910.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Maison Oud",
+    "slug": "maison-oud",
+    "logo": "https://media.vperfumes.com/brands/MERCEDES-BENZ-1728143156208.webp",
+    "image_url": "https://media.vperfumes.com/brands/MERCEDES-BENZ-1728143156208.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Maison De Lavenir",
+    "slug": "maison-de-lavenir",
+    "logo": "https://media.vperfumes.com/brands/messi-perfumes.webp",
+    "image_url": "https://media.vperfumes.com/brands/messi-perfumes.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Mango",
+    "slug": "mango",
+    "logo": "https://media.vperfumes.com/brands/MICHAEL-KORS-1728141715556.webp",
+    "image_url": "https://media.vperfumes.com/brands/MICHAEL-KORS-1728141715556.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Manzana",
+    "slug": "manzana",
+    "logo": "https://media.vperfumes.com/brands/min-new-york.webp",
+    "image_url": "https://media.vperfumes.com/brands/min-new-york.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Marbert Man",
+    "slug": "marbert-man",
+    "logo": "https://media.vperfumes.com/brands/MISK-AL-GHAZAAL-1728143199810.webp",
+    "image_url": "https://media.vperfumes.com/brands/MISK-AL-GHAZAAL-1728143199810.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Marc Antoine Barrois",
+    "slug": "marc-antoine-barrois",
+    "logo": "https://media.vperfumes.com/brands/MISSHA-1728143421013.webp",
+    "image_url": "https://media.vperfumes.com/brands/MISSHA-1728143421013.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Marc Jacobs",
+    "slug": "marc-jacobs",
+    "logo": "https://media.vperfumes.com/brands/Missoni-1728143303559.webp",
+    "image_url": "https://media.vperfumes.com/brands/Missoni-1728143303559.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Marc Republic",
+    "slug": "marc-republic",
+    "logo": "https://media.vperfumes.com/brands/MIU-MIU-1728141717100.webp",
+    "image_url": "https://media.vperfumes.com/brands/MIU-MIU-1728141717100.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Marco Leon",
+    "slug": "marco-leon",
+    "logo": "https://media.vperfumes.com/brands/mizensir-perfumes.webp",
+    "image_url": "https://media.vperfumes.com/brands/mizensir-perfumes.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Mariah Carey",
+    "slug": "mariah-carey",
+    "logo": "https://media.vperfumes.com/brands/MON-DESTIN-1728141537955.webp",
+    "image_url": "https://media.vperfumes.com/brands/MON-DESTIN-1728141537955.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Marina De Bourbon",
+    "slug": "marina-de-bourbon",
+    "logo": "https://media.vperfumes.com/brands/moncler.webp",
+    "image_url": "https://media.vperfumes.com/brands/moncler.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Marina Galanti",
+    "slug": "marina-galanti",
+    "logo": "https://media.vperfumes.com/brands/montale.webp",
+    "image_url": "https://media.vperfumes.com/brands/montale.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Marine Jacolin",
+    "slug": "marine-jacolin",
+    "logo": "https://media.vperfumes.com/brands/montana.webp",
+    "image_url": "https://media.vperfumes.com/brands/montana.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Mark Alfred",
+    "slug": "mark-alfred",
+    "logo": "https://media.vperfumes.com/brands/MONT-BLANC-1728141718585.webp",
+    "image_url": "https://media.vperfumes.com/brands/MONT-BLANC-1728141718585.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Mark Des Vince",
+    "slug": "mark-des-vince",
+    "logo": "https://media.vperfumes.com/images/monza.webp",
+    "image_url": "https://media.vperfumes.com/images/monza.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Marks Bland",
+    "slug": "marks-bland",
+    "logo": "https://media.vperfumes.com/brands/MORESQUE-1728143475058.webp",
+    "image_url": "https://media.vperfumes.com/brands/MORESQUE-1728143475058.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Maryaj",
+    "slug": "maryaj",
+    "logo": "https://media.vperfumes.com/brands/THIERRY-MUGLER-1728143135349.webp",
+    "image_url": "https://media.vperfumes.com/brands/THIERRY-MUGLER-1728143135349.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Matiere Premiere",
+    "slug": "matiere-premiere",
+    "logo": "https://media.vperfumes.com/brands/NGW-1728143475984.webp",
+    "image_url": "https://media.vperfumes.com/brands/NGW-1728143475984.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Mauboussin",
+    "slug": "mauboussin",
+    "logo": "https://media.vperfumes.com/brands/NABEEL-PERFUMES-1728143578638.webp",
+    "image_url": "https://media.vperfumes.com/brands/NABEEL-PERFUMES-1728143578638.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Maui Jim",
+    "slug": "maui-jim",
+    "logo": "https://media.vperfumes.com/brands/NARCISO-RODRIGUEZ-1728141723223.webp",
+    "image_url": "https://media.vperfumes.com/brands/NARCISO-RODRIGUEZ-1728141723223.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Mc John",
+    "slug": "mc-john",
+    "logo": "https://media.vperfumes.com/brands/NASAMAT-1728143359175.webp",
+    "image_url": "https://media.vperfumes.com/brands/NASAMAT-1728143359175.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Memo",
+    "slug": "memo",
+    "logo": "https://media.vperfumes.com/images/nasomatto.webp",
+    "image_url": "https://media.vperfumes.com/images/nasomatto.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Mercedes Benz",
+    "slug": "mercedes-benz",
+    "logo": "https://media.vperfumes.com/brands/NAUTICA-1728143179759.webp",
+    "image_url": "https://media.vperfumes.com/brands/NAUTICA-1728143179759.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Messi",
+    "slug": "messi",
+    "logo": "https://media.vperfumes.com/brands/NICKELODEON-1728143278214.webp",
+    "image_url": "https://media.vperfumes.com/brands/NICKELODEON-1728143278214.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Micallef",
+    "slug": "micallef",
+    "logo": "https://media.vperfumes.com/brands/NICOLAI-1728143288428.webp",
+    "image_url": "https://media.vperfumes.com/brands/NICOLAI-1728143288428.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Michael Kors",
+    "slug": "michael-kors",
+    "logo": "https://media.vperfumes.com/brands/NIKOS-1728141726211.webp",
+    "image_url": "https://media.vperfumes.com/brands/NIKOS-1728141726211.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Min New York",
+    "slug": "min-new-york",
+    "logo": "https://media.vperfumes.com/brands/NINA-RICCI-1728141727682.webp",
+    "image_url": "https://media.vperfumes.com/brands/NINA-RICCI-1728141727682.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Misk Al Ghazaal",
+    "slug": "misk-al-ghazaal",
+    "logo": "https://media.vperfumes.com/brands/NISHANE-1728143244753.webp",
+    "image_url": "https://media.vperfumes.com/brands/NISHANE-1728143244753.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Missha",
+    "slug": "missha",
+    "logo": "https://media.vperfumes.com/brands/NUE-1728143484866.webp",
+    "image_url": "https://media.vperfumes.com/brands/NUE-1728143484866.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Missoni",
+    "slug": "missoni",
+    "logo": "https://media.vperfumes.com/brands/oakley.webp",
+    "image_url": "https://media.vperfumes.com/brands/oakley.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Miu Miu",
+    "slug": "miu-miu",
+    "logo": "https://media.vperfumes.com/images/ojar-logo.webp",
+    "image_url": "https://media.vperfumes.com/images/ojar-logo.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Mizensir Perfumes",
+    "slug": "mizensir-perfumes",
+    "logo": "https://media.vperfumes.com/brands/OLIVE-PERFUMES-1728141539513.webp",
+    "image_url": "https://media.vperfumes.com/brands/OLIVE-PERFUMES-1728141539513.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Mon Destin",
+    "slug": "mon-destin",
+    "logo": "https://media.vperfumes.com/images/oman-luxury-logo.webp",
+    "image_url": "https://media.vperfumes.com/images/oman-luxury-logo.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Moncler",
+    "slug": "moncler",
+    "logo": "https://media.vperfumes.com/images/bg-omax-logo.webp",
+    "image_url": "https://media.vperfumes.com/images/bg-omax-logo.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Montana",
+    "slug": "montana",
+    "logo": "https://media.vperfumes.com/brands/orient.webp",
+    "image_url": "https://media.vperfumes.com/brands/orient.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Mont Blanc",
+    "slug": "mont-blanc",
+    "logo": "https://media.vperfumes.com/brands/ORMONDE-JAYNE-1728143246308.webp",
+    "image_url": "https://media.vperfumes.com/brands/ORMONDE-JAYNE-1728143246308.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Monza",
+    "slug": "monza",
+    "logo": "https://media.vperfumes.com/brands/ORTO-PARISI-1728143268565.webp",
+    "image_url": "https://media.vperfumes.com/brands/ORTO-PARISI-1728143268565.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Moresque",
+    "slug": "moresque",
+    "logo": "https://media.vperfumes.com/brands/OSCAR-DE-LA-RENTA-1728143452239.webp",
+    "image_url": "https://media.vperfumes.com/brands/OSCAR-DE-LA-RENTA-1728143452239.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Moschino",
+    "slug": "moschino",
+    "logo": "https://media.vperfumes.com/brands/OXYGEN-1728143336792.webp",
+    "image_url": "https://media.vperfumes.com/brands/OXYGEN-1728143336792.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Muller Martin",
+    "slug": "muller-martin",
+    "logo": "https://media.vperfumes.com/brands/PALOMA-PICASSO-1728141732750.webp",
+    "image_url": "https://media.vperfumes.com/brands/PALOMA-PICASSO-1728141732750.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Ngw",
+    "slug": "ngw",
+    "logo": "https://media.vperfumes.com/brands/PARFUMANIA-1728141541462.webp",
+    "image_url": "https://media.vperfumes.com/brands/PARFUMANIA-1728141541462.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Nabeel Perfumes",
+    "slug": "nabeel-perfumes",
+    "logo": "https://media.vperfumes.com/brands/parfums-regines.webp",
+    "image_url": "https://media.vperfumes.com/brands/parfums-regines.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Nasamat",
+    "slug": "nasamat",
+    "logo": "https://media.vperfumes.com/brands/paris-oud.webp",
+    "image_url": "https://media.vperfumes.com/brands/paris-oud.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Nasomatto",
+    "slug": "nasomatto",
+    "logo": "https://media.vperfumes.com/brands/patek-maison-logo-en.webp",
+    "image_url": "https://media.vperfumes.com/brands/patek-maison-logo-en.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Nautica",
+    "slug": "nautica",
+    "logo": "https://media.vperfumes.com/brands/PAUL-SMITH-1728141739729.webp",
+    "image_url": "https://media.vperfumes.com/brands/PAUL-SMITH-1728141739729.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Niccini",
+    "slug": "niccini",
+    "logo": "https://media.vperfumes.com/brands/PENHALIGONS-1728141741359.webp",
+    "image_url": "https://media.vperfumes.com/brands/PENHALIGONS-1728141741359.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Nickelodeon",
+    "slug": "nickelodeon",
+    "logo": "https://media.vperfumes.com/brands/PEPE-JEANS-1728143269271.webp",
+    "image_url": "https://media.vperfumes.com/brands/PEPE-JEANS-1728143269271.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Nicolai",
+    "slug": "nicolai",
+    "logo": "https://media.vperfumes.com/brands/PERFRAG-1728143486748.webp",
+    "image_url": "https://media.vperfumes.com/brands/PERFRAG-1728143486748.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Nikos",
+    "slug": "nikos",
+    "logo": "https://media.vperfumes.com/brands/PERRY-ELLIS-1728143108099.webp",
+    "image_url": "https://media.vperfumes.com/brands/PERRY-ELLIS-1728143108099.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Nina Ricci",
+    "slug": "nina-ricci",
+    "logo": "https://media.vperfumes.com/brands/philipp-plein.webp",
+    "image_url": "https://media.vperfumes.com/brands/philipp-plein.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Nishane",
+    "slug": "nishane",
+    "logo": "https://media.vperfumes.com/brands/PILSIMO-1728143311782.webp",
+    "image_url": "https://media.vperfumes.com/brands/PILSIMO-1728143311782.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Nixir",
+    "slug": "nixir",
+    "logo": "https://media.vperfumes.com/brands/PLAYBOY-1728143111145.webp",
+    "image_url": "https://media.vperfumes.com/brands/PLAYBOY-1728143111145.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Nue",
+    "slug": "nue",
+    "logo": "https://media.vperfumes.com/brands/polaroid.webp",
+    "image_url": "https://media.vperfumes.com/brands/polaroid.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Oakley",
+    "slug": "oakley",
+    "logo": "https://media.vperfumes.com/brands/POLICE-1728143178313.webp",
+    "image_url": "https://media.vperfumes.com/brands/POLICE-1728143178313.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Ojar",
+    "slug": "ojar",
+    "logo": "https://media.vperfumes.com/brands/PORSCHE-DESIGN-1728143112941.webp",
+    "image_url": "https://media.vperfumes.com/brands/PORSCHE-DESIGN-1728143112941.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Olive Perfumes",
+    "slug": "olive-perfumes",
+    "logo": "https://media.vperfumes.com/brands/PRADA-1728143114651.webp",
+    "image_url": "https://media.vperfumes.com/brands/PRADA-1728143114651.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Oman Luxury",
+    "slug": "oman-luxury",
+    "logo": "https://media.vperfumes.com/brands/PUBLIC-AFFAIR-1728141542268.webp",
+    "image_url": "https://media.vperfumes.com/brands/PUBLIC-AFFAIR-1728141542268.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Omax Watches",
+    "slug": "omax-watches",
+    "logo": "https://media.vperfumes.com/brands/QISSATI-1728143169830.webp",
+    "image_url": "https://media.vperfumes.com/brands/QISSATI-1728143169830.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Oriarome",
+    "slug": "oriarome",
+    "logo": "https://media.vperfumes.com/brands/PACO-RABANNE-1728141729396.webp",
+    "image_url": "https://media.vperfumes.com/brands/PACO-RABANNE-1728141729396.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Orient",
+    "slug": "orient",
+    "logo": "https://media.vperfumes.com/brands/RALPH-LAUREN-1728143117649.webp",
+    "image_url": "https://media.vperfumes.com/brands/RALPH-LAUREN-1728143117649.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Ormonde Jayne",
+    "slug": "ormonde-jayne",
+    "logo": "https://media.vperfumes.com/brands/ramon-bejar-logo.webp",
+    "image_url": "https://media.vperfumes.com/brands/ramon-bejar-logo.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Orto Parisi",
+    "slug": "orto-parisi",
+    "logo": "https://media.vperfumes.com/brands/RASASI-1728143247103.webp",
+    "image_url": "https://media.vperfumes.com/brands/RASASI-1728143247103.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Oscar De La Renta",
+    "slug": "oscar-de-la-renta",
+    "logo": "https://media.vperfumes.com/brands/RAY-BAN-1728143517238.webp",
+    "image_url": "https://media.vperfumes.com/brands/RAY-BAN-1728143517238.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Oud Al Arabia",
+    "slug": "oud-al-arabia",
+    "logo": "https://media.vperfumes.com/brands/rayana-al-ward.webp",
+    "image_url": "https://media.vperfumes.com/brands/rayana-al-ward.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Oxygen",
+    "slug": "oxygen",
+    "logo": "https://media.vperfumes.com/brands/RAYHAAN-1728143541958.webp",
+    "image_url": "https://media.vperfumes.com/brands/RAYHAAN-1728143541958.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Packzey",
+    "slug": "packzey",
+    "logo": "https://media.vperfumes.com/brands/reem-scents.webp",
+    "image_url": "https://media.vperfumes.com/brands/reem-scents.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Palaces Of Designer Shaik",
+    "slug": "palaces-of-designer-shaik",
+    "logo": "https://media.vperfumes.com/brands/remy-latour-logo-en.webp",
+    "image_url": "https://media.vperfumes.com/brands/remy-latour-logo-en.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Paradis Des Sens",
+    "slug": "paradis-des-sens",
+    "logo": "https://media.vperfumes.com/brands/revel-en.webp",
+    "image_url": "https://media.vperfumes.com/brands/revel-en.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Parfaix Perfume",
+    "slug": "parfaix-perfume",
+    "logo": "https://media.vperfumes.com/brands/revlon-en.webp",
+    "image_url": "https://media.vperfumes.com/brands/revlon-en.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Parfums Regines",
+    "slug": "parfums-regines",
+    "logo": "https://media.vperfumes.com/brands/reyane-tradition.webp",
+    "image_url": "https://media.vperfumes.com/brands/reyane-tradition.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Parisoud",
+    "slug": "parisoud",
+    "logo": "https://media.vperfumes.com/brands/RICHARD-HENRY-1728141544832.webp",
+    "image_url": "https://media.vperfumes.com/brands/RICHARD-HENRY-1728141544832.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Patek Maison",
+    "slug": "patek-maison",
+    "logo": "https://media.vperfumes.com/brands/RIHANNA-1728143176983.webp",
+    "image_url": "https://media.vperfumes.com/brands/RIHANNA-1728143176983.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Pilsimo",
+    "slug": "pilsimo",
+    "logo": "https://media.vperfumes.com/brands/romanson.webp",
+    "image_url": "https://media.vperfumes.com/brands/romanson.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Polaroid",
+    "slug": "polaroid",
+    "logo": "https://media.vperfumes.com/brands/ruky-perfumes-logo.webp",
+    "image_url": "https://media.vperfumes.com/brands/ruky-perfumes-logo.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Police",
+    "slug": "police",
+    "logo": "https://media.vperfumes.com/brands/ST-DUPONT-1728143129065.webp",
+    "image_url": "https://media.vperfumes.com/brands/ST-DUPONT-1728143129065.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Puff Puff",
+    "slug": "puff-puff",
+    "logo": "https://media.vperfumes.com/brands/SALVATORE-FERRAGAMO-1728143121476.webp",
+    "image_url": "https://media.vperfumes.com/brands/SALVATORE-FERRAGAMO-1728143121476.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Qissati",
+    "slug": "qissati",
+    "logo": "https://media.vperfumes.com/brands/sarah-jessica.webp",
+    "image_url": "https://media.vperfumes.com/brands/sarah-jessica.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Quantum",
+    "slug": "quantum",
+    "logo": "https://media.vperfumes.com/brands/SCENT-NOSTALGIA-1728143480595.webp",
+    "image_url": "https://media.vperfumes.com/brands/SCENT-NOSTALGIA-1728143480595.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Ralph Lauren",
+    "slug": "ralph-lauren",
+    "logo": "https://media.vperfumes.com/brands/SEAN-JOHN-1728143173713.webp",
+    "image_url": "https://media.vperfumes.com/brands/SEAN-JOHN-1728143173713.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Ramon Bejar",
+    "slug": "ramon-bejar",
+    "logo": "https://media.vperfumes.com/brands/SECRET-WATER-1728141551993.webp",
+    "image_url": "https://media.vperfumes.com/brands/SECRET-WATER-1728141551993.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Ray Ban",
+    "slug": "ray-ban",
+    "logo": "https://media.vperfumes.com/brands/SERGE-LUTENS-1728143289561.webp",
+    "image_url": "https://media.vperfumes.com/brands/SERGE-LUTENS-1728143289561.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Rayana Al Ward",
+    "slug": "rayana-al-ward",
+    "logo": "https://media.vperfumes.com/brands/sergio-tacchini.webp",
+    "image_url": "https://media.vperfumes.com/brands/sergio-tacchini.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Rayhaan",
+    "slug": "rayhaan",
+    "logo": "https://media.vperfumes.com/images/shaikh-saeed-llc-logo.webp",
+    "image_url": "https://media.vperfumes.com/images/shaikh-saeed-llc-logo.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Reem Scents",
+    "slug": "reem-scents",
+    "logo": "https://media.vperfumes.com/brands/SHISEIDO-1728143122970.webp",
+    "image_url": "https://media.vperfumes.com/brands/SHISEIDO-1728143122970.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Rehan",
+    "slug": "rehan",
+    "logo": "https://media.vperfumes.com/images/signature-by-sillage-dorien-logo.webp",
+    "image_url": "https://media.vperfumes.com/images/signature-by-sillage-dorien-logo.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Remy Latour",
+    "slug": "remy-latour",
+    "logo": "https://media.vperfumes.com/brands/SIGNATURE-COLLECTION-1728141553960.webp",
+    "image_url": "https://media.vperfumes.com/brands/SIGNATURE-COLLECTION-1728141553960.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Remy Marquis",
+    "slug": "remy-marquis",
+    "logo": "https://media.vperfumes.com/brands/SILHOUETTE-1728143564751.webp",
+    "image_url": "https://media.vperfumes.com/brands/SILHOUETTE-1728143564751.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Revel",
+    "slug": "revel",
+    "logo": "https://media.vperfumes.com/brands/SISLEY-1728143124498.webp",
+    "image_url": "https://media.vperfumes.com/brands/SISLEY-1728143124498.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Revlon",
+    "slug": "revlon",
+    "logo": "https://media.vperfumes.com/brands/SKECHERS-1728143571847.webp",
+    "image_url": "https://media.vperfumes.com/brands/SKECHERS-1728143571847.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Revuele",
+    "slug": "revuele",
+    "logo": "https://media.vperfumes.com/brands/SKYBAGS-1728143509656.webp",
+    "image_url": "https://media.vperfumes.com/brands/SKYBAGS-1728143509656.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Reyane Tradition",
+    "slug": "reyane-tradition",
+    "logo": "https://media.vperfumes.com/brands/smorodina-cosmetics.webp",
+    "image_url": "https://media.vperfumes.com/brands/smorodina-cosmetics.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Rhythm",
+    "slug": "rhythm",
+    "logo": "https://media.vperfumes.com/brands/SO-OUD-1728143126000.webp",
+    "image_url": "https://media.vperfumes.com/brands/SO-OUD-1728143126000.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Riblor",
+    "slug": "riblor",
+    "logo": "https://media.vperfumes.com/brands/SOSPIRO-1728143127437.webp",
+    "image_url": "https://media.vperfumes.com/brands/SOSPIRO-1728143127437.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Richard Henry",
+    "slug": "richard-henry",
+    "logo": "https://media.vperfumes.com/brands/STELLA-MCCARTNEY-1728143130693.webp",
+    "image_url": "https://media.vperfumes.com/brands/STELLA-MCCARTNEY-1728143130693.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Rihanna",
+    "slug": "rihanna",
+    "logo": "https://media.vperfumes.com/brands/stephane-humbert-lucas-777.webp",
+    "image_url": "https://media.vperfumes.com/brands/stephane-humbert-lucas-777.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Robert Piguet",
+    "slug": "robert-piguet",
+    "logo": "https://media.vperfumes.com/brands/steve-madden.webp",
+    "image_url": "https://media.vperfumes.com/brands/steve-madden.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Robertino",
+    "slug": "robertino",
+    "logo": "https://media.vperfumes.com/brands/SWAROVSKI-1728143297119.webp",
+    "image_url": "https://media.vperfumes.com/brands/SWAROVSKI-1728143297119.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Rochas",
+    "slug": "rochas",
+    "logo": "https://media.vperfumes.com/brands/SWISS-ARMY-1728143132602.webp",
+    "image_url": "https://media.vperfumes.com/brands/SWISS-ARMY-1728143132602.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Roger And Gallet",
+    "slug": "roger-and-gallet",
+    "logo": "https://media.vperfumes.com/brands/TFK-1728143205756.webp",
+    "image_url": "https://media.vperfumes.com/brands/TFK-1728143205756.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Roger Muller",
+    "slug": "roger-muller",
+    "logo": "https://media.vperfumes.com/brands/tartine-et-chocolat.webp",
+    "image_url": "https://media.vperfumes.com/brands/tartine-et-chocolat.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Roja Dove",
+    "slug": "roja-dove",
+    "logo": "https://media.vperfumes.com/brands/TAWOOS-1728141555898.webp",
+    "image_url": "https://media.vperfumes.com/brands/TAWOOS-1728141555898.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Romanson",
+    "slug": "romanson",
+    "logo": "https://media.vperfumes.com/brands/telal-femina.webp",
+    "image_url": "https://media.vperfumes.com/brands/telal-femina.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Rosendo Mateu",
+    "slug": "rosendo-mateu",
+    "logo": "https://media.vperfumes.com/brands/THAMEEN-1728143259732.webp",
+    "image_url": "https://media.vperfumes.com/brands/THAMEEN-1728143259732.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Ruky Perfumes",
+    "slug": "ruky-perfumes",
+    "logo": "https://media.vperfumes.com/brands/THE-HOUSE-OF-OUD-1728143498243.webp",
+    "image_url": "https://media.vperfumes.com/brands/THE-HOUSE-OF-OUD-1728143498243.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "St Dupont",
+    "slug": "st-dupont",
+    "logo": "https://media.vperfumes.com/brands/THE-MERCHANT-OF-VENICE-1728143291169.webp",
+    "image_url": "https://media.vperfumes.com/brands/THE-MERCHANT-OF-VENICE-1728143291169.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Seiko",
+    "slug": "seiko",
+    "logo": "https://media.vperfumes.com/brands/THOMAS-KOSMALA-1728143292195.webp",
+    "image_url": "https://media.vperfumes.com/brands/THOMAS-KOSMALA-1728143292195.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Sabrina Carpenter",
+    "slug": "sabrina-carpenter",
+    "logo": "https://media.vperfumes.com/brands/TIFFANY-%26-CO-1728143136851.webp",
+    "image_url": "https://media.vperfumes.com/brands/TIFFANY-%26-CO-1728143136851.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Sahari",
+    "slug": "sahari",
+    "logo": "https://media.vperfumes.com/brands/TIZIANA-TERENZI-1728143138486.webp",
+    "image_url": "https://media.vperfumes.com/brands/TIZIANA-TERENZI-1728143138486.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Salvatore Ferragamo",
+    "slug": "salvatore-ferragamo",
+    "logo": "https://media.vperfumes.com/brands/TOM-FORD-1728141479498.webp",
+    "image_url": "https://media.vperfumes.com/brands/TOM-FORD-1728141479498.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Saracoutier",
+    "slug": "saracoutier",
+    "logo": "https://media.vperfumes.com/brands/TOMMY-HILFIGER-1728143139916.webp",
+    "image_url": "https://media.vperfumes.com/brands/TOMMY-HILFIGER-1728143139916.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Sarah Jessica",
+    "slug": "sarah-jessica",
+    "logo": "https://media.vperfumes.com/brands/tornado.webp",
+    "image_url": "https://media.vperfumes.com/brands/tornado.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Scent Nostalgia",
+    "slug": "scent-nostalgia",
+    "logo": "https://media.vperfumes.com/brands/TOUS-1728143273056.webp",
+    "image_url": "https://media.vperfumes.com/brands/TOUS-1728143273056.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Scentologia",
+    "slug": "scentologia",
+    "logo": "https://media.vperfumes.com/brands/TRISH-MCEVOY-1728143141354.webp",
+    "image_url": "https://media.vperfumes.com/brands/TRISH-MCEVOY-1728143141354.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Sean John",
+    "slug": "sean-john",
+    "logo": "https://media.vperfumes.com/brands/TRUSSARDI-1728143142805.webp",
+    "image_url": "https://media.vperfumes.com/brands/TRUSSARDI-1728143142805.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Secret Water",
+    "slug": "secret-water",
+    "logo": "https://media.vperfumes.com/brands/tumi.webp",
+    "image_url": "https://media.vperfumes.com/brands/tumi.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Selena Gomez",
+    "slug": "selena-gomez",
+    "logo": "https://media.vperfumes.com/brands/UNDER-ARMOUR-1728143576878.webp",
+    "image_url": "https://media.vperfumes.com/brands/UNDER-ARMOUR-1728143576878.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Serge Lutens",
+    "slug": "serge-lutens",
+    "logo": "https://media.vperfumes.com/brands/unique_e-luxury.webp",
+    "image_url": "https://media.vperfumes.com/brands/unique_e-luxury.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Sergio Tacchini",
+    "slug": "sergio-tacchini",
+    "logo": "https://media.vperfumes.com/brands/v-canto.webp",
+    "image_url": "https://media.vperfumes.com/brands/v-canto.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Sevenfriday",
+    "slug": "sevenfriday",
+    "logo": "https://media.vperfumes.com/brands/VALENTINO-1728143144115.webp",
+    "image_url": "https://media.vperfumes.com/brands/VALENTINO-1728143144115.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Shaikh Saeed",
+    "slug": "shaikh-saeed",
+    "logo": "https://media.vperfumes.com/brands/van-cleef.webp",
+    "image_url": "https://media.vperfumes.com/brands/van-cleef.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Shakira",
+    "slug": "shakira",
+    "logo": "https://media.vperfumes.com/brands/VERA-WANG-1728143150485.webp",
+    "image_url": "https://media.vperfumes.com/brands/VERA-WANG-1728143150485.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Shiseido",
+    "slug": "shiseido",
+    "logo": "https://media.vperfumes.com/brands/new-versace-icon.webp",
+    "image_url": "https://media.vperfumes.com/brands/new-versace-icon.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Signature By Sillage Dorien",
+    "slug": "signature-by-sillage-dorien",
+    "logo": "https://media.vperfumes.com/brands/vertus.webp",
+    "image_url": "https://media.vperfumes.com/brands/vertus.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Signature Collection",
+    "slug": "signature-collection",
+    "logo": "https://media.vperfumes.com/brands/VIBEZ-JEWELZ-1728143526638.webp",
+    "image_url": "https://media.vperfumes.com/brands/VIBEZ-JEWELZ-1728143526638.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Silhouette",
+    "slug": "silhouette",
+    "logo": "https://media.vperfumes.com/brands/VICTOR-HILLS-1728141559241.webp",
+    "image_url": "https://media.vperfumes.com/brands/VICTOR-HILLS-1728141559241.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Sisley",
+    "slug": "sisley",
+    "logo": "https://media.vperfumes.com/brands/VICTORIA-HILLS-1728141561662.webp",
+    "image_url": "https://media.vperfumes.com/brands/VICTORIA-HILLS-1728141561662.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Skechers",
+    "slug": "skechers",
+    "logo": "https://media.vperfumes.com/brands/VICTORIA-SECRET-1728143148014.webp",
+    "image_url": "https://media.vperfumes.com/brands/VICTORIA-SECRET-1728143148014.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Skybags",
+    "slug": "skybags",
+    "logo": "https://media.vperfumes.com/brands/viktor-rolf.webp",
+    "image_url": "https://media.vperfumes.com/brands/viktor-rolf.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Slazenger",
+    "slug": "slazenger",
+    "logo": "https://media.vperfumes.com/brands/VILHELM-PARFUMERIE-1728143257972.webp",
+    "image_url": "https://media.vperfumes.com/brands/VILHELM-PARFUMERIE-1728143257972.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Smorodina Cosmetics",
+    "slug": "smorodina-cosmetics",
+    "logo": "https://media.vperfumes.com/brands/VINCE-CAMUTO-1728143293943.webp",
+    "image_url": "https://media.vperfumes.com/brands/VINCE-CAMUTO-1728143293943.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "So Oud",
+    "slug": "so-oud",
+    "logo": "https://media.vperfumes.com/brands/VOGUE-1728143309148.webp",
+    "image_url": "https://media.vperfumes.com/brands/VOGUE-1728143309148.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Sospiro",
+    "slug": "sospiro",
+    "logo": "https://media.vperfumes.com/brands/WARD-AL-ARAB-1728143274210.webp",
+    "image_url": "https://media.vperfumes.com/brands/WARD-AL-ARAB-1728143274210.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Spasta",
+    "slug": "spasta",
+    "logo": "https://media.vperfumes.com/brands/XERJOFF-1728143153232.webp",
+    "image_url": "https://media.vperfumes.com/brands/XERJOFF-1728143153232.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Stella Mccartney",
+    "slug": "stella-mccartney",
+    "logo": "https://media.vperfumes.com/brands/yayavi.webp",
+    "image_url": "https://media.vperfumes.com/brands/yayavi.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Stephane Humbert Lucas 777",
+    "slug": "stephane-humbert-lucas-777",
+    "logo": "https://media.vperfumes.com/brands/YVES-SAINT-LAURENT-1728143154621.webp",
+    "image_url": "https://media.vperfumes.com/brands/YVES-SAINT-LAURENT-1728143154621.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Steve Madden",
+    "slug": "steve-madden",
+    "logo": "https://media.vperfumes.com/brands/ZADORA-1728143458298.webp",
+    "image_url": "https://media.vperfumes.com/brands/ZADORA-1728143458298.webp",
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Stylo",
+    "slug": "stylo",
+    "logo": null,
+    "image_url": null,
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Swarovski",
+    "slug": "swarovski",
+    "logo": null,
+    "image_url": null,
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Swiss Arabian",
+    "slug": "swiss-arabian",
+    "logo": null,
+    "image_url": null,
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Swiss Army",
+    "slug": "swiss-army",
+    "logo": null,
+    "image_url": null,
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Tfk",
+    "slug": "tfk",
+    "logo": null,
+    "image_url": null,
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Tartine Et Chocolat",
+    "slug": "tartine-et-chocolat",
+    "logo": null,
+    "image_url": null,
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Tawoos",
+    "slug": "tawoos",
+    "logo": null,
+    "image_url": null,
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Telal Femina",
+    "slug": "telal-femina",
+    "logo": null,
+    "image_url": null,
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Thameen",
+    "slug": "thameen",
+    "logo": null,
+    "image_url": null,
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "The House Of Oud",
+    "slug": "the-house-of-oud",
+    "logo": null,
+    "image_url": null,
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "The Merchant Of Venice",
+    "slug": "the-merchant-of-venice",
+    "logo": null,
+    "image_url": null,
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Thomas Kosmala",
+    "slug": "thomas-kosmala",
+    "logo": null,
+    "image_url": null,
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Tiffany And Co",
+    "slug": "tiffany-and-co",
+    "logo": null,
+    "image_url": null,
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Tiziana Terenzi",
+    "slug": "tiziana-terenzi",
+    "logo": null,
+    "image_url": null,
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Tommy Hilfiger",
+    "slug": "tommy-hilfiger",
+    "logo": null,
+    "image_url": null,
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Tonino Lamborghini",
+    "slug": "tonino-lamborghini",
+    "logo": null,
+    "image_url": null,
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Tornado",
+    "slug": "tornado",
+    "logo": null,
+    "image_url": null,
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Tous",
+    "slug": "tous",
+    "logo": null,
+    "image_url": null,
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Trish Mcevoy",
+    "slug": "trish-mcevoy",
+    "logo": null,
+    "image_url": null,
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Trussardi",
+    "slug": "trussardi",
+    "logo": null,
+    "image_url": null,
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Tumi",
+    "slug": "tumi",
+    "logo": null,
+    "image_url": null,
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Under Armour",
+    "slug": "under-armour",
+    "logo": null,
+    "image_url": null,
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Uniquee Luxury",
+    "slug": "uniquee-luxury",
+    "logo": null,
+    "image_url": null,
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "V Canto",
+    "slug": "v-canto",
+    "logo": null,
+    "image_url": null,
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Van Cleef",
+    "slug": "van-cleef",
+    "logo": null,
+    "image_url": null,
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Vera Wang",
+    "slug": "vera-wang",
+    "logo": null,
+    "image_url": null,
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Vertus",
+    "slug": "vertus",
+    "logo": null,
+    "image_url": null,
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Vibez Jewelz",
+    "slug": "vibez-jewelz",
+    "logo": null,
+    "image_url": null,
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Victor Hills",
+    "slug": "victor-hills",
+    "logo": null,
+    "image_url": null,
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Victoria Hills",
+    "slug": "victoria-hills",
+    "logo": null,
+    "image_url": null,
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Victoria Secret",
+    "slug": "victoria-secret",
+    "logo": null,
+    "image_url": null,
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Viktorandrolf",
+    "slug": "viktorandrolf",
+    "logo": null,
+    "image_url": null,
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Vilhelm Parfumerie",
+    "slug": "vilhelm-parfumerie",
+    "logo": null,
+    "image_url": null,
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Vince Camuto",
+    "slug": "vince-camuto",
+    "logo": null,
+    "image_url": null,
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Vogue",
+    "slug": "vogue",
+    "logo": null,
+    "image_url": null,
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Ward Al Arab",
+    "slug": "ward-al-arab",
+    "logo": null,
+    "image_url": null,
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Yayavi",
+    "slug": "yayavi",
+    "logo": null,
+    "image_url": null,
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Yves De Sis",
+    "slug": "yves-de-sis",
+    "logo": null,
+    "image_url": null,
+    "product_count": 0,
+    "is_featured": false
+  },
+  {
+    "name": "Zadora",
+    "slug": "zadora",
+    "logo": null,
+    "image_url": null,
+    "product_count": 0,
+    "is_featured": false
+  }
+]

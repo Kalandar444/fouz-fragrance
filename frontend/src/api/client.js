@@ -1,5 +1,5 @@
 import axios from 'axios';
-import AMBERIYA_BRANDS from '../data/amberiyaBrands.json';
+import VPERFUMES_BRANDS from '../data/vperfumesBrands.json';
 import VPERFUMES_PRODUCTS from '../data/vperfumesProducts.json';
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || (
@@ -19,42 +19,129 @@ export const getSettings = () => api.get('/settings/');
 export const getBanners = () => api.get('/banners/');
 
 export const getBrands = async () => {
-  const amberiyaByName = new Map(AMBERIYA_BRANDS.map(b => [b.name.toLowerCase().trim(), b]));
-
   try {
     const res = await api.get('/brands/');
     const apiBrands = Array.isArray(res?.data) ? res.data : (Array.isArray(res?.data?.results) ? res.data.results : []);
-
-    const mergedMap = new Map();
-    AMBERIYA_BRANDS.forEach(b => mergedMap.set(b.slug, { ...b }));
-
-    apiBrands.forEach(b => {
-      const existing = mergedMap.get(b.slug) || amberiyaByName.get(b.name?.toLowerCase().trim());
-      if (existing) {
-        mergedMap.set(existing.slug, {
-          ...existing,
-          ...b,
-          logo: b.logo || existing.logo,
-          image_url: b.image_url || existing.image_url || existing.logo,
-        });
-      } else {
-        const matched = amberiyaByName.get(b.name?.toLowerCase().trim());
-        mergedMap.set(b.slug, {
-          ...b,
-          logo: b.logo || matched?.logo || '',
-          image_url: b.image_url || matched?.image_url || matched?.logo || '',
-        });
-      }
-    });
-
-    return { data: Array.from(mergedMap.values()) };
+    if (apiBrands.length >= 50) {
+      return { data: apiBrands };
+    }
+    return { data: VPERFUMES_BRANDS };
   } catch (err) {
-    console.warn('API error fetching brands, using authentic Amberiya brand catalogue:', err);
-    return { data: AMBERIYA_BRANDS };
+    console.warn('API error fetching brands, using authentic V Perfumes brands catalogue:', err);
+    return { data: VPERFUMES_BRANDS };
   }
 };
 
-export const getBrandDetail = (slug, params = {}) => api.get(`/brands/${slug}/`, { params });
+export const getBrandDetail = async (slug, params = {}) => {
+  const getBrandFallback = () => {
+    const slugLower = (slug || '').toLowerCase().trim();
+    // Normalize aliases
+    const slugMap = {
+      'christian-dior': 'dior',
+      'christian': 'dior',
+      'bvlgari-le-gemme': 'bvlgari',
+      'bulgari': 'bvlgari',
+      'dolce-and-gabbana': 'dolce-gabbana',
+      'd-and-g': 'dolce-gabbana',
+      'd-g': 'dolce-gabbana',
+      'dandg': 'dolce-gabbana',
+      'dolce': 'dolce-gabbana',
+      'ysl': 'yves-saint-laurent',
+      'ck': 'calvin-klein',
+      'boss': 'hugo-boss',
+      'jpg': 'jean-paul-gaultier',
+      'ch': 'carolina-herrera',
+      'tomford': 'tom-ford',
+      'haramain': 'al-haramain',
+    };
+    if (slugMap[slugLower]) targetSlug = slugMap[slugLower];
+
+    // Find brand info
+    const brand = VPERFUMES_BRANDS.find(b => b.slug === targetSlug || b.slug.toLowerCase() === targetSlug) ||
+      VPERFUMES_BRANDS.find(b => b.name.toLowerCase() === targetSlug.replace(/-/g, ' ')) || {
+      name: slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+      slug: slug,
+      logo: '',
+      description: `Explore authentic luxury perfumes by ${slug.replace(/-/g, ' ')}. 100% original UAE stock guaranteed.`,
+    };
+
+    const brandNameLower = brand.name.toLowerCase();
+
+    // Filter products belonging to this brand
+    let brandProducts = VPERFUMES_PRODUCTS.filter(p => {
+      const pBrandSlug = (p.brand_slug || '').toLowerCase();
+      const pBrandName = (p.brand || '').toLowerCase();
+      return pBrandSlug === targetSlug ||
+             pBrandSlug === slugLower ||
+             pBrandName === brandNameLower ||
+             pBrandName.includes(brandNameLower) ||
+             brandNameLower.includes(pBrandName) ||
+             (p.slug && p.slug.toLowerCase().startsWith(targetSlug));
+    });
+
+    // If still 0, try fuzzy word match on product name
+    if (brandProducts.length === 0) {
+      const keyword = targetSlug.split('-')[0];
+      if (keyword && keyword.length > 2) {
+        brandProducts = VPERFUMES_PRODUCTS.filter(p => 
+          p.name.toLowerCase().includes(keyword) || 
+          p.slug.toLowerCase().includes(keyword)
+        );
+      }
+    }
+
+    // Apply search filter
+    if (params.search) {
+      const q = params.search.toLowerCase();
+      brandProducts = brandProducts.filter(p => p.name.toLowerCase().includes(q));
+    }
+
+    // Apply in_stock filter
+    if (params.in_stock === 'true') {
+      brandProducts = brandProducts.filter(p => p.in_stock);
+    }
+
+    // Apply ordering
+    if (params.ordering === 'price_asc') {
+      brandProducts.sort((a, b) => a.price - b.price);
+    } else if (params.ordering === 'price_desc') {
+      brandProducts.sort((a, b) => b.price - a.price);
+    } else if (params.ordering === 'name_asc') {
+      brandProducts.sort((a, b) => a.name.localeCompare(b.name));
+    }
+
+    // Pagination
+    const page = parseInt(params.page) || 1;
+    const pageSize = parseInt(params.page_size) || 24;
+    const totalCount = brandProducts.length;
+    const totalPages = Math.ceil(totalCount / pageSize) || 1;
+    const start = (page - 1) * pageSize;
+    const paginated = brandProducts.slice(start, start + pageSize);
+
+    return {
+      data: {
+        brand: brand,
+        products: paginated,
+        count: totalCount,
+        total_pages: totalPages,
+        current_page: page,
+        page_size: pageSize,
+      }
+    };
+  };
+
+  try {
+    const res = await api.get(`/brands/${slug}/`, { params });
+    if (res?.data?.brand && Array.isArray(res?.data?.products) && res.data.products.length > 0) {
+      return res;
+    }
+    return getBrandFallback();
+  } catch (err) {
+    console.warn(`Error fetching brand ${slug}, using authentic V Perfumes products:`, err);
+    return getBrandFallback();
+  }
+};
+
 export const getCategories = () => api.get('/categories/');
 export const getCollections = () => api.get('/collections/');
 export const getCollectionDetail = (slug) => api.get(`/collections/${slug}/`);

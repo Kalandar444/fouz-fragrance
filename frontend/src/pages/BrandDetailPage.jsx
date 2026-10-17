@@ -155,22 +155,28 @@ export default function BrandDetailPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row items-center sm:items-center gap-6 sm:gap-8">
             
-            {/* Brand Logo */}
-            {brand.logo ? (
-              <div className="w-28 h-28 sm:w-36 sm:h-36 bg-white rounded border border-stone-200/90 p-4 shadow-sm flex items-center justify-center flex-shrink-0 group">
+            {/* Brand Logo with fallback */}
+            <div className="w-28 h-28 sm:w-36 sm:h-36 bg-white rounded border border-stone-200/90 p-4 shadow-sm flex items-center justify-center flex-shrink-0 group">
+              {(brand.logo || brand.image_url) ? (
                 <img
-                  src={brand.logo}
+                  src={brand.logo || brand.image_url}
                   alt={`${brand.name} logo`}
                   className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
-                  onError={(e) => { e.currentTarget.parentElement.style.display = 'none'; }}
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                    if (e.currentTarget.nextElementSibling) {
+                      e.currentTarget.nextElementSibling.style.display = 'block';
+                    }
+                  }}
                 />
-              </div>
-            ) : (
-              <div className="w-28 h-28 sm:w-36 sm:h-36 bg-white border border-stone-200/90 rounded p-4 flex flex-col items-center justify-center text-center flex-shrink-0 shadow-sm">
-                <Sparkles className="w-8 h-8 text-gold-500 mb-2" />
-                <span className="font-serif text-sm font-medium text-charcoal">{brand.name}</span>
-              </div>
-            )}
+              ) : null}
+              <span
+                style={{ display: (brand.logo || brand.image_url) ? 'none' : 'block' }}
+                className="font-serif text-sm font-semibold text-charcoal text-center"
+              >
+                {brand.name}
+              </span>
+            </div>
 
             {/* Brand Title & Basic Meta */}
             <div className="text-center sm:text-left flex-1">

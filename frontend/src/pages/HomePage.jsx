@@ -278,13 +278,14 @@ export default function HomePage() {
       {/* Brands Grid Section (Exact Image 1 layout) */}
       {brands.length > 0 && (() => {
         const preferredSlugs = [
-          'amouage', 'bdk-parfums', 'bvlgari-le-gemme', 'christian-dior', 'essential-parfums',
-          'frederic-malle', 'givenchy-la-collection-particuliere', 'maison-crivelli', 'memo-paris', 'parfums-de-marly'
+          'faiz-niche', 'dior', 'chanel', 'versace', 'tom-ford',
+          'creed', 'bvlgari', 'gucci', 'burberry', 'dolce-gabbana',
+          'dolce-and-gabbana', 'yves-saint-laurent', 'givenchy', 'guerlain', 'amouage', 'davidoff'
         ];
         const displayBrands = [
-          ...preferredSlugs.map(s => brands.find(b => b.slug === s || (s.startsWith('givenchy') && b.slug.startsWith('givenchy')))).filter(Boolean),
+          ...preferredSlugs.map(s => brands.find(b => b.slug === s || b.slug.toLowerCase() === s.toLowerCase())).filter(Boolean),
           ...brands.filter(b => b.logo && !preferredSlugs.includes(b.slug))
-        ].filter((brand, index, self) => self.findIndex(b => b.id === brand.id) === index).slice(0, 10);
+        ].filter((brand, index, self) => self.findIndex(b => b.slug === brand.slug) === index).slice(0, 10);
 
         return (
           <section className="py-14 md:py-20 bg-white border-b border-stone-100">

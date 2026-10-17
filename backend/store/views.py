@@ -44,13 +44,49 @@ class BrandDetailView(APIView):
     permission_classes = [AllowAny]
 
     def get(self, request, slug):
-        try:
-            brand = Brand.objects.get(slug=slug)
-        except Brand.DoesNotExist:
+        target_slug = (slug or '').lower().strip()
+        slug_map = {
+            'christian-dior': 'dior',
+            'christian': 'dior',
+            'bvlgari-le-gemme': 'bvlgari',
+            'bulgari': 'bvlgari',
+            'dolce-and-gabbana': 'dolce-gabbana',
+            'd-and-g': 'dolce-gabbana',
+            'd-g': 'dolce-gabbana',
+            'dandg': 'dolce-gabbana',
+            'dolce': 'dolce-gabbana',
+            'ysl': 'yves-saint-laurent',
+            'ck': 'calvin-klein',
+            'boss': 'hugo-boss',
+            'jpg': 'jean-paul-gaultier',
+            'ch': 'carolina-herrera',
+            'tomford': 'tom-ford',
+            'haramain': 'al-haramain',
+        }
+        target_slug = slug_map.get(target_slug, target_slug)
+
+        brand = Brand.objects.filter(slug=target_slug).first()
+        if not brand:
+            brand = Brand.objects.filter(slug=slug).first()
+        if not brand:
+            brand = Brand.objects.filter(name__iexact=slug.replace('-', ' ')).first()
+        if not brand:
+            # Try finding by name containing target slug words
+            first_word = target_slug.split('-')[0]
+            brand = Brand.objects.filter(name__icontains=first_word).first()
+        if not brand:
             return Response({"error": "Brand not found"}, status=status.HTTP_404_NOT_FOUND)
 
         brand_data = BrandSerializer(brand, context={'request': request}).data
         products = Product.objects.filter(brand=brand, is_published=True).select_related('brand', 'category')
+        if not products.exists():
+            first_word = brand.name.split()[0] if brand.name else ''
+            products = Product.objects.filter(
+                Q(brand__name__iexact=brand.name) |
+                Q(slug__startswith=brand.slug) |
+                Q(name__icontains=first_word),
+                is_published=True
+            ).select_related('brand', 'category')
 
         # Filter by search
         search = request.query_params.get('search')
