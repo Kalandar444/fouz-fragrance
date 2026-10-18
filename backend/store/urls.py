@@ -3,7 +3,7 @@ from .views import (
     WebsiteSettingView, HomepageBannerListView, BrandListView, BrandDetailView,
     CategoryListView, CollectionListView, CollectionDetailView,
     ProductListView, ProductDetailView, CartValidateView,
-    CreateOrderView, OrderDetailView, ContactEnquiryView
+    CreateOrderView, OrderDetailView, ContactEnquiryView, TestEmailView
 )
 
 urlpatterns = [
@@ -20,4 +20,5 @@ urlpatterns = [
     path('orders/create/', CreateOrderView.as_view(), name='api-order-create'),
     path('orders/<str:reference>/', OrderDetailView.as_view(), name='api-order-detail'),
     path('contact/', ContactEnquiryView.as_view(), name='api-contact'),
+    path('test-email/', TestEmailView.as_view(), name='api-test-email'),
 ]

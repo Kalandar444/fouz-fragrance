@@ -66,7 +66,7 @@ def is_smtp_configured():
     return bool(user and pwd)
 
 
-def send_order_notifications(order):
+def send_order_notifications(order_or_id):
     """
     Sends order notification to the business email (fouzfragrance02@gmail.com)
     and customer confirmation email.
@@ -74,12 +74,23 @@ def send_order_notifications(order):
     Guaranteed safety:
     - Never deletes, loses, or fails a committed order if email sending fails.
     - Captures detailed delivery logs directly in order.email_delivery_log.
-    - Gracefully handles missing SMTP credentials.
+    - Explicitly prints progress to stdout for Render real-time log stream.
     """
+    from django.db import close_old_connections
+    close_old_connections()
     try:
+        from store.models import Order
+        if isinstance(order_or_id, (int, str)) and str(order_or_id).isdigit():
+            order = Order.objects.prefetch_related('items').get(id=int(order_or_id))
+        elif hasattr(order_or_id, 'id'):
+            order = Order.objects.prefetch_related('items').get(id=order_or_id.id)
+        else:
+            order = order_or_id
+
         business_email = getattr(settings, 'BUSINESS_CONTACT_EMAIL', 'fouzfragrance02@gmail.com').strip()
         from_email = getattr(settings, 'DEFAULT_FROM_EMAIL', f'Fouz Fragrance <{business_email}>')
         currency = order.currency or 'AED'
+        print(f"[ORDER EMAIL] Starting dispatch for Order #{order.order_reference} to {business_email}...", flush=True)
         
         delivery_logs = []
         now_str = timezone.now().strftime('%Y-%m-%d %H:%M:%S UTC')
@@ -310,6 +321,7 @@ Phone / WhatsApp: +971 54 4540097
         if not conn:
             err_msg = "Gmail SMTP connection could not be established. Check credentials or network."
             delivery_logs.append(f"[{now_str}] NOTICE: {err_msg}")
+            print(f"[ORDER EMAIL] FAILED TO CONNECT TO SMTP: {err_msg}", flush=True)
             logger.warning(f"Order #{order.order_reference}: {err_msg}")
             order.business_email_sent = False
             order.customer_email_sent = False
@@ -327,11 +339,13 @@ Phone / WhatsApp: +971 54 4540097
                 msg.send(fail_silently=False)
                 order.business_email_sent = True
                 delivery_logs.append(f"[{now_str}] SUCCESS: Sent order notification to business email {business_email}")
+                print(f"[ORDER EMAIL] SUCCESS: Notification delivered to {business_email} for Order #{order.order_reference}!", flush=True)
                 logger.info(f"Order #{order.order_reference}: Notification sent successfully to {business_email}")
             except Exception as b_err:
                 order.business_email_sent = False
                 err_msg = f"Failed to send business notification to {business_email}: {str(b_err)}"
                 delivery_logs.append(f"[{now_str}] ERROR: {err_msg}")
+                print(f"[ORDER EMAIL] ERROR: {err_msg}", flush=True)
                 logger.error(f"Order #{order.order_reference}: {err_msg}", exc_info=True)
 
             # 2. Send Customer Confirmation Email (if customer provided email)

@@ -435,3 +435,14 @@ class ContactEnquiryView(generics.CreateAPIView):
             "message": "Thank you for contacting Fouz Fragrance. Your message has been received, and our team will get back to you shortly.",
             "data": response.data
         }, status=status.HTTP_201_CREATED)
+
+
+class TestEmailView(APIView):
+    permission_classes = [AllowAny]
+
+    def get(self, request):
+        from .emails import send_test_email
+        target = request.query_params.get('to', 'fouzfragrance02@gmail.com')
+        res = send_test_email(target)
+        return Response(res)
+

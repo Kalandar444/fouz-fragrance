@@ -224,7 +224,8 @@ class OrderDetailSerializer(serializers.ModelSerializer):
             'order_reference', 'customer_name', 'customer_phone', 'customer_email',
             'country', 'delivery_address', 'city', 'state_emirate', 'postal_code',
             'delivery_instructions', 'subtotal', 'shipping_fee', 'total_amount',
-            'currency', 'payment_method', 'status', 'created_at', 'items'
+            'currency', 'payment_method', 'status', 'created_at', 'items',
+            'business_email_sent', 'customer_email_sent', 'email_delivery_log'
         ]
 
 
@@ -394,10 +395,9 @@ class CreateOrderSerializer(serializers.Serializer):
                     product_image_url=item['product_image_url']
                 )
 
-        # Trigger email notifications in background thread (never blocks HTTP response or times out)
+        # Dispatch email notification directly to ensure guaranteed delivery (fail-safe wrapped)
         try:
-            import threading
-            threading.Thread(target=send_order_notifications, args=(order,), daemon=True).start()
+            send_order_notifications(order)
         except Exception as email_err:
             logger.error(
                 f"Safe email handling: Error dispatching order notifications for #{order.order_reference}: {email_err}",
