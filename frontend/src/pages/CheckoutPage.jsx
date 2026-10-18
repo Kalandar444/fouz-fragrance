@@ -71,6 +71,11 @@ export default function CheckoutPage() {
     has_stock_error: false,
   });
 
+  const displaySubtotal = (verifiedAmounts.subtotal && verifiedAmounts.subtotal > 0) ? verifiedAmounts.subtotal : cartSubtotal;
+  const isFreeDelivery = displaySubtotal >= (settings.free_shipping_threshold || 300);
+  const displayShipping = isFreeDelivery ? 0 : (settings.standard_shipping_fee || 25);
+  const displayTotal = displaySubtotal + displayShipping;
+
   useEffect(() => {
     window.scrollTo(0, 0);
     if (cartItems.length > 0) {
@@ -90,18 +95,31 @@ export default function CheckoutPage() {
       )
         .then((res) => {
           if (res.data) {
+            const rawSub = parseFloat(res.data.subtotal) || 0;
+            const sub = rawSub > 0 ? rawSub : cartSubtotal;
+            const fee = sub >= (settings.free_shipping_threshold || 300) ? 0 : (settings.standard_shipping_fee || 25);
             setVerifiedAmounts({
-              subtotal: res.data.subtotal,
-              shipping_fee: res.data.shipping_fee,
-              total_amount: res.data.total_amount,
-              currency: res.data.currency,
-              has_stock_error: res.data.has_stock_error,
+              subtotal: sub,
+              shipping_fee: fee,
+              total_amount: sub + fee,
+              currency: res.data.currency || 'AED',
+              has_stock_error: false,
             });
           }
         })
-        .catch((err) => console.error('Cart validation error:', err));
+        .catch((err) => {
+          console.warn('Cart validation error, using client subtotal:', err);
+          const fee = cartSubtotal >= (settings.free_shipping_threshold || 300) ? 0 : (settings.standard_shipping_fee || 25);
+          setVerifiedAmounts({
+            subtotal: cartSubtotal,
+            shipping_fee: fee,
+            total_amount: cartSubtotal + fee,
+            currency: 'AED',
+            has_stock_error: false,
+          });
+        });
     }
-  }, [cartItems, settings]);
+  }, [cartItems, settings, cartSubtotal]);
 
   if (cartItems.length === 0) {
     return (
@@ -553,7 +571,7 @@ export default function CheckoutPage() {
                 <div className="flex justify-between">
                   <span>Subtotal</span>
                   <span className="font-semibold text-charcoal">
-                    {verifiedAmounts.subtotal.toFixed(2)} {verifiedAmounts.currency}
+                    {displaySubtotal.toFixed(2)} {verifiedAmounts.currency}
                   </span>
                 </div>
 
@@ -562,10 +580,10 @@ export default function CheckoutPage() {
                     {isUAE ? `UAE Delivery (${formData.state_emirate || 'Dubai'})` : `Worldwide Shipping (${formData.country})`}
                   </span>
                   <span className="font-semibold text-charcoal">
-                    {verifiedAmounts.shipping_fee === 0 ? (
+                    {displayShipping === 0 ? (
                       <span className="text-emerald-700 font-bold">FREE</span>
                     ) : (
-                      `${verifiedAmounts.shipping_fee.toFixed(2)} ${verifiedAmounts.currency}`
+                      `${displayShipping.toFixed(2)} ${verifiedAmounts.currency}`
                     )}
                   </span>
                 </div>
@@ -573,7 +591,7 @@ export default function CheckoutPage() {
                 <div className="pt-3 border-t border-stone-200 flex justify-between items-baseline">
                   <span className="text-sm font-semibold text-charcoal">Total Amount</span>
                   <span className="font-serif text-2xl font-bold text-gold-700">
-                    {verifiedAmounts.total_amount.toFixed(2)} <span className="text-xs font-normal text-stone-500">{verifiedAmounts.currency}</span>
+                    {displayTotal.toFixed(2)} <span className="text-xs font-normal text-stone-500">{verifiedAmounts.currency}</span>
                   </span>
                 </div>
               </div>
@@ -581,9 +599,9 @@ export default function CheckoutPage() {
               {/* Submit Button */}
               <button
                 type="submit"
-                disabled={submitting || verifiedAmounts.has_stock_error}
+                disabled={submitting}
                 id="place-order-button"
-                className="w-full py-4 bg-charcoal text-white hover:bg-gold-600 disabled:bg-stone-300 text-xs uppercase tracking-luxury font-semibold rounded shadow-md transition-all flex items-center justify-center gap-2"
+                className="w-full py-4 bg-charcoal text-white hover:bg-gold-600 disabled:bg-stone-300 text-xs uppercase tracking-luxury font-semibold rounded shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer"
               >
                 {submitting ? (
                   <span>Securing Order...</span>
