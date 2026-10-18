@@ -197,16 +197,34 @@ export default function CheckoutPage() {
     setSubmitting(true);
 
     try {
+      const isInternational = !isUAE;
+      const formattedAddress = isInternational
+        ? [
+            formData.delivery_address.trim(),
+            formData.state_province?.trim(),
+            formData.city.trim(),
+            formData.postal_code.trim() ? `PIN/ZIP: ${formData.postal_code.trim()}` : null,
+            formData.country,
+          ]
+            .filter(Boolean)
+            .join(', ')
+        : formData.delivery_address.trim();
+
+      const initialEmirate = isUAE ? (formData.state_emirate || 'Dubai') : 'Dubai';
+      const formattedInstructions = isInternational
+        ? `[Worldwide Order to ${formData.country} - State: ${formData.state_province?.trim() || 'N/A'}] ${formData.delivery_instructions.trim()}`.trim()
+        : formData.delivery_instructions.trim();
+
       const payload = {
         customer_name: formData.customer_name.trim(),
         customer_phone: formData.customer_phone.trim(),
         customer_email: formData.customer_email.trim(),
         country: formData.country,
-        delivery_address: formData.delivery_address.trim(),
+        delivery_address: formattedAddress,
         city: formData.city.trim(),
-        state_emirate: isUAE ? (formData.state_emirate || 'Dubai') : (formData.state_province?.trim() || formData.city.trim()),
+        state_emirate: initialEmirate,
         postal_code: formData.postal_code.trim(),
-        delivery_instructions: formData.delivery_instructions.trim(),
+        delivery_instructions: formattedInstructions,
         items: cartItems.map((item) => {
           let pid = item.product_id;
           if (pid && typeof pid === 'string' && /^\d+$/.test(pid)) {
@@ -240,16 +258,19 @@ export default function CheckoutPage() {
       } catch (firstErr) {
         const errData = firstErr.response?.data;
         const errStr = typeof errData === 'string' ? errData : JSON.stringify(errData || '');
-        // Resilience: if older live backend throws product missing or validation error, fallback product_id to 1 so order NEVER drops
+        // Resilience: handle any legacy choice validation or missing product ID on older Render backend
         if (
           errStr.includes('is no longer available') ||
           errStr.includes('Product with ID') ||
           errStr.includes('valid integer') ||
-          errStr.includes('product_id')
+          errStr.includes('product_id') ||
+          errStr.includes('not a valid choice') ||
+          errStr.includes('state_emirate')
         ) {
-          console.warn('Retrying with safe product identifier fallback...');
+          console.warn('Retrying with safe backward-compatibility fallback payload...');
           const fallbackPayload = {
             ...payload,
+            state_emirate: 'Dubai',
             items: payload.items.map((it) => ({ ...it, product_id: 1, variant_id: null }))
           };
           response = await createOrder(fallbackPayload);
