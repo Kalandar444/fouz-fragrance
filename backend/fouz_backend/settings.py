@@ -156,12 +156,8 @@ EMAIL_TIMEOUT = int(os.getenv('EMAIL_TIMEOUT', 15))
 
 BUSINESS_CONTACT_EMAIL = os.getenv('BUSINESS_CONTACT_EMAIL', 'fouzfragrance02@gmail.com').strip()
 
-# DEFAULT_FROM_EMAIL: Gmail SMTP requires the From address to match the authenticated account
-_custom_from = os.getenv('DEFAULT_FROM_EMAIL', '').strip()
-if _custom_from:
-    DEFAULT_FROM_EMAIL = _custom_from
-elif EMAIL_HOST_USER:
-    DEFAULT_FROM_EMAIL = f"Fouz Fragrance <{EMAIL_HOST_USER}>"
-else:
-    DEFAULT_FROM_EMAIL = f"Fouz Fragrance <{BUSINESS_CONTACT_EMAIL}>"
+DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL', 'Fouz Fragrance <fouzfragrance02@gmail.com>').strip()
+RESEND_API_KEY = os.getenv('RESEND_API_KEY', '').strip()
+BREVO_API_KEY = os.getenv('BREVO_API_KEY', '').strip()
+
 

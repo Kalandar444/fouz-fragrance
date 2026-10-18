@@ -57,6 +57,62 @@ def get_secure_smtp_connection():
         return None
 
 
+import urllib.request
+import json
+
+
+def send_via_resend(api_key, to_email, subject, html_content, text_content, from_email=None):
+    """
+    Sends email via Resend HTTPS REST API (Port 443 - never blocked by cloud firewalls).
+    """
+    url = "https://api.resend.com/emails"
+    from_addr = from_email or "Fouz Fragrance <onboarding@resend.dev>"
+    payload = {
+        "from": from_addr,
+        "to": [to_email] if isinstance(to_email, str) else to_email,
+        "subject": subject,
+        "html": html_content,
+        "text": text_content,
+    }
+    req = urllib.request.Request(
+        url,
+        data=json.dumps(payload).encode('utf-8'),
+        headers={
+            "Authorization": f"Bearer {api_key.strip()}",
+            "Content-Type": "application/json",
+            "User-Agent": "FouzFragrance/1.0"
+        }
+    )
+    with urllib.request.urlopen(req, timeout=10) as resp:
+        return resp.status in (200, 201)
+
+
+def send_via_brevo(api_key, to_email, subject, html_content, text_content, sender_name="Fouz Fragrance", sender_email="fouzfragrance02@gmail.com"):
+    """
+    Sends email via Brevo HTTPS REST API (Port 443 - never blocked by cloud firewalls).
+    """
+    url = "https://api.brevo.com/v3/smtp/email"
+    payload = {
+        "sender": {"name": sender_name, "email": sender_email},
+        "to": [{"email": to_email if isinstance(to_email, str) else to_email[0]}],
+        "subject": subject,
+        "htmlContent": html_content,
+        "textContent": text_content,
+    }
+    req = urllib.request.Request(
+        url,
+        data=json.dumps(payload).encode('utf-8'),
+        headers={
+            "api-key": api_key.strip(),
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+            "User-Agent": "FouzFragrance/1.0"
+        }
+    )
+    with urllib.request.urlopen(req, timeout=10) as resp:
+        return resp.status in (200, 201)
+
+
 def is_smtp_configured():
     """
     Checks whether basic SMTP credentials (host user & password) are populated.
@@ -64,6 +120,7 @@ def is_smtp_configured():
     user = getattr(settings, 'EMAIL_HOST_USER', 'fouzfragrance02@gmail.com').strip()
     pwd = getattr(settings, 'EMAIL_HOST_PASSWORD', 'mqybgujrtqbeshty').strip()
     return bool(user and pwd)
+
 
 
 def send_order_notifications(order_or_id):
@@ -316,37 +373,64 @@ Phone / WhatsApp: +971 54 4540097
         </html>
         """
 
-        # Dispatch Order Notifications via Secure SMTP Connection
-        conn = get_secure_smtp_connection()
-        if not conn:
-            err_msg = "Gmail SMTP connection could not be established. Check credentials or network."
-            delivery_logs.append(f"[{now_str}] NOTICE: {err_msg}")
-            print(f"[ORDER EMAIL] FAILED TO CONNECT TO SMTP: {err_msg}", flush=True)
-            logger.warning(f"Order #{order.order_reference}: {err_msg}")
-            order.business_email_sent = False
-            order.customer_email_sent = False
-        else:
-            # 1. Send Business Email
+        # -------------------------------------------------------------
+        # Dispatch Order Notifications (HTTPS REST API first, then SMTP fallback)
+        # -------------------------------------------------------------
+        resend_key = getattr(settings, 'RESEND_API_KEY', '').strip()
+        brevo_key = getattr(settings, 'BREVO_API_KEY', '').strip()
+
+        # Priority 1: Resend HTTPS API (Port 443 - zero cloud firewall blockage)
+        if resend_key:
             try:
-                msg = EmailMultiAlternatives(
-                    subject=business_subject,
-                    body=business_text,
-                    from_email=from_email,
-                    to=[business_email],
-                    connection=conn,
-                )
-                msg.attach_alternative(business_html, "text/html")
-                msg.send(fail_silently=False)
+                send_via_resend(resend_key, business_email, business_subject, business_html, business_text)
                 order.business_email_sent = True
-                delivery_logs.append(f"[{now_str}] SUCCESS: Sent order notification to business email {business_email}")
-                print(f"[ORDER EMAIL] SUCCESS: Notification delivered to {business_email} for Order #{order.order_reference}!", flush=True)
-                logger.info(f"Order #{order.order_reference}: Notification sent successfully to {business_email}")
-            except Exception as b_err:
+                delivery_logs.append(f"[{now_str}] SUCCESS: Sent order notification via Resend HTTPS API to {business_email}")
+                print(f"[ORDER EMAIL] SUCCESS: Notification delivered via Resend HTTPS API to {business_email}!", flush=True)
+            except Exception as r_err:
+                delivery_logs.append(f"[{now_str}] NOTICE: Resend HTTPS attempt: {r_err}")
+                print(f"[ORDER EMAIL] Resend HTTPS notice: {r_err}", flush=True)
+
+        # Priority 2: Brevo HTTPS API (Port 443 - zero cloud firewall blockage)
+        if not order.business_email_sent and brevo_key:
+            try:
+                send_via_brevo(brevo_key, business_email, business_subject, business_html, business_text)
+                order.business_email_sent = True
+                delivery_logs.append(f"[{now_str}] SUCCESS: Sent order notification via Brevo HTTPS API to {business_email}")
+                print(f"[ORDER EMAIL] SUCCESS: Notification delivered via Brevo HTTPS API to {business_email}!", flush=True)
+            except Exception as br_err:
+                delivery_logs.append(f"[{now_str}] NOTICE: Brevo HTTPS attempt: {br_err}")
+                print(f"[ORDER EMAIL] Brevo HTTPS notice: {br_err}", flush=True)
+
+        # Priority 3: Direct Gmail SMTP Connection (Port 465 SSL / Port 587 TLS)
+        conn = None
+        if not order.business_email_sent:
+            conn = get_secure_smtp_connection()
+            if not conn:
+                err_msg = "Gmail SMTP connection could not be established (Note: standard SMTP is blocked on Render Free tier; configure RESEND_API_KEY or BREVO_API_KEY for guaranteed delivery)."
+                delivery_logs.append(f"[{now_str}] NOTICE: {err_msg}")
+                print(f"[ORDER EMAIL] FAILED TO CONNECT TO SMTP: {err_msg}", flush=True)
                 order.business_email_sent = False
-                err_msg = f"Failed to send business notification to {business_email}: {str(b_err)}"
-                delivery_logs.append(f"[{now_str}] ERROR: {err_msg}")
-                print(f"[ORDER EMAIL] ERROR: {err_msg}", flush=True)
-                logger.error(f"Order #{order.order_reference}: {err_msg}", exc_info=True)
+            else:
+                try:
+                    msg = EmailMultiAlternatives(
+                        subject=business_subject,
+                        body=business_text,
+                        from_email=from_email,
+                        to=[business_email],
+                        connection=conn,
+                    )
+                    msg.attach_alternative(business_html, "text/html")
+                    msg.send(fail_silently=False)
+                    order.business_email_sent = True
+                    delivery_logs.append(f"[{now_str}] SUCCESS: Sent order notification to business email {business_email}")
+                    print(f"[ORDER EMAIL] SUCCESS: Notification delivered to {business_email} for Order #{order.order_reference}!", flush=True)
+                    logger.info(f"Order #{order.order_reference}: Notification sent successfully to {business_email}")
+                except Exception as b_err:
+                    order.business_email_sent = False
+                    err_msg = f"Failed to send business notification to {business_email}: {str(b_err)}"
+                    delivery_logs.append(f"[{now_str}] ERROR: {err_msg}")
+                    print(f"[ORDER EMAIL] ERROR: {err_msg}", flush=True)
+                    logger.error(f"Order #{order.order_reference}: {err_msg}", exc_info=True)
 
             # 2. Send Customer Confirmation Email (if customer provided email)
             if order.customer_email:
@@ -638,8 +722,57 @@ Your Gmail SMTP configuration is WORKING PERFECTLY!
     </html>
     """
 
+    resend_key = getattr(settings, 'RESEND_API_KEY', '').strip()
+    brevo_key = getattr(settings, 'BREVO_API_KEY', '').strip()
+
+    if resend_key:
+        try:
+            send_via_resend(resend_key, target_recipient, subject, html_content, text_content)
+            return {
+                'success': True,
+                'recipient': target_recipient,
+                'provider': 'Resend HTTPS API (Port 443)',
+                'message': f"Test email successfully sent to {target_recipient} via Resend HTTPS API!",
+                'error': None
+            }
+        except Exception as r_err:
+            return {
+                'success': False,
+                'recipient': target_recipient,
+                'provider': 'Resend HTTPS API (Port 443)',
+                'message': f"Resend API error: {r_err}",
+                'error': str(r_err)
+            }
+
+    if brevo_key:
+        try:
+            send_via_brevo(brevo_key, target_recipient, subject, html_content, text_content)
+            return {
+                'success': True,
+                'recipient': target_recipient,
+                'provider': 'Brevo HTTPS API (Port 443)',
+                'message': f"Test email successfully sent to {target_recipient} via Brevo HTTPS API!",
+                'error': None
+            }
+        except Exception as br_err:
+            return {
+                'success': False,
+                'recipient': target_recipient,
+                'provider': 'Brevo HTTPS API (Port 443)',
+                'message': f"Brevo API error: {br_err}",
+                'error': str(br_err)
+            }
+
     try:
         conn = get_secure_smtp_connection()
+        if not conn:
+            return {
+                'success': False,
+                'recipient': target_recipient,
+                'provider': 'Gmail SMTP',
+                'message': "SMTP connection could not be opened (Note: Render Free tier blocks ports 465 and 587; use RESEND_API_KEY or BREVO_API_KEY).",
+                'error': "Connection timeout or port blocked"
+            }
         msg = EmailMultiAlternatives(
             subject=subject,
             body=text_content,
@@ -649,12 +782,11 @@ Your Gmail SMTP configuration is WORKING PERFECTLY!
         )
         msg.attach_alternative(html_content, "text/html")
         msg.send(fail_silently=False)
-        if conn:
-            conn.close()
+        conn.close()
         return {
             'success': True,
             'recipient': target_recipient,
-            'smtp_configured': True,
+            'provider': 'Gmail SMTP',
             'message': f"Test email successfully sent to {target_recipient} via Gmail SMTP!",
             'error': None
         }
@@ -664,7 +796,7 @@ Your Gmail SMTP configuration is WORKING PERFECTLY!
         return {
             'success': False,
             'recipient': target_recipient,
-            'smtp_configured': True,
+            'provider': 'Gmail SMTP',
             'message': f"Failed to send test email to {target_recipient}: {err_str}",
             'error': err_str
         }
