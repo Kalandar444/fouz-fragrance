@@ -54,26 +54,28 @@ export default function Header() {
         </div>
       )}
 
-      {/* Logo Row — 3 columns: logo left | name center | icons right */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-3 items-center h-20 md:h-24">
+      {/* Logo Row — Responsive layout: flex on mobile, 3-column grid on md+ */}
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+        <div className="flex md:grid md:grid-cols-3 items-center justify-between h-16 sm:h-20 md:h-24">
 
-          {/* LEFT: Logo image */}
+          {/* LEFT: Mobile menu trigger & Desktop Logo image */}
           <div className="flex items-center">
             {/* Mobile menu trigger */}
             <button
               onClick={() => setMobileMenuOpen(true)}
-              className="p-2 text-charcoal hover:text-gold-600 transition-colors lg:hidden mr-1"
+              className="p-1.5 sm:p-2 text-charcoal hover:text-gold-600 transition-colors lg:hidden mr-1 sm:mr-2"
               aria-label="Open Navigation Menu"
               id="mobile-menu-btn"
             >
-              <Menu className="w-6 h-6" />
+              <Menu className="w-5 h-5 sm:w-6 sm:h-6" />
             </button>
-            <Link to="/" className="flex items-center group py-1">
+
+            {/* Desktop Logo image (hidden on mobile, shown on md+) */}
+            <Link to="/" className="hidden md:flex items-center group py-1">
               <img
                 src={settings.logo_url || '/fouz_logo.jpg'}
                 alt={settings.business_name}
-                className="h-14 sm:h-16 md:h-20 w-auto object-contain transition-transform group-hover:scale-105"
+                className="h-16 md:h-20 w-auto object-contain transition-transform group-hover:scale-105"
                 onError={(e) => {
                   e.target.onerror = null;
                   e.target.src = '/fouz_logo.jpg';
@@ -82,25 +84,36 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* CENTER: Business name */}
-          <div className="flex justify-center items-center">
-            <Link to="/" className="text-center group flex flex-col items-center">
-              <span className="font-serif text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light tracking-[0.14em] text-charcoal group-hover:text-gold-700 transition-colors whitespace-nowrap">
-                {(settings.business_name || 'Fouz Fragrance').replace(/✨/g, '').trim()}
-              </span>
-              {/* Tagline */}
-              <span className="text-[9px] md:text-[11px] uppercase tracking-[0.24em] text-stone-400 font-medium mt-1.5 hidden sm:block whitespace-nowrap">
-                {settings.tagline || 'Premium Perfumes | Lasting Impressions'}
-              </span>
+          {/* CENTER: Mobile (Logo + Brand Name) & Desktop (Brand Name + Tagline) */}
+          <div className="flex justify-center items-center flex-1 md:flex-initial px-1 sm:px-2">
+            <Link to="/" className="text-center group flex items-center md:flex-col justify-center gap-1.5 sm:gap-2 md:gap-0">
+              {/* On mobile, small logo icon side-by-side with text */}
+              <img
+                src={settings.logo_url || '/fouz_logo.jpg'}
+                alt={settings.business_name}
+                className="h-8 sm:h-9 w-auto object-contain md:hidden flex-shrink-0"
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = '/fouz_logo.jpg';
+                }}
+              />
+              <div className="flex flex-col items-center">
+                <span className="font-serif text-base sm:text-xl md:text-3xl lg:text-4xl font-light tracking-[0.06em] sm:tracking-[0.14em] text-charcoal group-hover:text-gold-700 transition-colors whitespace-nowrap">
+                  {(settings.business_name || 'Fouz Fragrance').replace(/✨/g, '').trim()}
+                </span>
+                {/* Tagline */}
+                <span className="text-[9px] md:text-[11px] uppercase tracking-[0.24em] text-stone-400 font-medium mt-1.5 hidden sm:block whitespace-nowrap">
+                  {settings.tagline || 'Premium Perfumes | Lasting Impressions'}
+                </span>
+              </div>
             </Link>
           </div>
 
-
           {/* RIGHT: Search & Cart icons */}
-          <div className="flex items-center justify-end space-x-2">
+          <div className="flex items-center justify-end space-x-1 sm:space-x-2">
             <button
               onClick={() => setSearchOpen(!searchOpen)}
-              className="p-2 text-stone-600 hover:text-gold-600 transition-colors"
+              className="p-1.5 sm:p-2 text-stone-600 hover:text-gold-600 transition-colors"
               aria-label="Search Fragrances"
               id="header-search-btn"
             >
@@ -108,7 +121,7 @@ export default function Header() {
             </button>
             <button
               onClick={() => setIsCartOpen(true)}
-              className="relative p-2 text-stone-600 hover:text-gold-600 transition-colors"
+              className="relative p-1.5 sm:p-2 text-stone-600 hover:text-gold-600 transition-colors"
               aria-label="Shopping Cart"
               id="header-cart-btn"
             >
@@ -120,7 +133,6 @@ export default function Header() {
               )}
             </button>
           </div>
-
         </div>
       </div>
 

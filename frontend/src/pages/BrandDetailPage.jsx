@@ -171,34 +171,47 @@ export default function BrandDetailPage() {
         return (
           <div className="bg-white border-b border-stone-200/80 py-5 sm:py-10">
             <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-8">
+              <div className="flex flex-col sm:flex-row items-start gap-3 sm:gap-8">
                 
-                {/* Brand Logo with fallback */}
-                <div className="w-20 h-20 sm:w-36 sm:h-36 bg-white rounded-lg border border-stone-200/90 p-2.5 sm:p-4 shadow-2xs flex items-center justify-center flex-shrink-0 group">
-                  {(brand.logo || brand.image_url) ? (
-                    <img
-                      src={brand.logo || brand.image_url}
-                      alt={`${brand.name} logo`}
-                      className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
-                      onError={(e) => {
-                        e.currentTarget.style.display = 'none';
-                        if (e.currentTarget.nextElementSibling) {
-                          e.currentTarget.nextElementSibling.style.display = 'block';
-                        }
-                      }}
-                    />
-                  ) : null}
-                  <span
-                    style={{ display: (brand.logo || brand.image_url) ? 'none' : 'block' }}
-                    className="font-serif text-sm font-semibold text-charcoal text-center"
-                  >
-                    {brand.name}
-                  </span>
+                {/* On mobile: Logo and Heading side-by-side in a horizontal row */}
+                <div className="flex items-center gap-3.5 sm:gap-6 w-full sm:w-auto">
+                  {/* Brand Logo with fallback */}
+                  <div className="w-16 h-16 sm:w-36 sm:h-36 bg-white rounded-lg border border-stone-200/90 p-2 sm:p-4 shadow-2xs flex items-center justify-center flex-shrink-0 group">
+                    {(brand.logo || brand.image_url) ? (
+                      <img
+                        src={brand.logo || brand.image_url}
+                        alt={`${brand.name} logo`}
+                        className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
+                        onError={(e) => {
+                          e.currentTarget.style.display = 'none';
+                          if (e.currentTarget.nextElementSibling) {
+                            e.currentTarget.nextElementSibling.style.display = 'block';
+                          }
+                        }}
+                      />
+                    ) : null}
+                    <span
+                      style={{ display: (brand.logo || brand.image_url) ? 'none' : 'block' }}
+                      className="font-serif text-xs sm:text-sm font-semibold text-charcoal text-center"
+                    >
+                      {brand.name}
+                    </span>
+                  </div>
+
+                  {/* Brand Heading for mobile (right beside the logo) */}
+                  <div className="sm:hidden flex-1 text-left">
+                    <h1 className="font-serif text-2xl text-charcoal font-medium tracking-tight leading-tight">
+                      {brand.name}
+                    </h1>
+                    <span className="text-[10px] uppercase tracking-luxury text-gold-600 font-semibold block mt-0.5">
+                      UAE Niche Collection
+                    </span>
+                  </div>
                 </div>
 
-                {/* Right Side: Brand Name & Content Only */}
-                <div className="text-center sm:text-left flex-1 w-full">
-                  <h1 className="font-serif text-2xl sm:text-4xl md:text-5xl text-charcoal font-medium tracking-tight mb-1.5 sm:mb-2">
+                {/* Right Side / Below: Brand Name (desktop only) & Content */}
+                <div className="text-left flex-1 w-full">
+                  <h1 className="hidden sm:block font-serif text-3xl sm:text-4xl md:text-5xl text-charcoal font-medium tracking-tight mb-1.5 sm:mb-2">
                     {brand.name}
                   </h1>
 
