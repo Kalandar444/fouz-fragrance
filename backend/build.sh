@@ -3,8 +3,8 @@
 set -o errexit
 
 pip install -r requirements.txt
-python manage.py migrate
-python seed_data.py
-python sync_amberiya_brand_logos.py
-python seed_vperfumes_to_db.py
+python manage.py migrate --no-input
 python manage.py collectstatic --no-input
+
+# Run seed safely so it never blocks or fails deployment
+python seed_data.py || true

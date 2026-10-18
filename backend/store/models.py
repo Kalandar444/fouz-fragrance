@@ -354,9 +354,10 @@ class Order(models.Model):
     customer_name = models.CharField(max_length=200)
     customer_phone = models.CharField(max_length=50)
     customer_email = models.EmailField(blank=True)
+    country = models.CharField(max_length=100, default='United Arab Emirates')
     delivery_address = models.TextField()
     city = models.CharField(max_length=100)
-    state_emirate = models.CharField(max_length=50, choices=UAE_EMIRATES, default='Dubai')
+    state_emirate = models.CharField(max_length=100, default='Dubai', blank=True)
     postal_code = models.CharField(max_length=20, blank=True)
     delivery_instructions = models.TextField(blank=True)
     

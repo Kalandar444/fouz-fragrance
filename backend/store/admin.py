@@ -279,14 +279,14 @@ class OrderItemInline(admin.TabularInline):
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
     list_display = (
-        'order_reference', 'customer_name', 'customer_phone', 'state_emirate',
+        'order_reference', 'customer_name', 'customer_phone', 'country', 'state_emirate',
         'total_display', 'status_badge', 'business_email_badge', 'created_at'
     )
-    list_filter = ('status', 'state_emirate', 'business_email_sent', 'created_at')
-    search_fields = ('order_reference', 'customer_name', 'customer_phone', 'customer_email', 'delivery_address')
+    list_filter = ('status', 'country', 'state_emirate', 'business_email_sent', 'created_at')
+    search_fields = ('order_reference', 'customer_name', 'customer_phone', 'customer_email', 'country', 'delivery_address')
     readonly_fields = (
         'order_reference', 'customer_name', 'customer_phone', 'customer_email',
-        'delivery_address', 'city', 'state_emirate', 'postal_code',
+        'country', 'delivery_address', 'city', 'state_emirate', 'postal_code',
         'delivery_instructions', 'subtotal', 'shipping_fee', 'total_amount',
         'currency', 'payment_method', 'business_email_sent', 'customer_email_sent',
         'email_delivery_log', 'created_at', 'updated_at'
@@ -309,7 +309,7 @@ class OrderAdmin(admin.ModelAdmin):
         ("Customer & Delivery Destination", {
             'fields': (
                 'customer_name', 'customer_phone', 'customer_email',
-                'state_emirate', 'city', 'delivery_address', 'postal_code', 'delivery_instructions'
+                'country', 'state_emirate', 'city', 'delivery_address', 'postal_code', 'delivery_instructions'
             )
         }),
         ("Financial Totals", {

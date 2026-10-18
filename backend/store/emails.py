@@ -94,7 +94,8 @@ CUSTOMER & DELIVERY DETAILS:
 Customer Name:         {order.customer_name}
 Phone Number:          {order.customer_phone}
 Email:                 {order.customer_email or 'Not provided'}
-City / Emirate:        {order.city}, {order.state_emirate}
+Country:               {getattr(order, 'country', 'United Arab Emirates')}
+City / State / Emirate:{order.city}, {order.state_emirate}
 Delivery Address:      {order.delivery_address}
 Postal Code:           {order.postal_code or 'N/A'}
 Delivery Instructions: {order.delivery_instructions or 'None'}
@@ -187,7 +188,11 @@ Phone / WhatsApp: +971 54 4540097
                             <td style="padding: 4px 0; color: #444;">{order.customer_email or 'Not provided'}</td>
                         </tr>
                         <tr>
-                            <td style="color: #777; padding: 4px 0;">Emirate & City:</td>
+                            <td style="color: #777; padding: 4px 0;">Country:</td>
+                            <td style="padding: 4px 0;"><strong style="color: #9e7d47;">{getattr(order, 'country', 'United Arab Emirates')}</strong></td>
+                        </tr>
+                        <tr>
+                            <td style="color: #777; padding: 4px 0;">City / State / Emirate:</td>
                             <td style="padding: 4px 0;"><strong>{order.state_emirate} ({order.city})</strong></td>
                         </tr>
                         <tr>

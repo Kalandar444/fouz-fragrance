@@ -222,7 +222,7 @@ class OrderDetailSerializer(serializers.ModelSerializer):
         model = Order
         fields = [
             'order_reference', 'customer_name', 'customer_phone', 'customer_email',
-            'delivery_address', 'city', 'state_emirate', 'postal_code',
+            'country', 'delivery_address', 'city', 'state_emirate', 'postal_code',
             'delivery_instructions', 'subtotal', 'shipping_fee', 'total_amount',
             'currency', 'payment_method', 'status', 'created_at', 'items'
         ]
@@ -244,9 +244,10 @@ class CreateOrderSerializer(serializers.Serializer):
     customer_name = serializers.CharField(max_length=200)
     customer_phone = serializers.CharField(max_length=50)
     customer_email = serializers.EmailField(required=False, allow_blank=True)
+    country = serializers.CharField(max_length=100, default='United Arab Emirates', required=False, allow_blank=True)
     delivery_address = serializers.CharField()
     city = serializers.CharField(max_length=100)
-    state_emirate = serializers.ChoiceField(choices=Order.UAE_EMIRATES, default='Dubai')
+    state_emirate = serializers.CharField(max_length=100, default='Dubai', required=False, allow_blank=True)
     postal_code = serializers.CharField(max_length=20, required=False, allow_blank=True)
     delivery_instructions = serializers.CharField(required=False, allow_blank=True)
     items = CartItemInputSerializer(many=True)
@@ -352,22 +353,28 @@ class CreateOrderSerializer(serializers.Serializer):
             total_amount = subtotal + shipping_fee
             order_reference = Order.generate_order_reference()
 
+            # Determine country & payment method
+            cust_country = validated_data.get('country', 'United Arab Emirates') or 'United Arab Emirates'
+            is_uae = cust_country.strip().lower() in ('united arab emirates', 'uae', 'emirates')
+            pay_method = 'Cash on Delivery (UAE)' if is_uae else 'International Order (Cash / Card on Delivery)'
+
             # Create Order
             order = Order.objects.create(
                 order_reference=order_reference,
                 customer_name=validated_data['customer_name'],
                 customer_phone=validated_data['customer_phone'],
                 customer_email=validated_data.get('customer_email', ''),
+                country=cust_country,
                 delivery_address=validated_data['delivery_address'],
                 city=validated_data['city'],
-                state_emirate=validated_data['state_emirate'],
+                state_emirate=validated_data.get('state_emirate', 'Dubai') or 'Dubai',
                 postal_code=validated_data.get('postal_code', ''),
                 delivery_instructions=validated_data.get('delivery_instructions', ''),
                 subtotal=subtotal,
                 shipping_fee=shipping_fee,
                 total_amount=total_amount,
                 currency=settings_obj.currency,
-                payment_method='Cash on Delivery',
+                payment_method=pay_method,
                 status='Pending'
             )
 
