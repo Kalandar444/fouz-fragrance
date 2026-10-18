@@ -7,18 +7,68 @@ from django.utils import timezone
 logger = logging.getLogger(__name__)
 
 
+def get_secure_smtp_connection():
+    """
+    Creates a dedicated, high-reliability SMTP connection.
+    Defaults to Port 465 SSL for Gmail (no connection drop on cloud/ISPs).
+    Falls back to Port 587 TLS if needed.
+    """
+    host = getattr(settings, 'EMAIL_HOST', 'smtp.gmail.com')
+    user = getattr(settings, 'EMAIL_HOST_USER', 'fouzfragrance02@gmail.com').strip()
+    pwd = getattr(settings, 'EMAIL_HOST_PASSWORD', 'mqybgujrtqbeshty').replace(' ', '').strip()
+    timeout = getattr(settings, 'EMAIL_TIMEOUT', 15)
+
+    if not (user and pwd):
+        return None
+
+    # 1. Try Port 465 SSL first (standard for Gmail, zero connection drop)
+    try:
+        conn = get_connection(
+            backend='django.core.mail.backends.smtp.EmailBackend',
+            host=host,
+            port=465,
+            username=user,
+            password=pwd,
+            use_ssl=True,
+            use_tls=False,
+            timeout=timeout
+        )
+        conn.open()
+        return conn
+    except Exception as e:
+        logger.warning(f"Port 465 SSL connection attempt failed ({e}), attempting port 587 TLS fallback...")
+
+    # 2. Fallback to Port 587 TLS
+    try:
+        conn = get_connection(
+            backend='django.core.mail.backends.smtp.EmailBackend',
+            host=host,
+            port=587,
+            username=user,
+            password=pwd,
+            use_ssl=False,
+            use_tls=True,
+            timeout=timeout
+        )
+        conn.open()
+        return conn
+    except Exception as e2:
+        logger.error(f"Port 587 TLS fallback also failed: {e2}")
+        return None
+
+
 def is_smtp_configured():
     """
     Checks whether basic SMTP credentials (host user & password) are populated.
     """
-    user = getattr(settings, 'EMAIL_HOST_USER', '').strip()
-    pwd = getattr(settings, 'EMAIL_HOST_PASSWORD', '').strip()
+    user = getattr(settings, 'EMAIL_HOST_USER', 'fouzfragrance02@gmail.com').strip()
+    pwd = getattr(settings, 'EMAIL_HOST_PASSWORD', 'mqybgujrtqbeshty').strip()
     return bool(user and pwd)
 
 
 def send_order_notifications(order):
     """
-    Sends order notification to the business email (fouzfragranceae@gmail.com)
+    Sends order notification to the business email (fouzfragrance02@gmail.com)
     and customer confirmation email.
     
     Guaranteed safety:
@@ -27,7 +77,7 @@ def send_order_notifications(order):
     - Gracefully handles missing SMTP credentials.
     """
     try:
-        business_email = getattr(settings, 'BUSINESS_CONTACT_EMAIL', 'fouzfragranceae@gmail.com').strip()
+        business_email = getattr(settings, 'BUSINESS_CONTACT_EMAIL', 'fouzfragrance02@gmail.com').strip()
         from_email = getattr(settings, 'DEFAULT_FROM_EMAIL', f'Fouz Fragrance <{business_email}>')
         currency = order.currency or 'AED'
         
@@ -255,146 +305,156 @@ Phone / WhatsApp: +971 54 4540097
         </html>
         """
 
-        # Dispatch Business Email
-        try:
-            if not is_smtp_configured():
-                delivery_logs.append(
-                    f"[{now_str}] NOTICE: Gmail SMTP password (EMAIL_HOST_PASSWORD) is not configured in backend/.env. "
-                    f"Email skipped. Please set a Google App Password to enable live delivery."
-                )
-                logger.warning(f"Order #{order.order_reference}: SMTP credentials missing in backend/.env.")
-                order.business_email_sent = False
-            else:
+        # Dispatch Order Notifications via Secure SMTP Connection
+        conn = get_secure_smtp_connection()
+        if not conn:
+            err_msg = "Gmail SMTP connection could not be established. Check credentials or network."
+            delivery_logs.append(f"[{now_str}] NOTICE: {err_msg}")
+            logger.warning(f"Order #{order.order_reference}: {err_msg}")
+            order.business_email_sent = False
+            order.customer_email_sent = False
+        else:
+            # 1. Send Business Email
+            try:
                 msg = EmailMultiAlternatives(
                     subject=business_subject,
                     body=business_text,
                     from_email=from_email,
                     to=[business_email],
+                    connection=conn,
                 )
                 msg.attach_alternative(business_html, "text/html")
                 msg.send(fail_silently=False)
                 order.business_email_sent = True
                 delivery_logs.append(f"[{now_str}] SUCCESS: Sent order notification to business email {business_email}")
                 logger.info(f"Order #{order.order_reference}: Notification sent successfully to {business_email}")
-        except Exception as e:
-            order.business_email_sent = False
-            err_msg = f"Failed to send business notification to {business_email}: {str(e)}"
-            delivery_logs.append(f"[{now_str}] ERROR: {err_msg}")
-            logger.error(f"Order #{order.order_reference}: {err_msg}", exc_info=True)
+            except Exception as b_err:
+                order.business_email_sent = False
+                err_msg = f"Failed to send business notification to {business_email}: {str(b_err)}"
+                delivery_logs.append(f"[{now_str}] ERROR: {err_msg}")
+                logger.error(f"Order #{order.order_reference}: {err_msg}", exc_info=True)
 
-        # -------------------------------------------------------------
-        # Customer Confirmation Email (if customer provided email)
-        # -------------------------------------------------------------
-        if order.customer_email:
-            cust_subject = f"Order Confirmation #{order.order_reference} — Fouz Fragrance"
-            cust_text = f"""Dear {order.customer_name},
+            # 2. Send Customer Confirmation Email (if customer provided email)
+            if order.customer_email:
+                cust_subject = f"Order Confirmation #{order.order_reference} — Fouz Fragrance"
+                cust_text = f"""Dear {order.customer_name},
 
-Thank you for shopping with Fouz Fragrance!
-Your Cash on Delivery order #{order.order_reference} has been received and is currently being prepared for dispatch across the UAE.
-
-PAYMENT METHOD:
-Cash on Delivery — Your payment of {order.total_amount} {currency} will be collected in cash upon delivery at your door.
+Thank you for your order with Fouz Fragrance!
+Your order #{order.order_reference} has been received and is being prepared for dispatch directly from Dubai Gold Souk.
 
 ORDER SUMMARY:
-Reference: {order.order_reference}
-Delivery Address: {order.delivery_address}, {order.city}, {order.state_emirate}
+------------------------------------------------------------
+Order Reference: {order.order_reference}
+Order Date:      {order_date_str}
+Payment Method:  {order.payment_method}
+Total Amount:    {order.total_amount} {currency}
 
-ITEMS ORDERED:
+DELIVERY DETAILS:
+------------------------------------------------------------
+Recipient:       {order.customer_name}
+Phone / WhatsApp:{order.customer_phone}
+Delivery Address:{order.delivery_address}
+
+ORDERED ITEMS:
+------------------------------------------------------------
 {items_text_str}
 
-Delivery Charges: {order.shipping_fee} {currency}
-Total Payable:    {order.total_amount} {currency}
+Delivery Fee:    {order.shipping_fee} {currency}
+Total Payable:   {order.total_amount} {currency}
 
-If you have any questions or would like to add instructions, contact us directly via WhatsApp at +971 54 4540097.
+If you have any questions or need to track your shipment, message us anytime on WhatsApp at +971 54 4540097.
 
 Warm regards,
-Fouz Fragrance
-Gold Souk, Dubai, UAE
+Fouz Fragrance — UAE Luxury Perfumes
+Gold Souk, Dubai, United Arab Emirates
 """
-
-            cust_html = f"""
-            <!DOCTYPE html>
-            <html>
-            <head><meta charset="utf-8"/><title>Order Confirmation #{order.order_reference}</title></head>
-            <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #faf9f6; margin: 0; padding: 24px; color: #222;">
-                <div style="max-width: 600px; margin: 0 auto; background: #ffffff; border: 1px solid #e8e3d9; border-radius: 6px; overflow: hidden;">
-                    <div style="background-color: #111111; color: #ffffff; padding: 24px; text-align: center; border-bottom: 3px solid #c5a880;">
-                        <h1 style="margin: 0; font-size: 20px; letter-spacing: 2px; font-weight: 500; text-transform: uppercase;">FOUZ FRAGRANCE</h1>
-                        <p style="margin: 6px 0 0; font-size: 12px; color: #c5a880; letter-spacing: 1px; text-transform: uppercase;">Order Confirmation</p>
-                    </div>
-                    <div style="padding: 24px;">
-                        <p style="font-size: 15px; margin-top: 0;">Dear <strong>{order.customer_name}</strong>,</p>
-                        <p style="font-size: 14px; color: #444; line-height: 1.6;">
-                            Thank you for your order with Fouz Fragrance. We have received your request and our team is preparing your luxury fragrance selection for delivery across the UAE.
-                        </p>
-                        
-                        <div style="background-color: #f7fcf7; border: 1px solid #d4ebd4; padding: 14px 16px; border-radius: 4px; margin: 20px 0; font-size: 13px; color: #1c6827;">
-                            💵 <strong>Payment Method: Cash on Delivery</strong><br/>
-                            Your total payment of <strong>{order.total_amount} {currency}</strong> will be collected in cash upon delivery.
+                cust_html = f"""
+                <!DOCTYPE html>
+                <html>
+                <head><meta charset="utf-8"/><title>Order Confirmation #{order.order_reference}</title></head>
+                <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #faf9f6; margin: 0; padding: 24px; color: #222;">
+                    <div style="max-width: 600px; margin: 0 auto; background: #ffffff; border: 1px solid #e8e3d9; border-radius: 6px; overflow: hidden; box-shadow: 0 4px 14px rgba(0,0,0,0.04);">
+                        <div style="background-color: #111111; color: #ffffff; padding: 24px; text-align: center; border-bottom: 3px solid #c5a880;">
+                            <h1 style="margin: 0; font-size: 20px; letter-spacing: 2px; font-weight: 500; text-transform: uppercase; color: #ffffff;">FOUZ FRAGRANCE</h1>
+                            <p style="margin: 6px 0 0; font-size: 12px; color: #c5a880; letter-spacing: 1px; text-transform: uppercase; font-weight: 600;">Order Confirmation</p>
                         </div>
+                        <div style="padding: 24px;">
+                            <p style="font-size: 15px; margin-top: 0;">Dear <strong>{order.customer_name}</strong>,</p>
+                            <p style="font-size: 14px; color: #444; line-height: 1.6;">
+                                Thank you for choosing Fouz Fragrance. We have received your order <strong>#{order.order_reference}</strong> and our team in Dubai Gold Souk is currently preparing your luxury fragrances.
+                            </p>
+                            
+                            <div style="background-color: #fcfbf9; border: 1px solid #ede8de; padding: 14px 16px; border-radius: 4px; margin: 18px 0; font-size: 13px;">
+                                💵 <strong>Payment Method:</strong> {order.payment_method}<br/>
+                                📦 <strong>Total Amount:</strong> <strong style="color: #9e7d47; font-size: 15px;">{order.total_amount} {currency}</strong>
+                            </div>
 
-                        <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
-                            <thead>
-                                <tr style="border-bottom: 2px solid #e8e3d9; font-size: 12px; text-transform: uppercase; color: #777;">
-                                    <th style="text-align: left; padding: 8px;">Product</th>
-                                    <th style="text-align: center; padding: 8px;">Qty</th>
-                                    <th style="text-align: right; padding: 8px;">Price</th>
-                                    <th style="text-align: right; padding: 8px;">Total</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {items_html_str}
-                            </tbody>
-                        </table>
+                            <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
+                                <thead>
+                                    <tr style="border-bottom: 2px solid #e8e3d9; font-size: 12px; text-transform: uppercase; color: #777;">
+                                        <th style="text-align: left; padding: 8px;">Product</th>
+                                        <th style="text-align: center; padding: 8px;">Qty</th>
+                                        <th style="text-align: right; padding: 8px;">Price</th>
+                                        <th style="text-align: right; padding: 8px;">Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {items_html_str}
+                                </tbody>
+                            </table>
 
-                        <div style="background-color: #faf8f5; border-top: 1px solid #e8e3d9; padding: 14px 16px; border-radius: 4px;">
-                            <div style="display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 4px;">
-                                <span>Subtotal:</span>
-                                <span>{order.subtotal} {currency}</span>
+                            <div style="background-color: #faf8f5; border-top: 1px solid #e8e3d9; padding: 14px 16px; border-radius: 4px;">
+                                <div style="display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 4px;">
+                                    <span>Subtotal:</span>
+                                    <span>{order.subtotal} {currency}</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 4px;">
+                                    <span>Shipping / Delivery:</span>
+                                    <span>{order.shipping_fee} {currency}</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; font-size: 16px; font-weight: bold; margin-top: 6px; color: #9e7d47;">
+                                    <span>Total Payable:</span>
+                                    <span>{order.total_amount} {currency}</span>
+                                </div>
                             </div>
-                            <div style="display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 4px;">
-                                <span>UAE Delivery Fee:</span>
-                                <span>{order.shipping_fee} {currency}</span>
-                            </div>
-                            <div style="display: flex; justify-content: space-between; font-size: 16px; font-weight: bold; margin-top: 6px; color: #9e7d47;">
-                                <span>Total Payable on Delivery:</span>
-                                <span>{order.total_amount} {currency}</span>
-                            </div>
+
+                            <p style="font-size: 13px; color: #666; margin-top: 24px; line-height: 1.5;">
+                                Delivering to: <strong>{order.delivery_address}</strong><br/>
+                                Phone / WhatsApp: {order.customer_phone}
+                            </p>
                         </div>
+                        <div style="background-color: #f7f6f3; padding: 16px; text-align: center; font-size: 12px; color: #888; border-top: 1px solid #e8e3d9;">
+                            Need assistance? WhatsApp us at <a href="https://wa.me/971544540097" style="color: #25D366; text-decoration: none; font-weight: bold;">+971 54 4540097</a><br/>
+                            Fouz Fragrance — Gold Souk, Dubai, UAE
+                        </div>
+                    </div>
+                </body>
+                </html>
+                """
 
-                        <p style="font-size: 13px; color: #666; margin-top: 24px; line-height: 1.5;">
-                            Delivering to: <strong>{order.delivery_address}, {order.city}, {order.state_emirate}</strong><br/>
-                            Phone: {order.customer_phone}
-                        </p>
-                    </div>
-                    <div style="background-color: #f7f6f3; padding: 16px; text-align: center; font-size: 12px; color: #888; border-top: 1px solid #e8e3d9;">
-                        Need assistance? WhatsApp us at <a href="https://wa.me/971544540097" style="color: #25D366; text-decoration: none; font-weight: bold;">+971 54 4540097</a><br/>
-                        Fouz Fragrance — Gold Souk, Dubai, UAE
-                    </div>
-                </div>
-            </body>
-            </html>
-            """
-            try:
-                if is_smtp_configured():
+                try:
                     cust_msg = EmailMultiAlternatives(
                         subject=cust_subject,
                         body=cust_text,
                         from_email=from_email,
                         to=[order.customer_email],
+                        connection=conn,
                     )
                     cust_msg.attach_alternative(cust_html, "text/html")
                     cust_msg.send(fail_silently=False)
                     order.customer_email_sent = True
                     delivery_logs.append(f"[{now_str}] SUCCESS: Sent confirmation to customer {order.customer_email}")
                     logger.info(f"Order #{order.order_reference}: Customer confirmation sent to {order.customer_email}")
-                else:
+                except Exception as c_err:
                     order.customer_email_sent = False
-            except Exception as e:
-                order.customer_email_sent = False
-                err_msg = f"Failed to send customer confirmation to {order.customer_email}: {str(e)}"
-                delivery_logs.append(f"[{now_str}] ERROR: {err_msg}")
-                logger.error(f"Order #{order.order_reference}: {err_msg}")
+                    err_msg = f"Failed to send customer confirmation to {order.customer_email}: {str(c_err)}"
+                    delivery_logs.append(f"[{now_str}] ERROR: {err_msg}")
+                    logger.error(f"Order #{order.order_reference}: {err_msg}")
+
+            try:
+                conn.close()
+            except Exception:
+                pass
 
         # Safely save delivery logs on order
         try:
@@ -565,14 +625,18 @@ Your Gmail SMTP configuration is WORKING PERFECTLY!
     """
 
     try:
+        conn = get_secure_smtp_connection()
         msg = EmailMultiAlternatives(
             subject=subject,
             body=text_content,
             from_email=from_email,
-            to=[target_recipient]
+            to=[target_recipient],
+            connection=conn,
         )
         msg.attach_alternative(html_content, "text/html")
         msg.send(fail_silently=False)
+        if conn:
+            conn.close()
         return {
             'success': True,
             'recipient': target_recipient,
@@ -597,7 +661,7 @@ def send_contact_enquiry_notification(enquiry):
     Sends email notification when a customer submits a contact enquiry.
     """
     try:
-        business_email = getattr(settings, 'BUSINESS_CONTACT_EMAIL', 'fouzfragranceae@gmail.com').strip()
+        business_email = getattr(settings, 'BUSINESS_CONTACT_EMAIL', 'fouzfragrance02@gmail.com').strip()
         from_email = getattr(settings, 'DEFAULT_FROM_EMAIL', f'Fouz Fragrance <{business_email}>')
         
         subject = f"💬 New Contact Enquiry from {enquiry.name} — Fouz Fragrance"
@@ -614,8 +678,9 @@ Message:
 
 Reply to: {enquiry.email}
 """
-        if not is_smtp_configured():
-            logger.warning("Contact enquiry received, but SMTP password not configured.")
+        conn = get_secure_smtp_connection()
+        if not conn:
+            logger.warning("Contact enquiry received, but SMTP connection could not be opened.")
             return False
 
         msg = EmailMultiAlternatives(
@@ -624,8 +689,10 @@ Reply to: {enquiry.email}
             from_email=from_email,
             to=[business_email],
             reply_to=[enquiry.email],
+            connection=conn,
         )
         msg.send(fail_silently=False)
+        conn.close()
         enquiry.email_sent = True
         enquiry.save(update_fields=['email_sent'])
         return True

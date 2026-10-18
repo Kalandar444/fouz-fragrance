@@ -394,9 +394,10 @@ class CreateOrderSerializer(serializers.Serializer):
                     product_image_url=item['product_image_url']
                 )
 
-        # Trigger email notifications (post-transaction to ensure order is safely committed in DB)
+        # Trigger email notifications in background thread (never blocks HTTP response or times out)
         try:
-            send_order_notifications(order)
+            import threading
+            threading.Thread(target=send_order_notifications, args=(order,), daemon=True).start()
         except Exception as email_err:
             logger.error(
                 f"Safe email handling: Error dispatching order notifications for #{order.order_reference}: {email_err}",

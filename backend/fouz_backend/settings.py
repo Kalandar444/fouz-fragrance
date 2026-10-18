@@ -112,9 +112,19 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# CORS Headers - allow public storefront API access across all devices
+# CORS & CSRF Configuration
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://fouz-fragrance-backend.onrender.com',
+    'https://fouzfragrance.co.in',
+    'https://www.fouzfragrance.co.in',
+    'http://localhost:5173',
+    'http://localhost:3000',
+    'http://127.0.0.1:5173',
+    'http://127.0.0.1:8000',
+]
 
 # Django REST Framework
 REST_FRAMEWORK = {
@@ -132,13 +142,12 @@ REST_FRAMEWORK = {
 }
 
 # Email Configuration (SMTP)
+# Default to Port 465 with SSL for high reliability and zero connection drops on cloud/Render
 EMAIL_BACKEND = os.getenv('EMAIL_BACKEND', 'django.core.mail.backends.smtp.EmailBackend')
 EMAIL_HOST = os.getenv('EMAIL_HOST', 'smtp.gmail.com')
-EMAIL_PORT = int(os.getenv('EMAIL_PORT', 587))
-EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS', 'True').lower() in ('true', '1', 't', 'yes')
-EMAIL_USE_SSL = os.getenv('EMAIL_USE_SSL', 'False').lower() in ('true', '1', 't', 'yes')
-if EMAIL_USE_SSL:
-    EMAIL_USE_TLS = False
+EMAIL_PORT = int(os.getenv('EMAIL_PORT', 465))
+EMAIL_USE_SSL = os.getenv('EMAIL_USE_SSL', 'True').lower() in ('true', '1', 't', 'yes')
+EMAIL_USE_TLS = False if EMAIL_USE_SSL else (os.getenv('EMAIL_USE_TLS', 'False').lower() in ('true', '1', 't', 'yes'))
 
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER', 'fouzfragrance02@gmail.com').strip()
 # Strip spaces so 16-character Google App Passwords formatted as "xxxx xxxx xxxx xxxx" work seamlessly
