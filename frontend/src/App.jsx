@@ -65,26 +65,6 @@ export default function App() {
                 <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
                 <Route path="/terms" element={<TermsPage />} />
 
-                {/* Admin Redirect */}
-                <Route
-                  path="/admin"
-                  element={
-                    <div className="min-h-[60vh] flex flex-col items-center justify-center p-8 text-center">
-                      <p className="text-stone-600 mb-4 font-serif text-lg">Opening Fouz Fragrance Admin Panel...</p>
-                      <a
-                        href="https://fouz-fragrance-backend.onrender.com/admin/"
-                        className="px-6 py-2.5 bg-charcoal text-white rounded text-xs uppercase tracking-wider font-semibold hover:bg-gold-600"
-                      >
-                        Click here if not redirected automatically
-                      </a>
-                      {(() => {
-                        window.location.href = 'https://fouz-fragrance-backend.onrender.com/admin/';
-                        return null;
-                      })()}
-                    </div>
-                  }
-                />
-
                 {/* 404 Fallback */}
                 <Route path="*" element={<HomePage />} />
               </Routes>
