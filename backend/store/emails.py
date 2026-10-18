@@ -530,29 +530,42 @@ Gold Souk, Dubai, United Arab Emirates
                 </html>
                 """
 
-                try:
-                    cust_msg = EmailMultiAlternatives(
-                        subject=cust_subject,
-                        body=cust_text,
-                        from_email=from_email,
-                        to=[order.customer_email],
-                        connection=conn,
-                    )
-                    cust_msg.attach_alternative(cust_html, "text/html")
-                    cust_msg.send(fail_silently=False)
-                    order.customer_email_sent = True
-                    delivery_logs.append(f"[{now_str}] SUCCESS: Sent confirmation to customer {order.customer_email}")
-                    logger.info(f"Order #{order.order_reference}: Customer confirmation sent to {order.customer_email}")
-                except Exception as c_err:
-                    order.customer_email_sent = False
-                    err_msg = f"Failed to send customer confirmation to {order.customer_email}: {str(c_err)}"
-                    delivery_logs.append(f"[{now_str}] ERROR: {err_msg}")
-                    logger.error(f"Order #{order.order_reference}: {err_msg}")
+                cust_sent = False
+                if resend_key:
+                    try:
+                        send_via_resend(resend_key, order.customer_email, cust_subject, cust_html, cust_text)
+                        order.customer_email_sent = True
+                        cust_sent = True
+                        delivery_logs.append(f"[{now_str}] SUCCESS: Sent confirmation via Resend to {order.customer_email}")
+                        print(f"[ORDER EMAIL] Customer confirmation sent via Resend to {order.customer_email}", flush=True)
+                    except Exception as rc_err:
+                        delivery_logs.append(f"[{now_str}] NOTICE: Resend customer email notice: {rc_err}")
 
-            try:
-                conn.close()
-            except Exception:
-                pass
+                if not cust_sent and conn:
+                    try:
+                        cust_msg = EmailMultiAlternatives(
+                            subject=cust_subject,
+                            body=cust_text,
+                            from_email=from_email,
+                            to=[order.customer_email],
+                            connection=conn,
+                        )
+                        cust_msg.attach_alternative(cust_html, "text/html")
+                        cust_msg.send(fail_silently=False)
+                        order.customer_email_sent = True
+                        delivery_logs.append(f"[{now_str}] SUCCESS: Sent confirmation to customer {order.customer_email}")
+                        logger.info(f"Order #{order.order_reference}: Customer confirmation sent to {order.customer_email}")
+                    except Exception as c_err:
+                        order.customer_email_sent = False
+                        err_msg = f"Failed to send customer confirmation to {order.customer_email}: {str(c_err)}"
+                        delivery_logs.append(f"[{now_str}] ERROR: {err_msg}")
+                        logger.error(f"Order #{order.order_reference}: {err_msg}")
+
+            if conn:
+                try:
+                    conn.close()
+                except Exception:
+                    pass
 
         # Safely save delivery logs on order
         try:
