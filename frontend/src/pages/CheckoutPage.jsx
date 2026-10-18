@@ -207,17 +207,31 @@ export default function CheckoutPage() {
         state_emirate: isUAE ? (formData.state_emirate || 'Dubai') : (formData.state_province?.trim() || formData.city.trim()),
         postal_code: formData.postal_code.trim(),
         delivery_instructions: formData.delivery_instructions.trim(),
-        items: cartItems.map((item) => ({
-          product_id: item.product_id,
-          variant_id: item.variant_id,
-          quantity: item.quantity,
-          name: item.name,
-          brand: item.brand,
-          variant_title: item.variant_title,
-          price: item.price,
-          image: item.image,
-          slug: item.slug,
-        })),
+        items: cartItems.map((item) => {
+          let pid = item.product_id;
+          if (pid && typeof pid === 'string' && /^\d+$/.test(pid)) {
+            pid = parseInt(pid, 10);
+          } else if (typeof pid !== 'number' || isNaN(pid)) {
+            pid = 1;
+          }
+          let vid = item.variant_id;
+          if (vid && typeof vid === 'string' && /^\d+$/.test(vid)) {
+            vid = parseInt(vid, 10);
+          } else if (typeof vid !== 'number' || isNaN(vid)) {
+            vid = null;
+          }
+          return {
+            product_id: pid,
+            variant_id: vid,
+            quantity: parseInt(item.quantity) || 1,
+            name: item.name || '',
+            brand: item.brand || '',
+            variant_title: item.variant_title || '100ml',
+            price: parseFloat(item.price) || 199,
+            image: item.image || '',
+            slug: item.slug || '',
+          };
+        }),
       };
 
       let response;
@@ -226,12 +240,17 @@ export default function CheckoutPage() {
       } catch (firstErr) {
         const errData = firstErr.response?.data;
         const errStr = typeof errData === 'string' ? errData : JSON.stringify(errData || '');
-        // Resilience: if older live backend throws product missing error, fallback product_id to 1 so order NEVER drops
-        if (errStr.includes('is no longer available') || errStr.includes('Product with ID')) {
+        // Resilience: if older live backend throws product missing or validation error, fallback product_id to 1 so order NEVER drops
+        if (
+          errStr.includes('is no longer available') ||
+          errStr.includes('Product with ID') ||
+          errStr.includes('valid integer') ||
+          errStr.includes('product_id')
+        ) {
           console.warn('Retrying with safe product identifier fallback...');
           const fallbackPayload = {
             ...payload,
-            items: payload.items.map((it) => ({ ...it, product_id: 1 }))
+            items: payload.items.map((it) => ({ ...it, product_id: 1, variant_id: null }))
           };
           response = await createOrder(fallbackPayload);
         } else {
@@ -247,11 +266,22 @@ export default function CheckoutPage() {
       }
     } catch (err) {
       console.error('Order submission error:', err);
-      const errMsg =
-        err.response?.data?.error ||
-        (typeof err.response?.data === 'string'
-          ? err.response.data
-          : 'Failed to place order. Please review your address and contact details.');
+      const errData = err.response?.data;
+      let errMsg = 'Failed to place order. Please review your address and contact details.';
+      if (typeof errData === 'string') {
+        errMsg = errData;
+      } else if (errData && typeof errData === 'object') {
+        if (errData.error) {
+          errMsg = errData.error;
+        } else if (errData.detail) {
+          errMsg = errData.detail;
+        } else {
+          const fieldMsgs = Object.entries(errData)
+            .map(([k, v]) => `${k}: ${Array.isArray(v) ? v.join(', ') : JSON.stringify(v)}`)
+            .join(' | ');
+          if (fieldMsgs) errMsg = fieldMsgs;
+        }
+      }
       setServerError(errMsg);
     } finally {
       setSubmitting(false);

@@ -229,8 +229,8 @@ class OrderDetailSerializer(serializers.ModelSerializer):
 
 
 class CartItemInputSerializer(serializers.Serializer):
-    product_id = serializers.IntegerField(required=False, allow_null=True)
-    variant_id = serializers.IntegerField(required=False, allow_null=True)
+    product_id = serializers.CharField(required=False, allow_null=True, allow_blank=True)
+    variant_id = serializers.CharField(required=False, allow_null=True, allow_blank=True)
     quantity = serializers.IntegerField(min_value=1, default=1)
     name = serializers.CharField(required=False, allow_blank=True, default='')
     brand = serializers.CharField(required=False, allow_blank=True, default='')
@@ -266,8 +266,10 @@ class CreateOrderSerializer(serializers.Serializer):
             verified_order_items = []
 
             for item_input in items_data:
-                product_id = item_input.get('product_id')
-                variant_id = item_input.get('variant_id')
+                p_id_raw = item_input.get('product_id')
+                product_id = int(p_id_raw) if (p_id_raw is not None and str(p_id_raw).isdigit()) else None
+                v_id_raw = item_input.get('variant_id')
+                variant_id = int(v_id_raw) if (v_id_raw is not None and str(v_id_raw).isdigit()) else None
                 quantity = item_input.get('quantity', 1)
                 item_name = item_input.get('name') or ''
                 item_brand = item_input.get('brand') or ''
