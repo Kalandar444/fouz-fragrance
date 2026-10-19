@@ -73,6 +73,7 @@ def send_via_resend(api_key, to_email, subject, html_content, text_content, from
         "subject": subject,
         "html": html_content,
         "text": text_content,
+        "reply_to": "fouzfragrance02@gmail.com",
     }
     req = urllib.request.Request(
         url,
